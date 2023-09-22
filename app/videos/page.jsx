@@ -6,9 +6,9 @@ export default function Videos() {
     return (
         <div>
             <Navbar />
-            <section>
+            <main>
                 <p>Pagina de videos</p>
-            </section>
+            </main>
         </div>
     )
 }

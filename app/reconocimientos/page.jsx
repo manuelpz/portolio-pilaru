@@ -6,9 +6,9 @@ export default function Reconocimientos() {
     return (
         <div>
             <Navbar />
-            <section>
+            <main>
                 <p>Pagina de reconocimientos</p>
-            </section>
+            </main>
         </div>
     )
 }
