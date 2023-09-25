@@ -1,14 +1,16 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { postNoticias } from '@/app/funciones/postNoticias';
 const URL_BASE_NOTICIAS = 'http://localhost:4000/api/noticias'
+const URL_BASE_USUARIOS = 'http://localhost:4000/api/usuarios'
+const ADMIN_ROLE = 'admin'
 
 export default function Subida() {
     const [usuario, setUsuario] = useState('')
     const [password, setPassword] = useState('')
     const [titulo, setTitulo] = useState('')
     const [noticia, setNoticia] = useState('')
-
+    const [usuarioBBDD, setUsuarioBBDD] = useState({})
 
     const handleUsuarioChange = (e) => {
         setUsuario(e.target.value)
@@ -27,12 +29,25 @@ export default function Subida() {
     }
 
     async function enviarDatos() {
-        const noticiaRequest = {
-            titulo: titulo,
-            descripcion: noticia,
+        if (usuarioBBDD.length <= 0 || usuarioBBDD === undefined) alert('Este usuario no existe')
+        else if (usuarioBBDD[0].password === password && usuarioBBDD[0].rol === ADMIN_ROLE) {
+            const noticiaRequest = {
+                titulo: titulo,
+                descripcion: noticia,
+            }
+            postNoticias(URL_BASE_NOTICIAS, noticiaRequest)
+            alert('Nueva noticia añadida')
         }
-        postNoticias(URL_BASE_NOTICIAS, noticiaRequest)
+
+        else alert('¡ERROR! Contraseña inválida o usuario sin permisos')
     }
+
+    useEffect(() => {
+        if (usuario.length > 0) {
+            fetch(URL_BASE_USUARIOS + `/${usuario}`).then(res => res.json()).then(data => setUsuarioBBDD(data))
+            console.log(URL_BASE_USUARIOS + `/${usuario}`)
+        }
+    }, [usuario])
 
 
     return (
