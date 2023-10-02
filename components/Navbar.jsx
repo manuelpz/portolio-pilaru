@@ -28,9 +28,9 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="flex justify-end">
-                        <div className="hidden md:block space-x-20">
+                        <div className="hidden lg:block space-x-20">
                             <Link
-                                className={pathname == "/about" ? "active" : "nonActive"}
+                                className={pathname == "/about" || pathname == "/" ? "active" : "nonActive"}
                                 href="/about"
                             >
                                 Sobre mi
@@ -64,7 +64,7 @@ const Navbar = () => {
                                 Reconocimientos y Premios
                             </Link>
                         </div>
-                        <div className="md:hidden">
+                        <div className="lg:hidden">
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                                 className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
@@ -93,7 +93,7 @@ const Navbar = () => {
 
             {/* RENDERIZADO PARA MOVIL ------> */}
             {isMobileMenuOpen && (
-                <div className="md:hidden">
+                <div className="lg:hidden">
                     <ul className="pr-2 pt-2 pb-3 space-y-1 sm:pr-3 text-right">
                         <li className="block hover:bg-neutral-300 hover:font-bold">
                             <Link

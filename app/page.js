@@ -1,10 +1,9 @@
 import { metadata } from "./layout"
+import About from "./about/page"
 const Home = () => {
   metadata.title = "Inicio"
   return (
-    <div>
-    <h1>INICIO</h1>
-    </div>
+    <About />
   )
 }
 export default Home
