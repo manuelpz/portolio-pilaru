@@ -7,7 +7,7 @@ export default function Reconocimientos() {
         <div>
             <Navbar />
             <main>
-                <p>Pagina de reconocimientos</p>
+                <p>Pagina de entrevistas</p>
             </main>
         </div>
     )

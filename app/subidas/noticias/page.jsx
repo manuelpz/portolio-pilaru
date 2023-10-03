@@ -1,5 +1,5 @@
 import { metadata } from "../../layout"
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/Navbar/Navbar"
 import Subida from "./subida"
 export default async function SubidaNoticias() {
     metadata.title = "Subida de noticias | Pilar Ramos"

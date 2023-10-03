@@ -1,5 +1,5 @@
 import { metadata } from "../layout"
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/Navbar/Navbar"
 import Image from "next/image"
 import RedesSociales from "@/components/RedesSociales"
 export default function About() {
@@ -20,7 +20,7 @@ export default function About() {
                     />
                 </div>
                 <section className="lg:w-1/2 lg:pl-4 lg:pr-10">
-                    <h1 className="font-bold text-center">Mi Pasión por la Comunicación Estratégica en Defensa y Seguridad Nacional</h1>
+                    <h1 className="font-bold text-justify">Mi Pasión por la Comunicación Estratégica en Defensa y Seguridad Nacional</h1>
                     <br />
                     <p>Soy una apasionada de la comunicación estratégica que se ocupa de la defensa y seguridad nacional de España.</p>
                     <p>Años atrás, sentí una conexión profunda con aquellos que se dedican a salvar nuestra nación y promover nuestros valores. Esta pasión me llevó a abrazar mi vocación como divulgadora y comunicadora, convencida de que las historias y los logros en el ámbito de la seguridad y la defensa merecen ser compartidos con el mundo y comprendidos por todos.</p>
