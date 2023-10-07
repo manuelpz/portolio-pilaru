@@ -18,7 +18,7 @@ export default function About() {
                         src="/about/pilar-ramos.jpeg"
                     />
                     <br />
-                    <div className="lg:flex lg:justify-center md:hidden sm:hidden">
+                    <div className="lg:flex lg:justify-center hidden ">
                         <Image
                             src={'/bandera/bandera.gif'}
                             alt="bandera"
@@ -26,7 +26,7 @@ export default function About() {
                             height={250}
                         />
                     </div>
-                    <p className="lg:flex justify-center bronze text-amber-700 md:hidden sm:hidden"><strong>Pilar Ramos</strong></p>
+                    <p className="lg:flex lg:justify-center lg:bronze lg:text-amber-700 hidden"><strong>Pilar Ramos</strong></p>
 
                 </div>
                 <section className="lg:w-1/2 lg:pl-4 lg:pr-10">
@@ -44,6 +44,15 @@ export default function About() {
                     <p className="text-justify">He tenido el honor de colaborar con diversas instituciones y participar en proyectos de divulgación y estrategias de comunicación que buscan estrechar los lazos con la sociedad española. Cada oportunidad de compartir una historia o mensaje me llena de gratitud y me motiva a seguir adelante.</p>
                     <br />
                     <p className="text-center font-bold italic text-sky-600">Mi compromiso es seguir siendo una voz que promueva la comprensión y el respeto por este mundo esencial.</p>
+                    <div className="flex justify-center lg:hidden">
+                        <Image
+                            src={'/bandera/bandera.gif'}
+                            alt="bandera"
+                            width={250}
+                            height={250}
+                        />
+                    </div>
+                    <p className="flex justify-center bronze text-amber-700 lg:hidden"><strong>Pilar Ramos</strong></p>
                 </section>
             </main>
             <hr />
