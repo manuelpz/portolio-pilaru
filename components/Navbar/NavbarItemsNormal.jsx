@@ -5,7 +5,7 @@ export default function NavbarItemsNormal({ path, description }) {
     return (
         <Link
             className={
-                pathname ==  path  ? "font-bold" : "nonActive"
+                pathname ==  path  ? "font-bold text-sky-600" : "nonActive"
             }
             href={path}
         >

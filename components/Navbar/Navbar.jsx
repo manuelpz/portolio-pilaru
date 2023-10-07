@@ -12,14 +12,14 @@ const Navbar = () => {
     //RENDERIZADO NORMAL ---->
     return (
         <nav className="bg-blue-00 mb-12 border-b-2 border-gray">
-            <div className="mx-auto sm:pr-6 lg:pr-8">
+            <div className="mx-auto sm:pr-6 lg:pr-8 bg-blue-200">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0 justify-start">
                             <Link href="/about">
                                 <Image
                                     src={"/logo/icono-pilar-ramos.png"}
-                                    width={40}
+                                    width={41}
                                     height={10}
                                     alt="Pilar Ramos Logo"
                                 />

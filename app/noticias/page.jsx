@@ -1,5 +1,4 @@
 import { metadata } from "../layout"
-import Navbar from "@/components/Navbar/Navbar"
 import NoticiasList from "./NoticiasList"
 export default function Noticias() {
     metadata.title = "Noticias | Pilar Ramos"
@@ -8,7 +7,6 @@ export default function Noticias() {
 
     return (
         <div>
-            <Navbar />
             <main>
                 <NoticiasList />
             </main>
