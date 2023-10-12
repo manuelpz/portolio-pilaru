@@ -1,14 +1,44 @@
 'use client'
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import NavbarItemsNormal from "./NavbarItemsNormal"
 import NavbarItemsMobile from "./NavbarItemsMobile"
 
 const Navbar = () => {
-    
+    const URL_BASE_USUARIOS = 'http://localhost:4000/api/usuarios'
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-    
+    const [usuario, setUsuario] = useState([])
+
+    const cerrarSesion = async () => {
+        usuario.loged = 0
+        try {
+            await fetch(`${URL_BASE_USUARIOS}/${usuario.usuarioId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(usuario) // Convierte el objeto en una cadena JSON
+            })
+            sessionStorage.clear()
+            window.location.href = '/'
+        }
+        catch (error) {
+            alert('Ha habido un poblema, tu sesión expirará al cerrar el navegador')
+        }
+
+    }
+
+    useEffect(() => {
+        const fetchData = async (user) => {
+            const data = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
+            setUsuario(data[0])
+        }
+        if (window.sessionStorage.getItem("usuario") !== undefined) {
+            fetchData(window.sessionStorage.getItem("usuario"))
+        }
+    }, [])
+
     //RENDERIZADO NORMAL ---->
     return (
         <nav className="bg-blue-00 mb-12 border-b-2 border-gray">
@@ -28,12 +58,13 @@ const Navbar = () => {
                     </div>
                     <div className="flex justify-end">
                         <div className="hidden lg:block space-x-20">
-                            <NavbarItemsNormal path={"/about"} description={"Sobre mi"}/>
+                            <NavbarItemsNormal path={"/about"} description={"Sobre mi"} />
                             <NavbarItemsNormal path={"/contacto"} description={"Contacto"} />
                             <NavbarItemsNormal path={"/videos"} description={"Videos"} />
                             <NavbarItemsNormal path={"/noticias"} description={"Noticias"} />
                             <NavbarItemsNormal path={"/entrevistas"} description={"Entrevistas"} />
                             <NavbarItemsNormal path={"/reconocimientos"} description={"Reconocimientos y premios"} />
+                            {usuario !== undefined && usuario.loged == 1 ? (<button onClick={cerrarSesion}>Cerrar sesion</button>) : null}
                         </div>
 
                         {/* BOTON MOVIL */}
@@ -74,6 +105,7 @@ const Navbar = () => {
                         <NavbarItemsMobile path={"/noticias"} description={"Noticias"} />
                         <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} />
                         <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} />
+                        {usuario !== undefined && usuario.loged == 1 ? (<button onClick={cerrarSesion}>Cerrar sesion</button>) : null}
                     </ul>
                 </div>
             )}

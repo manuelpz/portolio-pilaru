@@ -52,7 +52,6 @@ export default function Subida() {
     useEffect(() => {
         if (usuario.length > 0) {
             fetch(URL_BASE_USUARIOS + `/${usuario}`).then(res => res.json()).then(data => setUsuarioBBDD(data))
-            console.log(URL_BASE_USUARIOS + `/${usuario}`)
         }
     }, [usuario])
 
