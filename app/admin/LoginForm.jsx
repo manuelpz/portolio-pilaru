@@ -1,13 +1,11 @@
 'use client'
 import Image from "next/image"
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 
 const URL_BASE_USUARIOS = 'http://localhost:4000/api/usuarios'
 export default function LoginForm() {
     const [user, setUser] = useState()
     const [password, setPassword] = useState('')
-    const router = useRouter()
 
     const enviarDatos = async (e) => {
         e.preventDefault()
