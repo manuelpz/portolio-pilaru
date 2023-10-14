@@ -6,10 +6,6 @@ export default function Noticias() {
 
 
     return (
-        <div>
-            <main>
-                <NoticiasList />
-            </main>
-        </div>
+        <NoticiasList />
     )
 }

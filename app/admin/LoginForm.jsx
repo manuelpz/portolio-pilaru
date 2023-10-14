@@ -12,8 +12,8 @@ export default function LoginForm() {
         if (user.trim().toLowerCase().length > 0 && password.trim().length > 0) {
             try {
                 const userBBDD = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
-                if (password === userBBDD[0].password) {
-                    sessionStorage.setItem("usuario", user) // Guardo el usuario en uan sesion
+                if (password.trim().toLocaleLowerCase() === userBBDD[0].password.trim().toLocaleLowerCase()) {
+                    sessionStorage.setItem("usuario", user) // Guardo el usuario en una sesion
                     userBBDD[0].loged = 1 // Establece el login a true
                     try {
                         await fetch(`${URL_BASE_USUARIOS}/${userBBDD[0].usuarioId}`, {
@@ -23,7 +23,6 @@ export default function LoginForm() {
                             },
                             body: JSON.stringify(userBBDD[0]) // Convierte el objeto en una cadena JSON
                         })
-                        console.log('OK')
                         window.location.href = '/adminPanel'
                     }
                     catch (error) {

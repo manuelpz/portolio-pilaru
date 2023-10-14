@@ -1,12 +1,9 @@
 import { metadata } from "../layout"
-export default function Contacto() {
-    metadata.title = "Contacto | Pilar Ramos"
-    metadata.description = "Contacta conmigo a traves de este link"
+import VideosList from "./VideosList"
+export default function Videos() {
+    metadata.title = "Videos | Pilar Ramos"
+    metadata.description = "Ultimos videos de Pilar Ramos"
     return (
-        <div>
-            <main>
-                <p>Pagina de Videos</p>
-            </main>
-        </div>
+        <VideosList />
     )
 }

@@ -1,15 +1,17 @@
 'use client'
-
 import CardOption from "./CardOption"
 
-export default function LogeadoConExito({ user }) {
+export default function LogeadoConExito({ user, componente }) {
     return (
-        <div>
-            <h1 className="font-bold">Bienvenida {user.usuario}</h1>
-            <p>¿Qué quieres hacer?</p>
-            <div>
-                <CardOption titulo='Nueva noticia' />
+        <>
+            <h1 className="text-center font-bold uppercase">Bienvenida {user.usuario}</h1>
+            <p className="text-center">¿Qué quieres hacer?</p>
+            <br />
+            <div className="lg:flex lg:justify-center lg:space-x-20">
+                <CardOption titulo='Subir una noticia' componente='/subidas/noticias' />
+                <CardOption titulo='Subir un video' componente='/subidas/videos' />
+                <CardOption titulo='Subir una entrevista' componente='/subidas/entrevistas' />
             </div>
-        </div>
+        </>
     )
 }

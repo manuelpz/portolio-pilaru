@@ -45,7 +45,7 @@ const Navbar = () => {
             <div className="mx-auto sm:pr-6 lg:pr-8 bg-blue-200">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
-                        <div className="flex-shrink-0 justify-start">
+                        <div className="flex-shrink-0 justify-startz mr-10">
                             <Link href="/about">
                                 <Image
                                     src={"/logo/icono-pilar-ramos.png"}
@@ -64,7 +64,7 @@ const Navbar = () => {
                             <NavbarItemsNormal path={"/noticias"} description={"Noticias"} />
                             <NavbarItemsNormal path={"/entrevistas"} description={"Entrevistas"} />
                             <NavbarItemsNormal path={"/reconocimientos"} description={"Reconocimientos y premios"} />
-                            {usuario !== undefined && usuario.loged == 1 ? (<button onClick={cerrarSesion}>Cerrar sesion</button>) : null}
+                            {usuario !== undefined && usuario.loged == 1 ? (<Link href={'/'} onClick={cerrarSesion}>Cerrar sesion</Link>) : null}
                         </div>
 
                         {/* BOTON MOVIL */}

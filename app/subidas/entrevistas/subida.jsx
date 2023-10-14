@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-const URL_BASE_VIDEOS = 'http://localhost:4000/api/videos'
+const URL_BASE_ENTREVISTAS = 'http://localhost:4000/api/entrevistas'
 
 export default function Subida() {
     const [titulo, setTitulo] = useState('')
@@ -22,22 +22,22 @@ export default function Subida() {
         formData.append("video", selectedVideo)
         formData.append("titulo", titulo)
         formData.append("descripcion", noticia)
-        await fetch(URL_BASE_VIDEOS, {
+        await fetch(URL_BASE_ENTREVISTAS, {
             method: "POST",
             body: formData
         })
-        alert('Nuevo video añadido')
+        alert('Nueva entrevista añadida')
     }
 
     return (
         <div className=" flex justify-center">
             <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
                 <div className="text-center">
-                    <h2 className="text-2xl font-semibold">Publicar nuevo video</h2>
+                    <h2 className="text-2xl font-semibold">Publicar nueva entrevista</h2>
                 </div>
                 <form encType="multipart/form-data" className="space-y-4">
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Titulo del video</label>
+                        <label htmlFor="text" className="block text-gray-600 font-medium">Titulo de la entrevista</label>
                         <input
                             type="text"
                             id="titulo"
@@ -59,7 +59,7 @@ export default function Subida() {
                                     name="video"
                                     onChange={handleVideoChange}
                                 />
-                                Seleccionar video
+                                Seleccionar entrevista
                             </label>
 
                         </div>
@@ -67,11 +67,11 @@ export default function Subida() {
                             onClick={() => enviarDatos()}
                             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
                         >
-                            Publicar noticia
+                            Publicar entrevista
                         </button>
                     </div>
                 </form>
             </div>
         </div>
-    );
+    )
 }

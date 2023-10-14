@@ -4,10 +4,6 @@ export default async function SubidaNoticias() {
     metadata.title = "Subida de noticias | Pilar Ramos"
     metadata.description = "Solo para administradores"
     return (
-        <div>
-            <main>
-                <Subida />
-            </main>
-        </div>
+        <Subida />
     )
 }
