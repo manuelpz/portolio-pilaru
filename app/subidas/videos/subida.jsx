@@ -4,7 +4,8 @@ const URL_BASE_VIDEOS = 'http://localhost:4000/api/videos'
 
 export default function Subida() {
     const [titulo, setTitulo] = useState('')
-    const [selectedVideo, setSelectedVideo] = useState('')
+    const [selectedVideo, setSelectedVideo] = useState(null)
+    const [imagePreview, setImagePreview] = useState(null)
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value)
@@ -14,6 +15,13 @@ export default function Subida() {
         const file = e.target.files[0]
         if (file) {
             setSelectedVideo(file)
+
+            // Crear una vista previa del video
+            const reader = new FileReader()
+            reader.onload = (e) => {
+                setImagePreview(e.target.result)
+            }
+            reader.readAsDataURL(file)
         }
     }
 
@@ -21,7 +29,6 @@ export default function Subida() {
         const formData = new FormData
         formData.append("video", selectedVideo)
         formData.append("titulo", titulo)
-        formData.append("descripcion", noticia)
         await fetch(URL_BASE_VIDEOS, {
             method: "POST",
             body: formData
@@ -50,7 +57,6 @@ export default function Subida() {
                     </div>
                     <div>
                         <div>
-
                             <label className="block mt-4 cursor-pointer text-blue-500 hover:underline">
                                 <input
                                     type="file"
@@ -61,13 +67,17 @@ export default function Subida() {
                                 />
                                 Seleccionar video
                             </label>
-
+                            {imagePreview && (
+                                <video
+                                    src={imagePreview}
+                                    className="w-64 h-64 object-cover mx-auto m-4" />
+                            )}
                         </div>
                         <button
                             onClick={() => enviarDatos()}
                             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
                         >
-                            Publicar noticia
+                            Publicar video
                         </button>
                     </div>
                 </form>
