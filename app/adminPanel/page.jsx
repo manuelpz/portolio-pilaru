@@ -2,6 +2,7 @@
 import Loader from "@/components/Loader/Loader"
 import { useEffect, useState } from "react"
 import LogeadoConExito from "./LogeadoConExito"
+import ErrorLogin from "./ErrorLogin"
 
 export default function AdminPanel() {
     const URL_BASE_USUARIOS = 'http://localhost:4000/api/usuarios'
@@ -21,6 +22,6 @@ export default function AdminPanel() {
     if (loading)
         return <Loader />
     return (
-        usuario?.loged == 1 ? <LogeadoConExito user={usuario} /> : <h1>No estas logeado</h1>
+        usuario?.loged == 1 ? <LogeadoConExito user={usuario} /> : <ErrorLogin />
     )
 }

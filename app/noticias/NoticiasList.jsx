@@ -13,7 +13,7 @@ const fecthNoticias = () => {
 export default async function NoticiasList() {
     const noticias = await fecthNoticias()
     return (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="lg:grid lg:grid-cols-3 lg:gap-4">
             <h1 className="font-bold text-center col-span-3">NOTICIAS</h1>
             {noticias.slice(0, 10).map((noticia) => (
                 <div
