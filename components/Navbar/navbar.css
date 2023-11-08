@@ -1,0 +1,36 @@
+/* CLASES */
+.deslizamientoDerecha {
+  animation: deslizamientoDerecha 1s forwards;
+}
+
+.deslizamientoIzquierda {
+  animation: deslizamientoIzquierda 0.5s forwards;
+}
+
+/* ANIMACIONES */
+@keyframes deslizamientoDerecha {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+    background-color: white;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    background-color: #dbeafe;
+  }
+}
+
+@keyframes deslizamientoIzquierda {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+    background-color: #dbeafe;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+    background-color: white;
+    display: none;
+  }
+}

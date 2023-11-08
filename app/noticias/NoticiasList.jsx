@@ -18,7 +18,7 @@ export default async function NoticiasList() {
             {noticias.slice(0, 10).map((noticia) => (
                 <div
                     key={noticia.id}
-                    className="max-w-sm rounded overflow-hidden shadow-lg mb-6 relative">
+                    className="max-w-sm rounded overflow-hidden shadow-xl mb-8 relative">
                     <div className="flex justify-center">
                         <Image
                             className="flex items-center"

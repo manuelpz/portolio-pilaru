@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 import NavbarItemsNormal from "./NavbarItemsNormal"
 import NavbarItemsMobile from "./NavbarItemsMobile"
+import '@/components/Navbar/navbar.css'
 
 const Navbar = () => {
     const URL_BASE_USUARIOS = 'http://localhost:4000/api/usuarios'
@@ -41,7 +42,7 @@ const Navbar = () => {
 
     //RENDERIZADO NORMAL ---->
     return (
-        <nav className="bg-blue-00 mb-12 border-b-2 border-gray">
+        <nav className="mb-12 border-b-2 border-gray">
             <div className="mx-auto sm:pr-6 lg:pr-8 bg-blue-200">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
@@ -68,13 +69,13 @@ const Navbar = () => {
                         </div>
 
                         {/* BOTON MOVIL */}
-                        <div className="lg:hidden">
+                        <div className="lg:hidden ">
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
+                                className="text-gray-300 text-white hover:text-white"
                                 aria-label="Toggle menu"
                             >
-                                <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                                <svg className="h-6 w-6 fill-current">
                                     {isMobileMenuOpen ? (
                                         <path
                                             fillRule="evenodd"
@@ -98,7 +99,21 @@ const Navbar = () => {
             {/* RENDERIZADO PARA MOVIL ------> */}
             {isMobileMenuOpen && (
                 <div className="lg:hidden">
-                    <ul className="pr-2 pt-2 pb-3 space-y-1 sm:pr-3 text-right">
+                    <ul className="deslizamientoDerecha pt-2 space-y-1 sm:pr-3 text-right ">
+                        <NavbarItemsMobile path={"/about"} description={"Sobre mi"} />
+                        <NavbarItemsMobile path={"/contacto"} description={"Contacto"} />
+                        <NavbarItemsMobile path={"/videos"} description={"Videos"} />
+                        <NavbarItemsMobile path={"/noticias"} description={"Noticias"} />
+                        <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} />
+                        <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} />
+                        {usuario !== undefined && usuario.loged == 1 ? (<button onClick={cerrarSesion}>Cerrar sesion</button>) : null}
+                    </ul>
+                </div>
+            )}
+
+            {!isMobileMenuOpen && (
+                <div className="lg:hidden deslizamientoIzquierda">
+                    <ul className="pt-2 space-y-1 sm:pr-3 text-right ">
                         <NavbarItemsMobile path={"/about"} description={"Sobre mi"} />
                         <NavbarItemsMobile path={"/contacto"} description={"Contacto"} />
                         <NavbarItemsMobile path={"/videos"} description={"Videos"} />

@@ -11,7 +11,7 @@ const fetchVideos = () => {
 export default async function NoticiasList() {
     const videos = await fetchVideos()
     return (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="lg:grid grid-cols-3 gap-4">
             <h1 className="font-bold text-center col-span-3 uppercase">VIDEOS</h1>
             {videos.slice(0, 10).map((video) => (
                 <div key={video.videoId} >
