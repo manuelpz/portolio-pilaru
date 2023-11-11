@@ -5,6 +5,7 @@ const URL_BASE_ENTREVISTAS = 'http://localhost:4000/api/entrevistas'
 export default function Subida() {
     const [titulo, setTitulo] = useState('')
     const [selectedVideo, setSelectedVideo] = useState('')
+    const [imagePreview, setImagePreview] = useState(null)
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value)
@@ -14,14 +15,20 @@ export default function Subida() {
         const file = e.target.files[0]
         if (file) {
             setSelectedVideo(file)
+
+            // Crear una vista previa del video
+            const reader = new FileReader()
+            reader.onload = (e) => {
+                setImagePreview(e.target.result)
+            }
+            reader.readAsDataURL(file)
         }
     }
 
     async function enviarDatos() {
         const formData = new FormData
-        formData.append("video", selectedVideo)
+        formData.append("entrevista", selectedVideo)
         formData.append("titulo", titulo)
-        formData.append("descripcion", noticia)
         await fetch(URL_BASE_ENTREVISTAS, {
             method: "POST",
             body: formData
@@ -57,10 +64,14 @@ export default function Subida() {
                                     accept="video/*"
                                     className="hidden"
                                     name="video"
-                                    onChange={handleVideoChange}
-                                />
+                                    onChange={handleVideoChange} />
                                 Seleccionar entrevista
                             </label>
+                            {imagePreview && (
+                                <video
+                                    src={imagePreview}
+                                    className="w-64 h-64 object-cover mx-auto m-4" />
+                            )}
 
                         </div>
                         <button

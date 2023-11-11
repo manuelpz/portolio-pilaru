@@ -1,7 +1,9 @@
 import Link from "next/link"
 import { usePathname } from 'next/navigation'
 export default function NavbarItemsNormal({ path, description }) {
-    const pathname = usePathname()
+    let pathname = usePathname()
+    pathname = pathname == "/" ? "/about" : pathname
+
     return (
         <Link
             className={

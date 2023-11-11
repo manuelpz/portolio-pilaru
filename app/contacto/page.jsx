@@ -5,7 +5,9 @@ export default function Contacto() {
   return (
     <div>
       <main>
-        <p>Pagina de contacto</p>
+        <h1 className="font-bold text-2xl text-center">Hola👋 ¿Hablamos?</h1>
+        <br />
+        <p className="text-center text-sm">Ponte en contacto conmigo!</p>
       </main>
     </div>
   )

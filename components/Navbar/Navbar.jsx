@@ -9,7 +9,12 @@ import '@/components/Navbar/navbar.css'
 const Navbar = () => {
     const URL_BASE_USUARIOS = 'http://localhost:4000/api/usuarios'
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [menuWasOpen, setMenuWasOpen] = useState(undefined) // controla que no se vea la animacion a la izquierda nada mas cargar la pagina
     const [usuario, setUsuario] = useState([])
+
+    const menuEstabaAbierto = () =>{
+        return !isMobileMenuOpen && menuWasOpen ? "deslizamientoIzquierda" : "hidden"
+    }
 
     const cerrarSesion = async () => {
         usuario.loged = 0
@@ -71,7 +76,7 @@ const Navbar = () => {
                         {/* BOTON MOVIL */}
                         <div className="lg:hidden ">
                             <button
-                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                onClick={() => { setMenuWasOpen(true); console.log("Auch");  setIsMobileMenuOpen(!isMobileMenuOpen)}}
                                 className="text-gray-300 text-white hover:text-white"
                                 aria-label="Toggle menu"
                             >
@@ -100,19 +105,19 @@ const Navbar = () => {
             {isMobileMenuOpen && (
                 <div className="lg:hidden">
                     <ul className="deslizamientoDerecha pt-2 space-y-1 sm:pr-3 text-right ">
-                        <NavbarItemsMobile path={"/about"} description={"Sobre mi"} />
-                        <NavbarItemsMobile path={"/contacto"} description={"Contacto"} />
-                        <NavbarItemsMobile path={"/videos"} description={"Videos"} />
-                        <NavbarItemsMobile path={"/noticias"} description={"Noticias"} />
-                        <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} />
-                        <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} />
+                        <NavbarItemsMobile path={"/about"} description={"Sobre mi"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/contacto"} description={"Contacto"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/videos"} description={"Videos"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/noticias"} description={"Noticias"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         {usuario !== undefined && usuario.loged == 1 ? (<button onClick={cerrarSesion}>Cerrar sesion</button>) : null}
                     </ul>
                 </div>
             )}
 
             {!isMobileMenuOpen && (
-                <div className="lg:hidden deslizamientoIzquierda">
+                <div className={`lg:hidden ${menuEstabaAbierto()}`}>
                     <ul className="pt-2 space-y-1 sm:pr-3 text-right ">
                         <NavbarItemsMobile path={"/about"} description={"Sobre mi"} />
                         <NavbarItemsMobile path={"/contacto"} description={"Contacto"} />
