@@ -19,6 +19,15 @@
     "tailwindcss": "3.3.3"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.23.2",
+    "@emailjs/browser": "^3.11.0",
+    "@fluentui/react-components": "^9.39.0",
+    "emailjs": "^4.0.3",
+    "emailjs-com": "^3.2.0",
+    "gulp": "^4.0.2",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4",
+    "sweetalert2": "^11.9.0",
     "webpack": "5.88.2"
   }
 }

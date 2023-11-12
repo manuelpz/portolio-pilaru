@@ -65,7 +65,7 @@ export default function Subida() {
                                     name="video"
                                     onChange={handleVideoChange}
                                 />
-                                Seleccionar video
+                                {`Seleccionar video`}
                             </label>
                             {imagePreview && (
                                 <video

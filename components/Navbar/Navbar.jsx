@@ -12,7 +12,7 @@ const Navbar = () => {
     const [menuWasOpen, setMenuWasOpen] = useState(undefined) // controla que no se vea la animacion a la izquierda nada mas cargar la pagina
     const [usuario, setUsuario] = useState([])
 
-    const menuEstabaAbierto = () =>{
+    const menuEstabaAbierto = () => {
         return !isMobileMenuOpen && menuWasOpen ? "deslizamientoIzquierda" : "hidden"
     }
 
@@ -47,7 +47,7 @@ const Navbar = () => {
 
     //RENDERIZADO NORMAL ---->
     return (
-        <nav className="mb-12 border-b-2 border-gray">
+        <nav className="mb-12">
             <div className="mx-auto sm:pr-6 lg:pr-8 bg-blue-200">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
@@ -56,7 +56,7 @@ const Navbar = () => {
                                 <Image
                                     src={"/logo/icono-pilar-ramos.png"}
                                     width={41}
-                                    height={10}
+                                    height={55}
                                     alt="Pilar Ramos Logo"
                                 />
                             </Link>
@@ -65,18 +65,19 @@ const Navbar = () => {
                     <div className="flex justify-end">
                         <div className="hidden lg:block space-x-20">
                             <NavbarItemsNormal path={"/about"} description={"Sobre mi"} />
+                            <NavbarItemsNormal path={"/reconocimientos"} description={"Reconocimientos y premios"} />
                             <NavbarItemsNormal path={"/contacto"} description={"Contacto"} />
                             <NavbarItemsNormal path={"/videos"} description={"Videos"} />
                             <NavbarItemsNormal path={"/noticias"} description={"Noticias"} />
                             <NavbarItemsNormal path={"/entrevistas"} description={"Entrevistas"} />
-                            <NavbarItemsNormal path={"/reconocimientos"} description={"Reconocimientos y premios"} />
+                            <NavbarItemsNormal path={"/podcast"} description={"Podcast"} />
                             {usuario !== undefined && usuario.loged == 1 ? (<Link href={'/'} onClick={cerrarSesion}>Cerrar sesion</Link>) : null}
                         </div>
 
                         {/* BOTON MOVIL */}
                         <div className="lg:hidden ">
                             <button
-                                onClick={() => { setMenuWasOpen(true); console.log("Auch");  setIsMobileMenuOpen(!isMobileMenuOpen)}}
+                                onClick={() => { setMenuWasOpen(true); console.log("Auch"); setIsMobileMenuOpen(!isMobileMenuOpen) }}
                                 className="text-gray-300 text-white hover:text-white"
                                 aria-label="Toggle menu"
                             >
@@ -106,25 +107,28 @@ const Navbar = () => {
                 <div className="lg:hidden">
                     <ul className="deslizamientoDerecha pt-2 space-y-1 sm:pr-3 text-right ">
                         <NavbarItemsMobile path={"/about"} description={"Sobre mi"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/contacto"} description={"Contacto"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/videos"} description={"Videos"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/noticias"} description={"Noticias"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
-                        <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/podcast"} description={"Podcast"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         {usuario !== undefined && usuario.loged == 1 ? (<button onClick={cerrarSesion}>Cerrar sesion</button>) : null}
                     </ul>
                 </div>
             )}
 
+            {/* RENDERIZADO PARA HACER LA ANIMACION AL CERRAR LA BARRA DE NAVEGACION */}
             {!isMobileMenuOpen && (
                 <div className={`lg:hidden ${menuEstabaAbierto()}`}>
                     <ul className="pt-2 space-y-1 sm:pr-3 text-right ">
                         <NavbarItemsMobile path={"/about"} description={"Sobre mi"} />
+                        <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} />
                         <NavbarItemsMobile path={"/contacto"} description={"Contacto"} />
                         <NavbarItemsMobile path={"/videos"} description={"Videos"} />
                         <NavbarItemsMobile path={"/noticias"} description={"Noticias"} />
                         <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} />
-                        <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} />
+                        <NavbarItemsMobile path={"/podcast"} description={"Podcast"} />
                         {usuario !== undefined && usuario.loged == 1 ? (<button onClick={cerrarSesion}>Cerrar sesion</button>) : null}
                     </ul>
                 </div>

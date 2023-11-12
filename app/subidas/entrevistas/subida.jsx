@@ -65,7 +65,7 @@ export default function Subida() {
                                     className="hidden"
                                     name="video"
                                     onChange={handleVideoChange} />
-                                Seleccionar entrevista
+                                {`Seleccionar entrevista`}
                             </label>
                             {imagePreview && (
                                 <video
