@@ -50,9 +50,8 @@ export default function ContactoRender() {
                                 name="from_email"
                                 placeholder="Email…"
                                 required
-                                icon="mail"
-                                iconPosition="left"
                             />
+                            <br />
                             <Form.Field
                                 id="form-input-control-last-name"
                                 control={Input}
@@ -60,16 +59,16 @@ export default function ContactoRender() {
                                 name="from_name"
                                 placeholder="Nombre"
                                 required
-                                icon="user circle"
-                                iconPosition="left"
                             />
+                            <br />
+                            <label>Mensaje</label>
                             <Form.Field
                                 id="form-textarea-control-opinion"
                                 control={TextArea}
-                                label="Mensaje"
                                 name="user_message"
                                 placeholder="Mensaje..."
                                 required
+                                style={{ width: '31%' }}
                             />
                             <div className="grid justify-center">
                                 <button className="botonContacto" type="submit">
