@@ -11,6 +11,7 @@ export default function LogeadoConExito({ user, componente }) {
                 <CardOption titulo='Subir una noticia' componente='/subidas/noticias' />
                 <CardOption titulo='Subir un video' componente='/subidas/videos' />
                 <CardOption titulo='Subir una entrevista' componente='/subidas/entrevistas' />
+                <CardOption titulo='Subir un podcast' componente='/subidas/podcasts' />
             </div>
         </>
     )

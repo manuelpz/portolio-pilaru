@@ -70,7 +70,7 @@ const Navbar = () => {
                             <NavbarItemsNormal path={"/videos"} description={"Videos"} />
                             <NavbarItemsNormal path={"/noticias"} description={"Noticias"} />
                             <NavbarItemsNormal path={"/entrevistas"} description={"Entrevistas"} />
-                            <NavbarItemsNormal path={"/podcast"} description={"Podcast"} />
+                            <NavbarItemsNormal path={"/podcasts"} description={"Podcasts"} />
                             {usuario !== undefined && usuario.loged == 1 ? (<Link href={'/'} onClick={cerrarSesion}>Cerrar sesion</Link>) : null}
                         </div>
 
@@ -112,7 +112,7 @@ const Navbar = () => {
                         <NavbarItemsMobile path={"/videos"} description={"Videos"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/noticias"} description={"Noticias"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
-                        <NavbarItemsMobile path={"/podcast"} description={"Podcast"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/podcasts"} description={"Podcasts"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         {usuario !== undefined && usuario.loged == 1 ? (<button onClick={cerrarSesion}>Cerrar sesion</button>) : null}
                     </ul>
                 </div>
@@ -128,7 +128,7 @@ const Navbar = () => {
                         <NavbarItemsMobile path={"/videos"} description={"Videos"} />
                         <NavbarItemsMobile path={"/noticias"} description={"Noticias"} />
                         <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} />
-                        <NavbarItemsMobile path={"/podcast"} description={"Podcast"} />
+                        <NavbarItemsMobile path={"/podcasts"} description={"Podcasts"} />
                         {usuario !== undefined && usuario.loged == 1 ? (<button onClick={cerrarSesion}>Cerrar sesion</button>) : null}
                     </ul>
                 </div>

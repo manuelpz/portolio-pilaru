@@ -3,13 +3,12 @@ import emailjs from "emailjs-com"
 import { Form, Input, TextArea } from "semantic-ui-react"
 import Swal from "sweetalert2"
 import '@/app/contacto/contacto.css'
+import RedesSociales from "@/components/RedesSociales"
 
 const SERVICE_ID = "service_y4b2hap"
 const TEMPLATE_ID = "template_ifgiakn"
 const USER_ID = "gC4tUjuxBRdy0YPjN"
 export default function ContactoRender() {
-    const NUMERO_DE_TELEFONO = "tel:624007966"
-    const TELEFONO_OFICIAL = 624007966
     const handleOnSubmit = (e) => {
         e.preventDefault()
         emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID).then(
@@ -43,33 +42,34 @@ export default function ContactoRender() {
                             <b className="contactanos">Escríbeme</b>
                         </h2>
                         <Form onSubmit={handleOnSubmit}>
+                            <label>Email <span className="font-bold text-red-500">*</span></label>
                             <Form.Field
                                 id="form-input-control-email"
                                 control={Input}
-                                label="Email"
                                 name="from_email"
                                 placeholder="Email…"
                                 required
                             />
                             <br />
+                            <label>Nombre<span className="font-bold text-red-500">*</span></label>
                             <Form.Field
                                 id="form-input-control-last-name"
                                 control={Input}
-                                label="Nombre"
                                 name="from_name"
                                 placeholder="Nombre"
                                 required
                             />
                             <br />
-                            <label>Mensaje</label>
+                            <label>Mensaje<span className="font-bold text-red-500">*</span></label>
                             <Form.Field
                                 id="form-textarea-control-opinion"
                                 control={TextArea}
                                 name="user_message"
                                 placeholder="Mensaje..."
                                 required
-                                style={{ width: '31%' }}
+                                className="text-center custom-placeholder-style"
                             />
+
                             <div className="grid justify-center">
                                 <button className="botonContacto" type="submit">
                                     <div className="svg-wrapper-1">
@@ -88,25 +88,21 @@ export default function ContactoRender() {
                                             </svg>
                                         </div>
                                     </div>
-                                    <span>Enviar</span>
+                                    <span> <b>Enviar</b></span>
                                 </button>
                             </div>
                         </Form>
                     </div>
-                    <div>
+                    <div className="grid grid-rows-3 justify-items-center">
                         <h2>
                             <b className="contactanos">Sígueme en mis redes</b>
                         </h2>
-                        <p className="disponibilidad">
-                            <i>Lunes</i> a <i>Viernes</i> <br /> <u>Mañanas</u>:{" "}
-                            <b>09:30</b> a <b>14:00</b> <br /> <u>Trades</u>: <b>16:00</b> a{" "}
-                            <b>20:00</b>
-                        </p>
-                        <div className="telefonoConjunto">
-                            <p className="telefono">
-                                <b>Teléfono:</b>{" "}
-                                <a href={NUMERO_DE_TELEFONO}>{TELEFONO_OFICIAL}</a>
-                            </p>
+                        <div className="flex">
+                            <RedesSociales red={"https://www.instagram.com/pilaruramos"} icono={"/iconos/instagram.svg"} />
+                            <RedesSociales red={"https://www.linkedin.com/in/pilaru-ramos-b9533474/?originalSubdomain=es"} icono={"/iconos/linkedin.svg"} />
+                            <RedesSociales red={"https://www.youtube.com/@PilaruRamos"} icono={"/iconos/youtube.svg"} />
+                            <RedesSociales red={"https://www.facebook.com/PilaruRamoss/"} icono={"/iconos/facebook.svg"} />
+                            <RedesSociales red={"https://twitter.com/pilaruramos"} icono={"/iconos/twitter.svg"} />
                         </div>
                     </div>
                 </div>

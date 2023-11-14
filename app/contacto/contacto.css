@@ -9,6 +9,17 @@ form {
   margin: 20px 15px;
 }
 
+
+
+textarea, input {
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
 .content {
   padding-bottom: 10%;
 }
@@ -44,6 +55,20 @@ form {
 .botonContacto {
   display: flex;
   align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.botonContacto:hover {
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #d3d3d3;
 }
 
 
