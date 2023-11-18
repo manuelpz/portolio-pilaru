@@ -11,7 +11,7 @@ export default function About() {
             <main className="lg:flex mb-4">
                 <div className="lg:w-1/2 lg:pr-4">
                     <Image
-                        className="rounded-full w-52 lg:w-7/12 lg:rounded-none mx-auto my-auto mb-4"
+                        className="rounded-full w-52 lg:w-7/12 lg:rounded mx-auto my-auto mb-4"
                         width={500}
                         height={100}
                         alt="Imagen de perfil de Pilar Ramos"
