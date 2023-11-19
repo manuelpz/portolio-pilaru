@@ -4,7 +4,7 @@ const URL_BASE_VIDEOS = 'http://localhost:4000/api/videos'
 
 export default function Subida() {
     const [titulo, setTitulo] = useState('')
-    const [selectedVideo, setSelectedVideo] = useState(null)
+    const [selectedVideo, setSelectedVideo] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
 
     const handleTituloChange = (e) => {
@@ -29,11 +29,17 @@ export default function Subida() {
         const formData = new FormData
         formData.append("video", selectedVideo)
         formData.append("titulo", titulo)
-        await fetch(URL_BASE_VIDEOS, {
-            method: "POST",
-            body: formData
-        })
-        alert('Nuevo video añadido')
+        try {
+            await fetch(URL_BASE_VIDEOS, {
+                method: "POST",
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => alert(data.message))
+        }
+        catch (error) {
+            alert(error)
+        }
     }
 
     return (

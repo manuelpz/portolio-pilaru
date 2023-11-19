@@ -29,11 +29,17 @@ export default function Subida() {
         const formData = new FormData
         formData.append("entrevista", selectedVideo)
         formData.append("titulo", titulo)
-        await fetch(URL_BASE_ENTREVISTAS, {
-            method: "POST",
-            body: formData
-        })
-        alert('Nueva entrevista añadida')
+        try {
+            await fetch(URL_BASE_ENTREVISTAS, {
+                method: "POST",
+                body: formData
+            })
+                .then(res => res.json())
+                .then(data => alert(data.message))
+        }
+        catch (error) {
+            alert(error)
+        }
     }
 
     return (

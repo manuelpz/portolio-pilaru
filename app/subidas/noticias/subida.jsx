@@ -38,10 +38,17 @@ export default function Subida() {
         formData.append("titulo", titulo)
         formData.append("descripcion", noticia)
 
-        await fetch(URL_BASE_NOTICIAS, {
-            method: "POST",
-            body: formData,
-        })
+        try {
+            await fetch(URL_BASE_NOTICIAS, {
+                method: "POST",
+                body: formData,
+            })
+                .then(res => (res.json()))
+                .then(data => alert(data.message))
+        }
+        catch (e) {
+            alert(e)
+        }
     }
 
     return (
@@ -85,7 +92,7 @@ export default function Subida() {
                                     name="img"
                                     onChange={handleImageChange}
                                 />
-                                Seleccionar imagen
+                                {'Seleccionar imagen'}
                             </label>
                             {imagePreview && (
                                 <Image
