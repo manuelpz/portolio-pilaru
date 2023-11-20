@@ -1,8 +1,11 @@
 'use client'
 import { useState } from 'react'
+import Swal from "sweetalert2"
+import 'react-toastify/dist/ReactToastify.css';
 const URL_BASE_ENTREVISTAS = 'http://localhost:4000/api/entrevistas'
 
 export default function Subida() {
+    const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [titulo, setTitulo] = useState('')
     const [selectedVideo, setSelectedVideo] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
@@ -35,10 +38,31 @@ export default function Subida() {
                 body: formData
             })
                 .then(res => res.json())
-                .then(data => alert(data.message))
+                .then(data => {
+                    if (data.code == 409) {
+                        Swal.fire({
+                            icon: "error",
+                            title: data.message,
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: "success",
+                            title: data.message,
+                        }).then(()=>{
+                            window.location.reload()
+                        })
+                    }
+                })
+                
         }
         catch (error) {
-            alert(error)
+            Swal.fire({
+                icon: "error",
+                title: ERROR_INESPERADO,
+            }).then(() => {
+                window.location.reload()
+            })
         }
     }
 
@@ -81,6 +105,7 @@ export default function Subida() {
 
                         </div>
                         <button
+                            type='button'
                             onClick={() => enviarDatos()}
                             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
                         >

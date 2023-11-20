@@ -3,6 +3,7 @@ import { useState } from 'react'
 const URL_BASE_VIDEOS = 'http://localhost:4000/api/videos'
 
 export default function Subida() {
+    const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [titulo, setTitulo] = useState('')
     const [selectedVideo, setSelectedVideo] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
@@ -35,10 +36,30 @@ export default function Subida() {
                 body: formData
             })
             .then(res => res.json())
-            .then(data => alert(data.message))
+                .then(data => {
+                    if (data.code == 409) {
+                        Swal.fire({
+                            icon: "error",
+                            title: data.message,
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: "success",
+                            title: data.message,
+                        }).then(() => {
+                            window.location.reload()
+                        })
+                    }
+                })
         }
         catch (error) {
-            alert(error)
+            Swal.fire({
+                icon: "success",
+                title: ERROR_INESPERADO,
+            }).then(() => {
+                window.location.reload()
+            })
         }
     }
 

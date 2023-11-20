@@ -5,6 +5,7 @@ import Image from 'next/image'
 const URL_BASE_NOTICIAS = 'http://localhost:4000/api/noticias'
 
 export default function Subida() {
+    const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [titulo, setTitulo] = useState('')
     const [noticia, setNoticia] = useState('')
     const [selectedImage, setSelectedImage] = useState(null)
@@ -44,10 +45,30 @@ export default function Subida() {
                 body: formData,
             })
                 .then(res => (res.json()))
-                .then(data => alert(data.message))
+                .then(data => {
+                    if (data.code == 409) {
+                        Swal.fire({
+                            icon: "error",
+                            title: data.message,
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: "success",
+                            title: data.message,
+                        }).then(() => {
+                            window.location.reload()
+                        })
+                    }
+                })
         }
         catch (e) {
-            alert(e)
+            Swal.fire({
+                icon: "error",
+                title: ERROR_INESPERADO,
+            }).then(() => {
+                window.location.reload()
+            })
         }
     }
 

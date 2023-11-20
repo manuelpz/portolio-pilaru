@@ -3,6 +3,9 @@ import { useState } from 'react'
 const URL_BASE_PODCASTS = 'http://localhost:4000/api/podcasts'
 
 export default function Subida() {
+
+    const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
+
     const [titulo, setTitulo] = useState('')
     const [selectedVideo, setSelectedVideo] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
@@ -29,11 +32,37 @@ export default function Subida() {
         const formData = new FormData
         formData.append("podcast", selectedVideo)
         formData.append("titulo", titulo)
+        try{
         await fetch(URL_BASE_PODCASTS, {
             method: "POST",
             body: formData
         })
-        alert('Nuevo podcast añadido')
+            .then(res => (res.json()))
+            .then(data => {
+                if (data.code == 409) {
+                    Swal.fire({
+                        icon: "error",
+                        title: data.message,
+                    })
+                }
+                else {
+                    Swal.fire({
+                        icon: "success",
+                        title: data.message,
+                    }).then(() => {
+                        window.location.reload()
+                    })
+                }
+            })
+        }
+        catch(error){
+            Swal.fire({
+                icon: "error",
+                title: ERROR_INESPERADO,
+            }).then(() => {
+                window.location.reload()
+            })
+        }
     }
 
     return (
