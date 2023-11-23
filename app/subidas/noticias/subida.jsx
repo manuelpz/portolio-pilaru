@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
+import Swal from "sweetalert2"
 
 const URL_BASE_NOTICIAS = 'http://localhost:4000/api/noticias'
 
@@ -105,7 +106,7 @@ export default function Subida() {
                     </div>
                     <div>
                         <div>
-                            <label className="block mt-4 cursor-pointer text-blue-500 hover:underline">
+                            <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
                                 <input
                                     type="file"
                                     accept="image/*"
@@ -126,6 +127,7 @@ export default function Subida() {
                             )}
                         </div>
                         <button
+                            type='button'
                             onClick={() => enviarDatos()}
                             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
                         >

@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Swal from "sweetalert2"
 const URL_BASE_VIDEOS = 'http://localhost:4000/api/videos'
 
 export default function Subida() {
@@ -25,7 +26,6 @@ export default function Subida() {
             reader.readAsDataURL(file)
         }
     }
-
     async function enviarDatos() {
         const formData = new FormData
         formData.append("video", selectedVideo)
@@ -35,7 +35,7 @@ export default function Subida() {
                 method: "POST",
                 body: formData
             })
-            .then(res => res.json())
+                .then(res => res.json())
                 .then(data => {
                     if (data.code == 409) {
                         Swal.fire({
@@ -84,23 +84,24 @@ export default function Subida() {
                     </div>
                     <div>
                         <div>
-                            <label className="block mt-4 cursor-pointer text-blue-500 hover:underline">
-                                <input
-                                    type="file"
-                                    accept="video/*"
+                            <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
+                                    <input
+                                        type="file"
+                                        accept="video/*"
                                     className="hidden"
-                                    name="video"
-                                    onChange={handleVideoChange}
-                                />
+                                        name="video"
+                                        onChange={handleVideoChange}
+                                    />
                                 {`Seleccionar video`}
-                            </label>
+                                </label>
+                            </div>
                             {imagePreview && (
                                 <video
                                     src={imagePreview}
                                     className="w-64 h-64 object-cover mx-auto m-4" />
                             )}
-                        </div>
                         <button
+                            type='button'
                             onClick={() => enviarDatos()}
                             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
                         >
