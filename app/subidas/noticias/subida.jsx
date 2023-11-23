@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Swal from "sweetalert2"
+import BotonVolver from '@/components/BotonVolver/BotonVolver'
 
 const URL_BASE_NOTICIAS = 'http://localhost:4000/api/noticias'
 
@@ -106,6 +107,7 @@ export default function Subida() {
                     </div>
                     <div>
                         <div>
+                            <div className='flex space-x-24'>
                             <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
                                 <input
                                     type="file"
@@ -116,15 +118,17 @@ export default function Subida() {
                                 />
                                 {'Seleccionar imagen'}
                             </label>
+                            <BotonVolver />
+                            </div>
                             {imagePreview && (
                                 <Image
-                                    alt="Vista previa de la imagen a subir"
-                                    className="w-64 h-64 object-cover mx-auto m-4"
-                                    src={imagePreview}
-                                    width={200}
-                                    height={200}
+                                alt="Vista previa de la imagen a subir"
+                                className="w-64 h-64 object-cover mx-auto m-4"
+                                src={imagePreview}
+                                width={200}
+                                height={200}
                                 />
-                            )}
+                                )}
                         </div>
                         <button
                             type='button'

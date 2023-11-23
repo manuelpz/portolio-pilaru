@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 export default function NotFound() {
   return (
     <main className="flex flex-col mt-60 justify-center items-center">

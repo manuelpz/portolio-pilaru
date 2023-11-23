@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { usePathname } from 'next/navigation'
-export default function NavbarItemsNormal({ path, description }) {
+export default function  NavbarItemsNormal({ path, description }) {
     let pathname = usePathname()
     pathname = pathname == "/" ? "/about" : pathname
 

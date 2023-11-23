@@ -1,4 +1,5 @@
 'use client'
+import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
 const URL_BASE_PODCASTS = 'http://localhost:4000/api/podcasts'
@@ -87,15 +88,18 @@ export default function Subida() {
                     </div>
                     <div>
                         <div>
-                            <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
-                                <input
-                                    type="file"
-                                    accept="audio/*"
-                                    className="hidden"
-                                    name="video"
-                                    onChange={handleVideoChange} />
-                                {`Seleccionar podcast`}
-                            </label>
+                            <div className='flex space-x-24'>
+                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
+                                    <input
+                                        type="file"
+                                        accept="audio/*"
+                                        className="hidden"
+                                        name="video"
+                                        onChange={handleVideoChange} />
+                                    {`Seleccionar podcast`}
+                                </label>
+                                <BotonVolver />
+                            </div>
                             {imagePreview && (
                                 <video
                                     src={imagePreview}
