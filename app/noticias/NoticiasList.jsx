@@ -15,7 +15,7 @@ export default async function NoticiasList() {
     return (
         <div className="lg:grid lg:grid-cols-3 lg:gap-4">
             <h1 className="font-bold text-center col-span-3">NOTICIAS</h1>
-            {noticias.slice(0, 10).map((noticia) => (
+            {noticias.slice(-12).map((noticia) => (
                 <div
                     key={noticia.id}
                     className="max-w-sm rounded overflow-hidden shadow-xl mb-8 relative">
