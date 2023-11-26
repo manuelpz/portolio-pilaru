@@ -3,18 +3,24 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Swal from "sweetalert2"
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
+import AdminValidation from '@/components/AdminValidation/AdminValidation'
 
 const URL_BASE_NOTICIAS = 'http://localhost:4000/api/noticias'
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [titulo, setTitulo] = useState('')
+    const [subtitulo, setSubtitulo] = useState('')
     const [noticia, setNoticia] = useState('')
     const [selectedImage, setSelectedImage] = useState(null)
     const [imagePreview, setImagePreview] = useState(null)
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value)
+    }
+
+    const handleSubtituloChange = (e) => {
+        setSubtitulo(e.target.value)
     }
 
     const handleNoticiaChange = (e) => {
@@ -39,6 +45,7 @@ export default function Subida() {
         const formData = new FormData()
         formData.append("img", selectedImage)
         formData.append("titulo", titulo)
+        formData.append("subtitulo", subtitulo)
         formData.append("descripcion", noticia)
 
         try {
@@ -75,7 +82,7 @@ export default function Subida() {
     }
 
     return (
-        <div className="flex justify-center">
+        <AdminValidation component={<div className="flex justify-center">
             <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
                 <div className="text-center">
                     <h2 className="text-2xl font-semibold">Publicar nueva noticia</h2>
@@ -94,9 +101,19 @@ export default function Subida() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Descripción de la noticia</label>
-                        <input
-                            type="text"
+                        <label htmlFor="text" className="block text-gray-600 font-medium">Subtitulo de la noticia</label>
+                        <textarea
+                            id="noticia"
+                            className="mt-1 p-2 w-full border rounded-md"
+                            placeholder="Desarrolla la noticia"
+                            value={noticia}
+                            onChange={handleSubtituloChange}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="text" className="block text-gray-600 font-medium">Desarrollo de la noticia</label>
+                        <textarea
                             id="noticia"
                             className="mt-1 p-2 w-full border rounded-md"
                             placeholder="Desarrolla la noticia"
@@ -108,27 +125,27 @@ export default function Subida() {
                     <div>
                         <div>
                             <div className='flex space-x-24'>
-                            <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
-                                <input
-                                    type="file"
-                                    accept="image/*"
-                                    className="hidden"
-                                    name="img"
-                                    onChange={handleImageChange}
-                                />
-                                {'Seleccionar imagen'}
-                            </label>
-                            <BotonVolver />
+                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        className="hidden"
+                                        name="img"
+                                        onChange={handleImageChange}
+                                    />
+                                    {'Seleccionar imagen'}
+                                </label>
+                                <BotonVolver />
                             </div>
                             {imagePreview && (
                                 <Image
-                                alt="Vista previa de la imagen a subir"
-                                className="w-64 h-64 object-cover mx-auto m-4"
-                                src={imagePreview}
-                                width={200}
-                                height={200}
+                                    alt="Vista previa de la imagen a subir"
+                                    className="w-64 h-64 object-cover mx-auto m-4"
+                                    src={imagePreview}
+                                    width={200}
+                                    height={200}
                                 />
-                                )}
+                            )}
                         </div>
                         <button
                             type='button'
@@ -140,6 +157,6 @@ export default function Subida() {
                     </div>
                 </form>
             </div>
-        </div>
+        </div>} />
     )
 }

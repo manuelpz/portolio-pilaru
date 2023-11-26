@@ -12,7 +12,6 @@ export default async function NoticiasList() {
     const podcasts = await fetchVideos()
     return (
         <div className="lg:grid grid-cols-3 gap-4">
-            <h1 className="font-bold text-center col-span-3 uppercase">PODCASTS</h1>
             {podcasts.slice(-10).map((podcast) => (
                 <div key={podcast.podcastId} >
                     <h1 className="text-center font-bold uppercase">{podcast.titulo}</h1>

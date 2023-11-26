@@ -1,11 +1,12 @@
 'use client'
+import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import CardOption from "./CardOption"
 
-export default function LogeadoConExito({ user, componente }) {
+export default function LogeadoConExito() {
     return (
         <>
-            <h1 className="text-center font-bold uppercase">Bienvenida {user.usuario}</h1>
-            <p className="text-center">¿Qué quieres hacer?</p>
+            <h1 className="text-center font-bold uppercase">¡Hola! 👋🏽 ¿Qúe vamos a hacer?</h1>
+            <br />
             <br />
             <div className="lg:flex lg:justify-center lg:space-x-20">
                 <CardOption titulo='Subir una noticia' componente='/subidas/noticias' />

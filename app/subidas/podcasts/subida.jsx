@@ -1,4 +1,5 @@
 'use client'
+import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
@@ -68,7 +69,7 @@ export default function Subida() {
     }
 
     return (
-        <div className="flex justify-center">
+        <AdminValidation component={<div className="flex justify-center">
             <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
                 <div className="text-center">
                     <h2 className="text-2xl font-semibold">Publicar nuevo podcast</h2>
@@ -117,6 +118,7 @@ export default function Subida() {
                     </div>
                 </form>
             </div>
-        </div>
+        </div>} />
+
     )
 }

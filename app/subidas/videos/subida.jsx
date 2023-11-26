@@ -1,4 +1,5 @@
 'use client'
+import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
@@ -65,7 +66,7 @@ export default function Subida() {
     }
 
     return (
-        <div className=" flex justify-center">
+        <AdminValidation component={<div className=" flex justify-center">
             <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
                 <div className="text-center">
                     <h2 className="text-2xl font-semibold">Publicar nuevo video</h2>
@@ -86,24 +87,24 @@ export default function Subida() {
                     <div>
                         <div>
                             <div className='flex space-x-24'>
-                            <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
+                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
                                     <input
                                         type="file"
                                         accept="video/*"
-                                    className="hidden"
+                                        className="hidden"
                                         name="video"
                                         onChange={handleVideoChange}
                                     />
-                                {`Seleccionar video`}
+                                    {`Seleccionar video`}
                                 </label>
                                 <BotonVolver />
                             </div>
-                            </div>
-                            {imagePreview && (
-                                <video
-                                    src={imagePreview}
-                                    className="w-64 h-64 object-cover mx-auto m-4" />
-                            )}
+                        </div>
+                        {imagePreview && (
+                            <video
+                                src={imagePreview}
+                                className="w-64 h-64 object-cover mx-auto m-4" />
+                        )}
                         <button
                             type='button'
                             onClick={() => enviarDatos()}
@@ -114,6 +115,6 @@ export default function Subida() {
                     </div>
                 </form>
             </div>
-        </div>
-    );
+        </div>} />
+    )
 }

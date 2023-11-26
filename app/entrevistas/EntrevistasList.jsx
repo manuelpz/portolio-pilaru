@@ -12,8 +12,7 @@ export default async function EntrevistasList() {
     const entrevistas = await fetchEntrevistas()
     return (
         <div className="grid grid-cols-3 gap-4">
-            <h1 className="font-bold text-center col-span-3 uppercase">ENTREVISTAS</h1>
-            {entrevistas.slice(0, 10).map((entrevista) => (
+            {entrevistas.slice(-12).map((entrevista) => (
                 <div key={entrevista.entrevistaId} >
                     <h1 className="text-center font-bold uppercase">{entrevista.titulo}</h1>
                     <br></br>

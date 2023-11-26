@@ -14,7 +14,6 @@ export default async function NoticiasList() {
     const noticias = await fecthNoticias()
     return (
         <div className="lg:grid lg:grid-cols-3 lg:gap-4">
-            <h1 className="font-bold text-center col-span-3">NOTICIAS</h1>
             {noticias.slice(-12).map((noticia) => (
                 <div
                     key={noticia.id}
