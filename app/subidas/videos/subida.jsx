@@ -97,7 +97,7 @@ export default function Subida() {
                                     />
                                     {`Seleccionar video`}
                                 </label>
-                                <BotonVolver />
+                                <BotonVolver url={"/adminPanel"} />
                             </div>
                         </div>
                         {imagePreview && (

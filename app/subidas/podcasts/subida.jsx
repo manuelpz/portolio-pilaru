@@ -99,7 +99,7 @@ export default function Subida() {
                                         onChange={handleVideoChange} />
                                     {`Seleccionar podcast`}
                                 </label>
-                                <BotonVolver />
+                                <BotonVolver url={"/adminPanel"} />
                             </div>
                             {imagePreview && (
                                 <video

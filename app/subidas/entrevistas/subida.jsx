@@ -98,7 +98,7 @@ export default function Subida() {
                                         onChange={handleVideoChange} />
                                     {`Seleccionar entrevista`}
                                 </label>
-                                <BotonVolver />
+                                <BotonVolver url={"/adminPanel"}/>
                             </div>
                             {imagePreview && (
                                 <video

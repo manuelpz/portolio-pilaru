@@ -1,5 +1,4 @@
 'use client'
-import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import CardOption from "./CardOption"
 
 export default function LogeadoConExito() {

@@ -9,7 +9,7 @@ export default function LoginForm() {
 
     const enviarDatos = async (e) => {
         e.preventDefault()
-        if (user.trim().toLowerCase().length > 0 && password.trim().length > 0) {
+        if (user && user.trim().toLowerCase().length > 0 && password.trim().length > 0) {
             try {
                 const userBBDD = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
                 if (password.trim().toLocaleLowerCase() === userBBDD[0].password.trim().toLocaleLowerCase()) {

@@ -31,7 +31,7 @@ export default function ContactoRender() {
         e.target.reset()
     }
     return (
-        <div className="content">
+        <div className="content aparicion">
             <h1 className="text-center">
                 <b>¡Ponte en contacto conmigo!</b>
             </h1>

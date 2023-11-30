@@ -106,7 +106,7 @@ export default function Subida() {
                             id="noticia"
                             className="mt-1 p-2 w-full border rounded-md"
                             placeholder="Desarrolla la noticia"
-                            value={noticia}
+                            value={subtitulo}
                             onChange={handleSubtituloChange}
                             required
                         />
@@ -135,7 +135,7 @@ export default function Subida() {
                                     />
                                     {'Seleccionar imagen'}
                                 </label>
-                                <BotonVolver />
+                                <BotonVolver url={"/adminPanel"} />
                             </div>
                             {imagePreview && (
                                 <Image

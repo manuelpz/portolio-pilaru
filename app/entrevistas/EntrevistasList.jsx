@@ -11,11 +11,11 @@ const fetchEntrevistas = () => {
 export default async function EntrevistasList() {
     const entrevistas = await fetchEntrevistas()
     return (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="lg:grid lg:grid-cols-3 lg:gap-4">
             {entrevistas.slice(-12).map((entrevista) => (
-                <div key={entrevista.entrevistaId} >
+                <div key={entrevista.entrevistaId} 
+                    className="aparicion mt-12">
                     <h1 className="text-center font-bold uppercase">{entrevista.titulo}</h1>
-                    <br></br>
                     <div className="flex justify-center m-4">
                         <video width="640" height="480" controls>
                             <source src={entrevista.entrevista} type="video/mp4" />
