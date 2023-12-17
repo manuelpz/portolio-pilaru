@@ -1,6 +1,5 @@
 import Image from "next/image"
 import { metadata } from "@/app/layout"
-import BotonVolver from "@/components/BotonVolver/BotonVolver"
 export default async function Noticia({ params }) {
     metadata.title = 'Noticias | Pilar Ramos'
     metadata.description = 'Descubre las últimas noticias del mundo de los cuerpos de seguridad'
@@ -13,20 +12,17 @@ export default async function Noticia({ params }) {
     const singlePost = post[0] // Aunque solo devuelve una noticia, viene en formato array por SQL
 
     return (
-        <div className="flex flex-col aparicion">
-            <h1 className="font-bold text-center">{singlePost.titulo}</h1>
-            <p className="text-center">{singlePost.descripcion}</p>
+        <div className="flex flex-col aparicion 2xl:mr-64 2xl:ml-64 xl:mr-36 xl:ml-36 lg:mr-36 lg:ml-36 mr-12 ml-12 ">
+            <h1 className="font-bold text-center text-2xl">{singlePost.titulo}</h1>
+            <h2 className="text-center italic">{`"${singlePost.subtitulo}"`}</h2>
+            <br />
+            <p className="text-justify">{singlePost.descripcion}</p>
             <div className="flex justify-center mt-10">
                 <Image
                     alt='Imagen relacionada con la noticia'
                     src={singlePost.img != null ? singlePost.img : '/logo/icono-pilar-ramos.png'}
                     width={100}
                     height={100} />
-            </div>
-            <br />
-            <br />
-            <div className="flex justify-end">
-                <BotonVolver url={"/noticias"} />
             </div>
         </div>
     )

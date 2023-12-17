@@ -27,20 +27,15 @@ export default async function NoticiasList() {
                             height={10} />
                     </div>
                     <div className="px-6 py-4">
-                        <div className="font-bold text-xl mb-2 text-center">{noticia.titulo}</div>
+                        <Link
+                            href='/noticias/[id]' as={`/noticias/${noticia.id}`}
+                        >
+                            <div className="transition hover:-translate-y-1 hover:scale-110 font-bold text-xl mb-2 text-center">{noticia.titulo}</div>
+                        </Link>
                         <p className="text-gray-700 text-base text-center">{noticia.subtitulo}</p>
                     </div>
                     <br />
                     <br />
-                    <Link
-                        className="block cursor-pointer text-blue-500 hover:underline absolute bottom-0 !right-0 p-4"
-                        href='/noticias/[id]' as={`/noticias/${noticia.id}`}
-                    >
-                        <button
-                            className="bg-[#3b8bf6] p-1 rounded text-white text-xs">
-                            Leer noticia
-                        </button>
-                    </Link>
                 </div>
             ))
             }

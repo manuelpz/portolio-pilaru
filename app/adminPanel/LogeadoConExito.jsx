@@ -8,10 +8,10 @@ export default function LogeadoConExito() {
             <br />
             <br />
             <div className="lg:flex lg:justify-center lg:space-x-20">
-                <CardOption titulo='Subir una noticia' componente='/subidas/noticias' />
-                <CardOption titulo='Subir un video' componente='/subidas/videos' />
-                <CardOption titulo='Subir una entrevista' componente='/subidas/entrevistas' />
-                <CardOption titulo='Subir un podcast' componente='/subidas/podcasts' />
+                <CardOption titulo='Subir una noticia' componente='/subidas/noticias' imagen={'/adminPanel/noticias.png'} />
+                <CardOption titulo='Subir un video' componente='/subidas/videos' imagen={'/adminPanel/videos.png'} />
+                <CardOption titulo='Subir una entrevista' componente='/subidas/entrevistas' imagen={'/adminPanel/entrevistas.png'} />
+                <CardOption titulo='Subir un podcast' componente='/subidas/podcasts' imagen={'/adminPanel/podcasts.png'} />
             </div>
         </>
     )

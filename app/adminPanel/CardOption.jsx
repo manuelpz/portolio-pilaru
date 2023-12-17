@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-export default function CardOption({ titulo, componente }) {
+export default function CardOption({ titulo, componente, imagen }) {
     return (
         <Link className="mx-4 !mb-4" href={componente}>
             <div className=" flex flex-col rounded-xl bg-whiteq text-gray-700 shadow-md">
@@ -8,7 +8,7 @@ export default function CardOption({ titulo, componente }) {
                     <Image
                         width={100}
                         height={100}
-                        src="/logo/icono-pilar-ramos.png"
+                        src={imagen}
                         alt="Logo Pilar Ramos"
                     />
                 </div>

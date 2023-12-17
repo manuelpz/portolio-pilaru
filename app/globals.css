@@ -30,7 +30,7 @@ main {
   background-color: #f0f0f0;
 }
 .aparicion{
-     animation: aparecerGradualmente 2s ease-in-out;
+     animation: aparecerGradualmente 1s ease-in-out;
 }
 
 /* ANIMACIONES */
