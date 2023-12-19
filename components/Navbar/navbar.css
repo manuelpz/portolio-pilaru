@@ -7,6 +7,10 @@
   animation: deslizamientoIzquierda 0.5s forwards;
 }
 
+a{
+  font-size: 1.1rem;
+}
+
 /* ANIMACIONES */
 @keyframes deslizamientoDerecha {
   from {

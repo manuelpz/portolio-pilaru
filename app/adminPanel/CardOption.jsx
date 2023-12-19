@@ -1,8 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
+import '@/app/adminPanel/cardOption.css'
 export default function CardOption({ titulo, componente, imagen }) {
     return (
-        <Link className="mx-4 !mb-4" href={componente}>
+        <Link className="mx-4 !mb-4 perfil" href={componente}>
             <div className=" flex flex-col rounded-xl bg-whiteq text-gray-700 shadow-md">
                 <div className="flex justify-center rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none">
                     <Image

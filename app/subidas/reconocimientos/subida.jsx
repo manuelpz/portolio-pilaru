@@ -5,13 +5,12 @@ import Swal from "sweetalert2"
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 
-const URL_BASE_NOTICIAS = 'http://localhost:4000/api/noticias'
+const URL_BASE_RECONOCIMIENTOS = 'http://localhost:4000/api/reconocimientos'
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [titulo, setTitulo] = useState('')
-    const [subtitulo, setSubtitulo] = useState('')
-    const [noticia, setNoticia] = useState('')
+    const [descripcion, setDescripcion] = useState('')
     const [selectedImage, setSelectedImage] = useState(null)
     const [imagePreview, setImagePreview] = useState(null)
 
@@ -19,12 +18,8 @@ export default function Subida() {
         setTitulo(e.target.value)
     }
 
-    const handleSubtituloChange = (e) => {
-        setSubtitulo(e.target.value)
-    }
-
-    const handleNoticiaChange = (e) => {
-        setNoticia(e.target.value)
+    const handleDescripcionChange = (e) => {
+        setDescripcion(e.target.value)
     }
 
     const handleImageChange = (e) => {
@@ -45,11 +40,10 @@ export default function Subida() {
         const formData = new FormData()
         formData.append("img", selectedImage)
         formData.append("titulo", titulo)
-        formData.append("subtitulo", subtitulo)
-        formData.append("descripcion", noticia)
+        formData.append("descripcion", descripcion)
 
         try {
-            await fetch(URL_BASE_NOTICIAS, {
+            await fetch(URL_BASE_RECONOCIMIENTOS, {
                 method: "POST",
                 body: formData,
             })
@@ -85,11 +79,11 @@ export default function Subida() {
         <AdminValidation component={<div className="flex justify-center">
             <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
                 <div className="text-center">
-                    <h2 className="text-2xl font-semibold">Publicar nueva noticia</h2>
+                    <h2 className="text-2xl font-semibold">Publicar nuevo reconocimiento</h2>
                 </div>
                 <form encType="multipart/form-data" className="space-y-4">
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Titulo de la noticia</label>
+                        <label htmlFor="text" className="block text-gray-600 font-medium">Nombre del reconociemto</label>
                         <input
                             type="text"
                             id="titulo"
@@ -101,24 +95,13 @@ export default function Subida() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Subtitulo de la noticia</label>
+                        <label htmlFor="text" className="block text-gray-600 font-medium">Presume tu reconocimiento</label>
                         <textarea
                             id="noticia"
                             className="mt-1 p-2 w-full border rounded-md"
-                            placeholder="¡Escribe algo con gancho!"
-                            value={subtitulo}
-                            onChange={handleSubtituloChange}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Desarrollo de la noticia</label>
-                        <textarea
-                            id="noticia"
-                            className="mt-1 p-2 w-full border rounded-md"
-                            placeholder="Desarrolla la noticia"
-                            value={noticia}
-                            onChange={handleNoticiaChange}
+                            placeholder="Comenta algo sobre este reconocimiento"
+                            value={descripcion}
+                            onChange={handleDescripcionChange}
                             required
                         />
                     </div>
@@ -152,7 +135,7 @@ export default function Subida() {
                             onClick={() => enviarDatos()}
                             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
                         >
-                            Publicar noticia
+                            Publicar reconocimiento
                         </button>
                     </div>
                 </form>
