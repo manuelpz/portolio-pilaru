@@ -1,3 +1,10 @@
 .bronze{
     color: #ba8445;
 }
+.perfil{
+    transition: transform 0.5s;
+}
+
+.perfil:hover {
+  transform: scale(1.1);
+}

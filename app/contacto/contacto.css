@@ -68,7 +68,9 @@ textarea, input {
   border-radius: 10px;
   margin-top: 10px;
   padding: 10px;
-  background-color: #d3d3d3;
+  background-color: black;
+  color: lightgray;
+  transition: 0.8s ease-in-out;
 }
 
 

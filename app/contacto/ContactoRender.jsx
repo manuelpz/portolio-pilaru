@@ -38,10 +38,11 @@ export default function ContactoRender() {
             <div className="contacto">
                 <div className="contact">
                     <div>
-                        <h2>
-                            <b className="contactanos">Escríbeme</b>
+                        <h2 className="md:mb-6">
+                            <b className="contactanos md:ml-32">Escríbeme</b>
                         </h2>
-                        <Form onSubmit={handleOnSubmit}>
+                        <Form onSubmit={handleOnSubmit}
+                            className="md:ml-32">
                             <label>Email <span className="font-bold text-red-500">*</span></label>
                             <Form.Field
                                 id="form-input-control-email"

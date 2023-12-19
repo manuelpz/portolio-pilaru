@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import '@/app/globals.css'
 const URL_BASE_NOTICIAS = 'http://localhost:4000/api/noticias'
 
 const fecthNoticias = () => {
@@ -9,15 +10,14 @@ const fecthNoticias = () => {
         }
     }).then(res => res.json())
 }
-
 export default async function NoticiasList() {
     const noticias = await fecthNoticias()
     return (
         <div className="lg:grid lg:grid-cols-2 lg:gap-4 lg:justify-items-center ">
-            {noticias.slice(-12).map((noticia) => (
+            {noticias.slice(-12).map((noticia, index) => (
                 <div
                     key={noticia.id}
-                    className="w-9/12 h-9/12 rounded overflow-hidden shadow-xl bg-[#eff6ff] border-[#60a2fa] border mb-8 relative m-4 aparicion ">
+                    className={`w-9/12 h-9/12 rounded overflow-hidden shadow-xl bg-[#eff6ff] border-[#60a2fa] border mb-8 relative m-4 aparicion scroll-animation ${index % 2 == 0 ? '2xl:-mr-36 xl:-mr-40' : '2xl:-ml-36 xl:-mr-40'}`}>
                     <div className="flex justify-center pt-6" >
                         <Image
                             className="flex items-center rounded"
