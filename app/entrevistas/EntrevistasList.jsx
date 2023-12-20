@@ -19,7 +19,7 @@ export default async function EntrevistasList() {
                     <h1 className="text-center font-bold uppercase">{entrevista.titulo}</h1>
                     <div className="flex justify-center m-4">
                         <video width="640" height="480" controls>
-                            <source src={entrevista.entrevista} type="video/mp4" />
+                            <source src={entrevista.entrevista} type="audio/mp3" />
                         </video>
                     </div>
                 </div>
