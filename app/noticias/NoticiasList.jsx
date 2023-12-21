@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import '@/app/globals.css'
-const URL_BASE_NOTICIAS = 'http://localhost:4000/api/noticias'
+const URL_BASE_NOTICIAS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/noticias'
 
 const fecthNoticias = () => {
     return fetch(URL_BASE_NOTICIAS, {
@@ -28,7 +28,7 @@ export default async function NoticiasList() {
                             height={10} />
                     </div>
                     <div className="px-6 py-4">
-                            <div className="transition hover:-translate-y-1 hover:scale-110 font-bold text-xl mb-2 text-center">{noticia.titulo}</div>
+                        <div className="transition hover:-translate-y-1 hover:scale-110 font-bold text-xl mb-2 text-center">{noticia.titulo}</div>
                         <p className="text-gray-700 text-base text-center">{noticia.subtitulo}</p>
                     </div>
                     <br />

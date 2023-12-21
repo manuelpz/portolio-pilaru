@@ -2,8 +2,8 @@
 import Loader from "@/components/Loader/Loader"
 import { useEffect, useState } from "react"
 import ErrorLogin from "@/app/adminPanel/ErrorLogin"
-export default function AdminValidation({component}) {
-    const URL_BASE_USUARIOS = 'http://localhost:4000/api/usuarios'
+export default function AdminValidation({ component }) {
+    const URL_BASE_USUARIOS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/usuarios'
     const [usuario, setUsuario] = useState([])
     const [loading, setLoading] = useState(true)
 

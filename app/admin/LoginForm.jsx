@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { useState } from "react"
 
-const URL_BASE_USUARIOS = 'http://localhost:4000/api/usuarios'
+const URL_BASE_USUARIOS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/usuarios'
 export default function LoginForm() {
     const [user, setUser] = useState()
     const [password, setPassword] = useState('')

@@ -5,7 +5,7 @@ import Swal from "sweetalert2"
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 
-const URL_BASE_NOTICIAS = 'http://localhost:4000/api/noticias'
+const URL_BASE_NOTICIAS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/noticias'
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'

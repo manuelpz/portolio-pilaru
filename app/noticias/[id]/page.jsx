@@ -3,7 +3,7 @@ import { metadata } from "@/app/layout"
 export default async function Noticia({ params }) {
     metadata.title = 'Noticias | Pilar Ramos'
     metadata.description = 'Descubre las últimas noticias del mundo de los cuerpos de seguridad'
-    const URL_BASE_NOTICIAS = 'http://localhost:4000/api/noticias'
+    const URL_BASE_NOTICIAS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/noticias'
     const { id } = params
     const fetchPost = () => {
         return fetch(`${URL_BASE_NOTICIAS}/${id}`).then(response => response.json())

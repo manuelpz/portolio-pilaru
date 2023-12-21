@@ -4,7 +4,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
 import Image from 'next/image'
-const URL_BASE_ENTREVISTAS = 'http://localhost:4000/api/entrevistas'
+const URL_BASE_ENTREVISTAS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/entrevistas'
 
 export default function Subida() {
 

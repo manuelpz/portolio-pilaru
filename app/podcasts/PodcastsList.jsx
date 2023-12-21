@@ -1,5 +1,5 @@
 import Image from "next/image"
-const URL_BASE_PODCASTS = 'http://localhost:4000/api/podcasts'
+const URL_BASE_PODCASTS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/podcasts'
 
 const fetchVideos = () => {
     return fetch(URL_BASE_PODCASTS, {

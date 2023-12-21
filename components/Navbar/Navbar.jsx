@@ -7,7 +7,7 @@ import NavbarItemsMobile from "./NavbarItemsMobile"
 import '@/components/Navbar/navbar.css'
 
 const Navbar = () => {
-    const URL_BASE_USUARIOS = 'http://localhost:4000/api/usuarios'
+    const URL_BASE_USUARIOS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/usuarios'
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [menuWasOpen, setMenuWasOpen] = useState(undefined) // controla que no se vea la animacion a la izquierda nada mas cargar la pagina
     const [usuario, setUsuario] = useState([])
@@ -34,11 +34,11 @@ const Navbar = () => {
         }
     }
 
-    const cerrarSesionYMenu = () =>{
+    const cerrarSesionYMenu = () => {
         cerrarSesion()
         setIsMobileMenuOpen(!isMobileMenuOpen)
     }
-    
+
     useEffect(() => {
         const fetchData = async (user) => {
             const data = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
@@ -118,7 +118,7 @@ const Navbar = () => {
                         <NavbarItemsMobile path={"/noticias"} description={"Noticias"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/podcasts"} description={"Podcasts"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
-                        {usuario !== undefined && usuario.loged == 1 ? (<NavbarItemsMobile path={"/adminPanel"} description={"AdminPanel"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)}  />) : null}
+                        {usuario !== undefined && usuario.loged == 1 ? (<NavbarItemsMobile path={"/adminPanel"} description={"AdminPanel"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />) : null}
                         <li>
                             {usuario !== undefined && usuario.loged == 1 ? (<Link className="block border-solid border-b-2 hover:font-bold !mt-4 pr-4 pb-2" href={"/"} onClick={cerrarSesionYMenu}>Cerrar sesion</Link>) : null}
                         </li>

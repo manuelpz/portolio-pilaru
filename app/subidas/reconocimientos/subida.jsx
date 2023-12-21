@@ -5,7 +5,7 @@ import Swal from "sweetalert2"
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 
-const URL_BASE_RECONOCIMIENTOS = 'http://localhost:4000/api/reconocimientos'
+const URL_BASE_RECONOCIMIENTOS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/reconocimientos'
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
