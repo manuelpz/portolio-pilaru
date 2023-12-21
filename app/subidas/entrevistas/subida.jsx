@@ -3,13 +3,19 @@ import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
+import Image from 'next/image'
 const URL_BASE_ENTREVISTAS = 'http://localhost:4000/api/entrevistas'
 
 export default function Subida() {
+
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
+
     const [titulo, setTitulo] = useState('')
     const [selectedVideo, setSelectedVideo] = useState('')
+    const [selectedImage, setSelectedImage] = useState(null)
     const [imagePreview, setImagePreview] = useState(null)
+    const [nombreEntrevista, setNombreEntrevista] = useState(null)
+
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value)
@@ -18,9 +24,17 @@ export default function Subida() {
     const handleVideoChange = (e) => {
         const file = e.target.files[0]
         if (file) {
+            setNombreEntrevista(file.name)
             setSelectedVideo(file)
+        }
+    }
 
-            // Crear una vista previa del video
+    const handleImageChange = (e) => {
+        const file = e.target.files[0]
+        if (file) {
+            setSelectedImage(file)
+
+            // Crear una vista previa de la imagen
             const reader = new FileReader()
             reader.onload = (e) => {
                 setImagePreview(e.target.result)
@@ -32,6 +46,7 @@ export default function Subida() {
     async function enviarDatos() {
         const formData = new FormData
         formData.append("entrevista", selectedVideo)
+        formData.append("img", selectedImage)
         formData.append("titulo", titulo)
         try {
             await fetch(URL_BASE_ENTREVISTAS, {
@@ -55,7 +70,6 @@ export default function Subida() {
                         })
                     }
                 })
-
         }
         catch (error) {
             Swal.fire({
@@ -92,20 +106,43 @@ export default function Subida() {
                                 <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
                                     <input
                                         type="file"
-                                        accept="video/*, audio/*"
+                                        accept="image/*"
+                                        className="hidden"
+                                        name="img"
+                                        onChange={handleImageChange}
+                                    />
+                                    {'Seleccionar imagen'}
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div className='flex space-x-24'>
+                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
+                                    <input
+                                        type="file"
+                                        accept="audio/*"
                                         className="hidden"
                                         name="video"
                                         onChange={handleVideoChange} />
                                     {`Seleccionar entrevista`}
                                 </label>
-                                <BotonVolver url={"/adminPanel"}/>
+                                <BotonVolver url={"/adminPanel"} />
                             </div>
-                            {imagePreview && (
-                                <video
-                                    src={imagePreview}
-                                    className="w-64 h-64 object-cover mx-auto m-4" />
+                            {nombreEntrevista && (
+                                <div className='flex justify-center items-center mb-6'>
+                                    <p className='font-bold'>Estás subiendo la entrevista:</p>
+                                    <p className="block py-1 text-blue-500 ml-6 font-semibold w-1/2 text-sm"> {nombreEntrevista}</p>
+                                </div>
                             )}
-
+                            {imagePreview && (
+                                <Image
+                                    alt="Vista previa de la imagen a subir"
+                                    className="w-64 h-64 object-cover mx-auto m-4"
+                                    src={imagePreview}
+                                    width={200}
+                                    height={200}
+                                />
+                            )}
                         </div>
                         <button
                             type='button'
@@ -118,5 +155,6 @@ export default function Subida() {
                 </form>
             </div>
         </div>} />
+
     )
 }

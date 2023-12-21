@@ -59,7 +59,7 @@ export default function About() {
             <br />
             <div className="grid grid-rows-3 justify-items-center">
                 <Image
-                    src="/logo/icono-pilar-ramos.png"
+                    src="/logo/icono-pilar-ramos-navidad.png"
                     width={40}
                     height={10}
                     alt="Pilar Ramos Logo"
