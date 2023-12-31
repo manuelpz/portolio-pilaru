@@ -4,7 +4,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
 import Image from 'next/image'
-const URL_BASE_ENTREVISTAS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/entrevistas'
+const URL_BASE_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/entrevistas'
 
 export default function Subida() {
 
@@ -62,6 +62,7 @@ export default function Subida() {
                         })
                     }
                     else {
+                        console.log('Yeeeeee')
                         Swal.fire({
                             icon: "success",
                             title: data.message,

@@ -4,7 +4,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
 import Image from 'next/image'
-const URL_BASE_PODCASTS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/podcasts'
+const URL_BASE_PODCASTS = 'https://portfolio-pilaru-back.onrender.com/api/podcasts'
 
 export default function Subida() {
 

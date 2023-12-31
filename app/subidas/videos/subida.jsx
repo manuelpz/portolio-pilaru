@@ -3,7 +3,7 @@ import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
-const URL_BASE_VIDEOS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/videos'
+const URL_BASE_VIDEOS = 'https://portfolio-pilaru-back.onrender.com/api/videos'
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'

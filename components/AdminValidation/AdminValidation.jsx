@@ -3,14 +3,14 @@ import Loader from "@/components/Loader/Loader"
 import { useEffect, useState } from "react"
 import ErrorLogin from "@/app/adminPanel/ErrorLogin"
 export default function AdminValidation({ component }) {
-    const URL_BASE_USUARIOS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/usuarios'
+    const URL_BASE_USUARIOS = 'https://portfolio-pilaru-back.onrender.com/api/usuarios'
     const [usuario, setUsuario] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchData = async (user) => {
             const data = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
-            setUsuario(data[0])
+            setUsuario(data)
         }
         if (window.sessionStorage.getItem("usuario") !== undefined) {
             fetchData(window.sessionStorage.getItem("usuario"))

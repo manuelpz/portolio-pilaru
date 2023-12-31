@@ -1,5 +1,5 @@
 import '@/app/globals.css'
-const URL_BASE_VIDEOS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/videos'
+const URL_BASE_VIDEOS = 'https://portfolio-pilaru-back.onrender.com/api/videos'
 
 const fetchVideos = () => {
     return fetch(URL_BASE_VIDEOS, {

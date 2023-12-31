@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { useState } from "react"
 
-const URL_BASE_USUARIOS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/usuarios'
+const URL_BASE_USUARIOS = 'https://portfolio-pilaru-back.onrender.com/api/usuarios'
 export default function LoginForm() {
     const [user, setUser] = useState()
     const [password, setPassword] = useState('')
@@ -12,16 +12,17 @@ export default function LoginForm() {
         if (user && user.trim().toLowerCase().length > 0 && password.trim().length > 0) {
             try {
                 const userBBDD = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
-                if (password.trim().toLocaleLowerCase() === userBBDD[0].password.trim().toLocaleLowerCase()) {
+                console.log(userBBDD)
+                if (password.trim().toLocaleLowerCase() === userBBDD.password.trim().toLocaleLowerCase()) {
                     sessionStorage.setItem("usuario", user) // Guardo el usuario en una sesion
-                    userBBDD[0].loged = 1 // Establece el login a true
+                    userBBDD.loged = 1 // Establece el login a true
                     try {
-                        await fetch(`${URL_BASE_USUARIOS}/${userBBDD[0].usuarioId}`, {
+                        await fetch(`${URL_BASE_USUARIOS}/${userBBDD.usuarioid}`, {
                             method: "PUT",
                             headers: {
                                 'Content-Type': 'application/json'
                             },
-                            body: JSON.stringify(userBBDD[0]) // Convierte el objeto en una cadena JSON
+                            body: JSON.stringify(userBBDD) // Convierte el objeto en una cadena JSON
                         })
                         window.location.href = '/adminPanel'
                     }

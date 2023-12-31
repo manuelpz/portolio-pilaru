@@ -1,7 +1,7 @@
 import Image from "next/image"
 import '@/app/globals.css'
 import '@/app/reconocimientos/reconocimientos.css'
-const URL_BASE_RECONOCIMIENTOS = 'https://portflio-back-dev-mxxn.4.us-1.fl0.io/api/reconocimientos'
+const URL_BASE_RECONOCIMIENTOS = 'https://portfolio-pilaru-back.onrender.com/api/reconocimientos'
 
 const fetchReconocimientos = () => {
     return fetch(URL_BASE_RECONOCIMIENTOS, {
