@@ -4,16 +4,20 @@ import Image from 'next/image'
 import Swal from "sweetalert2"
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
+import Loader from '@/components/Loader/Loader'
 
 const URL_BASE_NOTICIAS = 'https://portfolio-pilaru-back.onrender.com/api/noticias'
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
+    const [isLoading, setIsLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
     const [subtitulo, setSubtitulo] = useState('')
     const [noticia, setNoticia] = useState('')
     const [selectedImage, setSelectedImage] = useState(null)
+    const [selectedVideo, setSelectedVideo] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
+    const [nombreVideo, setNombreVideo] = useState(null)
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value)
@@ -41,12 +45,23 @@ export default function Subida() {
         }
     }
 
+    const handleVideoChange = (e) => {
+        const file = e.target.files[0]
+        if (file) {
+            setNombreVideo(file.name)
+            setSelectedVideo(file)
+        }
+    }
+
     async function enviarDatos() {
+        setIsLoading(true)
         const formData = new FormData()
         formData.append("img", selectedImage)
         formData.append("titulo", titulo)
         formData.append("subtitulo", subtitulo)
         formData.append("descripcion", noticia)
+        formData.append("video", selectedVideo)
+
 
         try {
             await fetch(URL_BASE_NOTICIAS, {
@@ -55,6 +70,7 @@ export default function Subida() {
             })
                 .then(res => (res.json()))
                 .then(data => {
+                    setIsLoading(false)
                     if (data.code == 409) {
                         Swal.fire({
                             icon: "error",
@@ -76,10 +92,12 @@ export default function Subida() {
                 icon: "error",
                 title: ERROR_INESPERADO,
             }).then(() => {
+                setIsLoading(false)
                 window.location.reload()
             })
         }
     }
+    if (isLoading) return (<Loader />)
 
     return (
         <AdminValidation component={<div className="flex justify-center">
@@ -137,6 +155,24 @@ export default function Subida() {
                                 </label>
                                 <BotonVolver url={"/adminPanel"} />
                             </div>
+                            <div className='flex justify-between'>
+                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
+                                    <input
+                                        type="file"
+                                        accept="video/*"
+                                        className="hidden"
+                                        name="video"
+                                        onChange={handleVideoChange}
+                                    />
+                                    {`Seleccionar video`}
+                                </label>
+                                {selectedVideo && (
+                                    <div className="text-center font-bold">
+                                        <p >Video seleccionado:</p>
+                                        <p>{nombreVideo}</p>
+                                    </div>
+                                )}
+                            </div>
                             {imagePreview && (
                                 <Image
                                     alt="Vista previa de la imagen a subir"
@@ -150,7 +186,7 @@ export default function Subida() {
                         <button
                             type='button'
                             onClick={() => enviarDatos()}
-                            className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
+                            className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300 mt-6"
                         >
                             Publicar noticia
                         </button>

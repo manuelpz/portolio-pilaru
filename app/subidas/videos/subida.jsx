@@ -3,10 +3,12 @@ import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
+import Loader from '@/components/Loader/Loader'
 const URL_BASE_VIDEOS = 'https://portfolio-pilaru-back.onrender.com/api/videos'
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
+    const [isLoading, setIsLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
     const [selectedVideo, setSelectedVideo] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
@@ -29,6 +31,7 @@ export default function Subida() {
         }
     }
     async function enviarDatos() {
+        setIsLoading(true)
         const formData = new FormData
         formData.append("video", selectedVideo)
         formData.append("titulo", titulo)
@@ -39,6 +42,7 @@ export default function Subida() {
             })
                 .then(res => res.json())
                 .then(data => {
+                    setIsLoading(false)
                     if (data.code == 409) {
                         Swal.fire({
                             icon: "error",
@@ -56,6 +60,7 @@ export default function Subida() {
                 })
         }
         catch (error) {
+            setIsLoading(false)
             Swal.fire({
                 icon: "success",
                 title: ERROR_INESPERADO,
@@ -65,6 +70,7 @@ export default function Subida() {
         }
     }
 
+    if (isLoading) return (<Loader />)
     return (
         <AdminValidation component={<div className=" flex justify-center">
             <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">

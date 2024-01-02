@@ -5,8 +5,8 @@ import Swal from "sweetalert2"
 import '@/app/contacto/contacto.css'
 import RedesSociales from "@/components/RedesSociales"
 
-const SERVICE_ID = "service_y4b2hap"
-const TEMPLATE_ID = "template_ifgiakn"
+const SERVICE_ID = "service_ljm539c"
+const TEMPLATE_ID = "template_kv5cii8"
 const USER_ID = "gC4tUjuxBRdy0YPjN"
 export default function ContactoRender() {
     const handleOnSubmit = (e) => {

@@ -4,11 +4,13 @@ import Image from 'next/image'
 import Swal from "sweetalert2"
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
+import Loader from '@/components/Loader/Loader'
 
 const URL_BASE_RECONOCIMIENTOS = 'https://portfolio-pilaru-back.onrender.com/api/reconocimientos'
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
+    const [isLoading, setIsLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
     const [descripcion, setDescripcion] = useState('')
     const [selectedImage, setSelectedImage] = useState(null)
@@ -37,6 +39,7 @@ export default function Subida() {
     }
 
     async function enviarDatos() {
+        setIsLoading(true)
         const formData = new FormData()
         formData.append("img", selectedImage)
         formData.append("titulo", titulo)
@@ -49,6 +52,7 @@ export default function Subida() {
             })
                 .then(res => (res.json()))
                 .then(data => {
+                    setIsLoading(false)
                     if (data.code == 409) {
                         Swal.fire({
                             icon: "error",
@@ -66,6 +70,7 @@ export default function Subida() {
                 })
         }
         catch (e) {
+            setIsLoading(false)
             Swal.fire({
                 icon: "error",
                 title: ERROR_INESPERADO,
@@ -73,6 +78,10 @@ export default function Subida() {
                 window.location.reload()
             })
         }
+    }
+
+    if (isLoading) {
+        return <Loader />
     }
 
     return (
