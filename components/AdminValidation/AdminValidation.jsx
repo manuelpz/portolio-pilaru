@@ -4,22 +4,23 @@ import { useEffect, useState } from "react"
 import ErrorLogin from "@/app/adminPanel/ErrorLogin"
 export default function AdminValidation({ component }) {
     const URL_BASE_USUARIOS = 'https://portfolio-pilaru-back.onrender.com/api/usuarios'
-    const [usuario, setUsuario] = useState([])
+    const [usuario, setUsuario] = useState()
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchData = async (user) => {
             const data = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
-            setUsuario(data)
+            setUsuario(data.loged)
+            setLoading(false)
         }
-        if (window.sessionStorage.getItem("usuario") !== undefined) {
+        if (window.sessionStorage.getItem("usuario") !== undefined && window.sessionStorage.getItem("usuario") !== null) {
             fetchData(window.sessionStorage.getItem("usuario"))
         }
-        setLoading(false)
+        else setLoading(false)
     }, [])
     if (loading)
         return <Loader />
     return (
-        usuario?.loged == 1 ? component : <ErrorLogin />
+        usuario && usuario == 1 ? component : <ErrorLogin />
     )
 }

@@ -62,7 +62,6 @@ export default function Subida() {
                         })
                     }
                     else {
-                        console.log('Yeeeeee, data: ', data)
                         Swal.fire({
                             icon: "success",
                             title: data.message,

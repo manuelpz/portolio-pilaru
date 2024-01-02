@@ -44,7 +44,7 @@ const Navbar = () => {
             const data = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
             setUsuario(data)
         }
-        if (window.sessionStorage.getItem("usuario") !== undefined) {
+        if (window.sessionStorage.getItem("usuario") !== undefined && window.sessionStorage.getItem("usuario") !== null) {
             fetchData(window.sessionStorage.getItem("usuario"))
         }
     }, [])
@@ -82,7 +82,7 @@ const Navbar = () => {
                         {/* BOTON MOVIL */}
                         <div className="lg:hidden ">
                             <button
-                                onClick={() => { setMenuWasOpen(true); console.log("Auch"); setIsMobileMenuOpen(!isMobileMenuOpen) }}
+                                onClick={() => { setMenuWasOpen(true); setIsMobileMenuOpen(!isMobileMenuOpen) }}
                                 className="text-gray-300 text-white hover:text-white"
                                 aria-label="Toggle menu"
                             >

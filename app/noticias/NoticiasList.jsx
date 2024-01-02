@@ -22,7 +22,7 @@ export default async function NoticiasList() {
                     <div className="flex justify-center pt-6" >
                         <Image
                             className="flex items-center rounded"
-                            src={noticia.img != null ? noticia.img : '/logo/icono-pilar-ramos.png'}
+                            src={noticia.img ?? '/logo/icono-pilar-ramos.png'}
                             alt="Imagen relacionada con la noticia"
                             width={100}
                             height={10} />
