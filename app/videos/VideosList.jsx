@@ -20,7 +20,7 @@ export default async function NoticiasList() {
                                 ${index % 2 == 0 ? '2xl:-mr-20' : '2xl:-ml-20'}`}>
                     <h1 className="text-center font-bold uppercase text-xl">{video.titulo}</h1>
                     <div className="flex justify-center m-4">
-                        <video width="640" height="480" controls>
+                        <video width="640" height="480" controls poster={video.poster}>
                             <source src={video.video} type="video/mp4" />
                         </video>
                     </div>

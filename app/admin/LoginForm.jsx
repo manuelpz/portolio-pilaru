@@ -1,14 +1,17 @@
 'use client'
 import Image from "next/image"
 import { useState } from "react"
+import Loader from "@/components/Loader/Loader"
 
 const URL_BASE_USUARIOS = 'https://portfolio-pilaru-back.onrender.com/api/usuarios'
 export default function LoginForm() {
     const [user, setUser] = useState()
     const [password, setPassword] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     const enviarDatos = async (e) => {
         e.preventDefault()
+        setIsLoading(true)
         if (user && user.trim().toLowerCase().length > 0 && password.trim().length > 0) {
             try {
                 const userBBDD = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
@@ -23,22 +26,27 @@ export default function LoginForm() {
                             },
                             body: JSON.stringify(userBBDD) // Convierte el objeto en una cadena JSON
                         })
+                        setIsLoading(false)
                         window.location.href = '/adminPanel'
                     }
                     catch (error) {
+                        setIsLoading(false)
                         alert('Error al mandar informacion del usuario')
                     }
 
                 }
                 else {
+                    setIsLoading(false)
                     alert('Usuario y/o contraseña incorrecto/s')
                 }
             }
             catch (error) {
+                setIsLoading(false)
                 alert('Este usuario no existe')
             }
         }
     }
+    if (isLoading) return (<Loader />)
     return (
         <div className="flex w-full items-center justify-center ">
             <div className="rounded-xl bg-blue-200 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
@@ -50,11 +58,11 @@ export default function LoginForm() {
                     </div>
                     <form>
                         <div className="mb-4 text-lg">
-                            <input onChange={(e) => { setUser(e.target.value) }} className="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" placeholder="Introduce tu usuario" />
+                            <input onChange={(e) => { setUser(e.target.value) }} className="rounded-3xl border-none px-6 py-2 text-center text-black placeholder-black focus:placeholder-white shadow-lg outline-none backdrop-blur-md" type="text" placeholder="Introduce tu usuario" />
                         </div>
 
                         <div className="mb-4 text-lg">
-                            <input onChange={(e) => setPassword(e.target.value)} className="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="Password" placeholder="*********" />
+                            <input onChange={(e) => setPassword(e.target.value)} className="rounded-3xl border-none px-6 py-2 text-center text-black placeholder-black focus:placeholder-white shadow-lg outline-none backdrop-blur-md" type="Password" placeholder="Introduce tu contraseña" />
                         </div>
                         <div className="mt-8 flex justify-center text-lg text-black">
                             <button onClick={(e) => enviarDatos(e)} className="rounded-3xl bg-blue-400 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">Acceder</button>
