@@ -23,7 +23,7 @@ export default function Eliminado() {
             await fetch(`https://portfolio-pilaru-back.onrender.com/api/entrevistas/${id}`, {
                 method: 'DELETE'
             })
-            const newData = data.filter(item => item.entrevistaId !== id)
+            const newData = data.filter(item => item.id !== id)
             setData(newData)
         }
         catch (error) {
@@ -46,7 +46,7 @@ export default function Eliminado() {
                         <p>{item.titulo}</p>
                         <Image
                             className="hover:cursor-pointer"
-                            onClick={() => { eliminarElemento(item.entrevistaId) }}
+                            onClick={() => { eliminarElemento(item.id) }}
                             src='/iconos/basura.svg'
                             width={40}
                             height={40}
