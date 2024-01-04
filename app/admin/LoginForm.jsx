@@ -19,7 +19,7 @@ export default function LoginForm() {
                     sessionStorage.setItem("usuario", user) // Guardo el usuario en una sesion
                     userBBDD.loged = 1 // Establece el login a true
                     try {
-                        await fetch(`${URL_BASE_USUARIOS}/${userBBDD.usuarioid}`, {
+                        await fetch(`${URL_BASE_USUARIOS}/${userBBDD.usuario}`, {
                             method: "PUT",
                             headers: {
                                 'Content-Type': 'application/json'
@@ -33,7 +33,6 @@ export default function LoginForm() {
                         setIsLoading(false)
                         alert('Error al mandar informacion del usuario')
                     }
-
                 }
                 else {
                     setIsLoading(false)
