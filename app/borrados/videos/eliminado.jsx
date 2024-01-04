@@ -9,7 +9,7 @@ export default function Eliminado() {
     useEffect(() => {
         setIsLoading(true)
         const fetchData = async () => {
-            const res = await fetch(`https://portfolio-pilaru-back.onrender.com/api/entrevistas`)
+            const res = await fetch(`https://portfolio-pilaru-back.onrender.com/api/videos`)
             const data = await res.json()
             setData(data)
             setIsLoading(false)
@@ -20,10 +20,10 @@ export default function Eliminado() {
     const eliminarElemento = async (id) => {
         setIsLoading(true)
         try {
-            await fetch(`https://portfolio-pilaru-back.onrender.com/api/entrevistas/${id}`, {
+            await fetch(`https://portfolio-pilaru-back.onrender.com/api/videos/${id}`, {
                 method: 'DELETE'
             })
-            const newData = data.filter(item => item.entrevistaId !== id)
+            const newData = data.filter(item => item.id !== id)
             setData(newData)
         }
         catch (error) {
@@ -39,14 +39,14 @@ export default function Eliminado() {
                 return (
                     <div key={index} className="grid grid-cols-3 justify-items-center items-center border-blue-200 border-b-4 pb-6">
                         <Image
-                            src={item.img}
+                            src={item.poster}
                             width={100}
                             height={100}
-                            alt="Imagen de la entrevista a borrar" />
+                            alt="Imagen del video a borrar" />
                         <p>{item.titulo}</p>
                         <Image
                             className="hover:cursor-pointer"
-                            onClick={() => { eliminarElemento(item.entrevistaId) }}
+                            onClick={() => { eliminarElemento(item.id) }}
                             src='/iconos/basura.svg'
                             width={40}
                             height={40}
