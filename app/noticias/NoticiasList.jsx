@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import '@/app/globals.css'
+import CarpetaVacia
+ from "@/components/CarpetaVacia/CarpetaVacia"
 const URL_BASE_NOTICIAS = 'https://portfolio-pilaru-back.onrender.com/api/noticias'
 
 const fecthNoticias = () => {
@@ -12,6 +14,12 @@ const fecthNoticias = () => {
 }
 export default async function NoticiasList() {
     const noticias = await fecthNoticias()
+
+    if (noticias.length === 0) return (
+        <div className="grid grid-cols-1 justify-items-center">
+            <CarpetaVacia />
+        </div>
+    )
     return (
         <div className="lg:grid lg:grid-cols-3 lg:gap-4 lg:justify-items-center ">
             {noticias.slice(-12).map((noticia) => (

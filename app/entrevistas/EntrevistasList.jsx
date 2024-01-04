@@ -1,5 +1,7 @@
 import '@/app/globals.css'
 import Image from 'next/image'
+import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
+
 const URL_BASE_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/entrevistas'
 
 const fetchEntrevistas = () => {
@@ -12,6 +14,12 @@ const fetchEntrevistas = () => {
 
 export default async function EntrevistasList() {
     const entrevistas = await fetchEntrevistas()
+
+    if (entrevistas.length === 0) return (
+        <div className="grid grid-cols-1 justify-items-center">
+            <CarpetaVacia />
+        </div>
+    )
     return (
         <div className="lg:grid lg:grid-cols-2 lg:gap-4">
             {entrevistas.slice(-10).map((entrevista) => (

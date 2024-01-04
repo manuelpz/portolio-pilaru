@@ -1,6 +1,8 @@
 import Image from "next/image"
 import '@/app/globals.css'
 import '@/app/reconocimientos/reconocimientos.css'
+import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
+
 const URL_BASE_RECONOCIMIENTOS = 'https://portfolio-pilaru-back.onrender.com/api/reconocimientos'
 
 const fetchReconocimientos = () => {
@@ -12,6 +14,12 @@ const fetchReconocimientos = () => {
 }
 export default async function ReconocimientosList() {
     const reconocimientos = await fetchReconocimientos()
+
+    if (reconocimientos.length === 0) return (
+        <div className="grid grid-cols-1 justify-items-center">
+            <CarpetaVacia />
+        </div>
+    )
     return (
         <div className="grid grid cols-1 justify-items-center
                         lg:grid lg:grid-cols-1 lg:justify-items-center">

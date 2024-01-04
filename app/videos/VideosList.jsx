@@ -1,5 +1,7 @@
 import '@/app/globals.css'
 import '@/app/videos/videos.css'
+import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
+
 const URL_BASE_VIDEOS = 'https://portfolio-pilaru-back.onrender.com/api/videos'
 
 const fetchVideos = () => {
@@ -12,6 +14,11 @@ const fetchVideos = () => {
 
 export default async function NoticiasList() {
     const videos = await fetchVideos()
+    if (videos.length === 0) return (
+        <div className="grid grid-cols-1 justify-items-center">
+            <CarpetaVacia />
+        </div>
+    )
     return (
         <div className="grid-cols-2
                         lg:grid lg:justify-items-center">

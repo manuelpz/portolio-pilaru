@@ -1,4 +1,6 @@
 import Image from "next/image"
+import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
+
 const URL_BASE_PODCASTS = 'https://portfolio-pilaru-back.onrender.com/api/podcasts'
 
 const fetchVideos = () => {
@@ -11,6 +13,12 @@ const fetchVideos = () => {
 
 export default async function NoticiasList() {
     const podcasts = await fetchVideos()
+
+    if (podcasts.length === 0) return (
+        <div className="grid grid-cols-1 justify-items-center">
+            <CarpetaVacia />
+        </div>
+    )
     return (
         <div className="lg:grid lg:grid-cols-2 lg:gap-4">
             {podcasts.slice(-10).map((podcast) => (
