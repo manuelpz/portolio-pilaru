@@ -3,3 +3,13 @@ video {
   height: revert-layer;
   object-fit: unset;
 }
+
+@media screen and (max-width: 650px) {
+  video {
+    max-width: 100%;
+    max-height: 250px;
+    height: revert-layer;
+    object-fit: unset;
+  }
+    
+}
