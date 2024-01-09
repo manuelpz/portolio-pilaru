@@ -1,4 +1,5 @@
-video[poster]{
-    width: 640px;
-    height: 410px;
+video {
+  max-width: 100%;
+  height: revert-layer;
+  object-fit: unset;
 }
