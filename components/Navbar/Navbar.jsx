@@ -58,7 +58,7 @@ const Navbar = () => {
                         <div className="flex-shrink-0 justify-startz mr-10">
                             <Link href="/about">
                                 <Image
-                                    src={"/logo/icono-pilar-ramos-navidad.png"}
+                                    src={"/logo/icono-pilar-ramos.png"}
                                     width={41}
                                     height={55}
                                     alt="Pilar Ramos Logo"
