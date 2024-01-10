@@ -2,8 +2,8 @@
 import emailjs from "emailjs-com"
 import { Form, Input, TextArea } from "semantic-ui-react"
 import Swal from "sweetalert2"
+import RedesConjuntas from "@/components/RedesSociales/RedesConjuntas"
 import '@/app/contacto/contacto.css'
-import RedesSociales from "@/components/RedesSociales"
 
 const SERVICE_ID = "service_ljm539c"
 const TEMPLATE_ID = "template_kv5cii8"
@@ -96,13 +96,7 @@ export default function ContactoRender() {
                         <h2>
                             <b className="contactanos">Sígueme en mis redes</b>
                         </h2>
-                        <div className="flex">
-                            <RedesSociales red={"https://www.instagram.com/pilaruramos"} icono={"/iconos/instagram.svg"} />
-                            <RedesSociales red={"https://www.linkedin.com/in/pilaru-ramos-b9533474/?originalSubdomain=es"} icono={"/iconos/linkedin.svg"} />
-                            <RedesSociales red={"https://www.youtube.com/@PilaruRamos"} icono={"/iconos/youtube.svg"} />
-                            <RedesSociales red={"https://www.facebook.com/PilaruRamoss/"} icono={"/iconos/facebook.svg"} />
-                            <RedesSociales red={"https://twitter.com/pilaruramos"} icono={"/iconos/twitter.svg"} />
-                        </div>
+                        <RedesConjuntas />
                     </div>
                 </div>
             </div>

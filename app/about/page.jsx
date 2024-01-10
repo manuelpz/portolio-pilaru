@@ -1,6 +1,6 @@
 import { metadata } from "../layout"
 import Image from "next/image"
-import RedesSociales from "@/components/RedesSociales"
+import RedesConjuntas from "@/components/RedesSociales/RedesConjuntas"
 import '@/app/about/about.css'
 export default function About() {
     metadata.title = "Sobre mi | Pilar Ramos"
@@ -65,13 +65,7 @@ export default function About() {
                     alt="Pilar Ramos Logo"
                 />
                 <br />
-                <div className="flex">
-                    <RedesSociales red={"https://www.instagram.com/pilaruramos"} icono={"/iconos/instagram.svg"} />
-                    <RedesSociales red={"https://www.linkedin.com/in/pilaru-ramos-b9533474/?originalSubdomain=es"} icono={"/iconos/linkedin.svg"} />
-                    <RedesSociales red={"https://www.youtube.com/@PilaruRamos"} icono={"/iconos/youtube.svg"} />
-                    <RedesSociales red={"https://www.facebook.com/PilaruRamoss/"} icono={"/iconos/facebook.svg"} />
-                    <RedesSociales red={"https://twitter.com/pilaruramos"} icono={"/iconos/twitter.svg"} />
-                </div>
+                <RedesConjuntas />
             </div>
         </div>
     )
