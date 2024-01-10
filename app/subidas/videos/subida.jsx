@@ -15,10 +15,15 @@ export default function Subida() {
     const [selectedVideo, setSelectedVideo] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
     const [posterPreview, setPosterPreview] = useState(null)
+    const [comentario, setComentario] = useState('')
 
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value)
+    }
+
+    const handleComentarioChange = (e) => {
+        setComentario(e.target.value)
     }
 
     const handleVideoChange = (e) => {
@@ -52,6 +57,7 @@ export default function Subida() {
         setIsLoading(true)
         const formData = new FormData
         formData.append("video", selectedVideo)
+        formData.append("comentario", comentario)
         formData.append("titulo", titulo)
         formData.append("poster", poster)
         try {
@@ -106,6 +112,18 @@ export default function Subida() {
                             placeholder="Inserta un titulo"
                             value={titulo}
                             onChange={handleTituloChange}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="text" className="block text-gray-600 font-medium">¿Quieres añadir un comentario (descripción)?</label>
+                        <input
+                            type="text"
+                            id="comentario"
+                            className="mt-1 p-2 w-full border rounded-md"
+                            placeholder="Inserta un comentario al vídeo"
+                            value={comentario}
+                            onChange={handleComentarioChange}
                             required
                         />
                     </div>
