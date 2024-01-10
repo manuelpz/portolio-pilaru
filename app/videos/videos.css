@@ -1,6 +1,7 @@
 video {
-  max-width: 100%;
+  max-width: 550px;
   height: revert-layer;
+  max-height: 350px;
   object-fit: unset;
 }
 
