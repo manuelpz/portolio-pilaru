@@ -6,6 +6,7 @@ import ReactModal from "react-modal"
 export default function Eliminado() {
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+    const [isHovered, setIsHovered] = useState(false)
     const [modalIsOpen, setModalIsOpen] = useState(false)
     useEffect(() => {
         setIsLoading(true)
@@ -17,6 +18,10 @@ export default function Eliminado() {
         }
         fetchData()
     }, [])
+
+    const handleHover = () => {
+        setIsHovered(!isHovered)
+    }
 
     const eliminarElemento = async (id) => {
         setIsLoading(true)
@@ -46,9 +51,11 @@ export default function Eliminado() {
                             alt="Imagen de la noticia a borrar" />
                         <p>{item.titulo}</p>
                         <Image
-                            className="hover:cursor-pointer"
-                            onClick={() => { eliminarElemento(item.id) }}
-                            src='/iconos/basura.svg'
+                            onMouseEnter={handleHover}
+                            onMouseLeave={handleHover}
+                            className="hover:cursor-pointer transform hover:scale-110 transition duration-500 ease-in-out"
+                            onClick={() => { setModalIsOpen(true) }}
+                            src={isHovered ? '/iconos/basura-abierta.svg' : '/iconos/basura.svg'}
                             width={40}
                             height={40}
                             alt="Icono de basura" />

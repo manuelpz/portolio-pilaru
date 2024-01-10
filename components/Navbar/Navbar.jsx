@@ -86,19 +86,18 @@ const Navbar = () => {
                                 className="text-gray-300 text-white hover:text-white"
                                 aria-label="Toggle menu"
                             >
-                                <svg className="h-6 w-6 fill-current">
+                                <svg className="h-6 w-6 fill-current mr-4 mt-2">
                                     {isMobileMenuOpen ? (
-                                        <path
-                                            fillRule="evenodd"
-                                            clipRule="evenodd"
-                                            d="M19 11H5v-1h14v1zm0-5H5V6h14v1zm0 10H5v-1h14v1z"
-                                        />
+                                        <svg>
+                                            <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                                            <line x1="4" y1="20" x2="20" y2="4" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                                        </svg>
                                     ) : (
-                                        <path
-                                            fillRule="evenodd"
-                                            clipRule="evenodd"
-                                            d="M4 6h16v1H4V6zm0 5h16v1H4v-1zm0 5h16v1H4v-1z"
-                                        />
+                                        <svg>
+                                            <rect width="24" height="3" rx="1.5" />
+                                            <rect y="8" width="24" height="3" rx="1.5" />
+                                            <rect y="16" width="24" height="3" rx="1.5" />
+                                        </svg>
                                     )}
                                 </svg>
                             </button>
