@@ -1,7 +1,7 @@
 'use client'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
 import Image from 'next/image'
@@ -94,6 +94,17 @@ export default function Subida() {
             })
         }
     }
+
+    useEffect(() => {
+        if (comentario.length > 350) {
+            Swal.fire({
+                icon: "error",
+                title: "El comentario no puede superar los 350 caracteres",
+            }).then(() => {
+                setComentario(comentario.substring(0, 350))
+            })
+        }
+    }, [comentario])
 
     if (isLoading) return (<Loader />)
     return (

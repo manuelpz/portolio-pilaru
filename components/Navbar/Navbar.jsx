@@ -75,6 +75,8 @@ const Navbar = () => {
                             <NavbarItemsNormal path={"/noticias"} description={"Noticias"} />
                             <NavbarItemsNormal path={"/entrevistas"} description={"Entrevistas"} />
                             <NavbarItemsNormal path={"/podcasts"} description={"Podcasts"} />
+                            <NavbarItemsNormal path={"/recomendaciones"} description={"Recomendaciones"} />
+                            <NavbarItemsNormal path={"/colaboradores"} description={"Colaboradores"} />
                             {usuario !== undefined && usuario.loged == 1 ? (<NavbarItemsNormal path={"/adminPanel"} description={"AdminPanel"} />) : null}
                             {usuario !== undefined && usuario.loged == 1 ? (<Link href={'/'} onClick={cerrarSesion}>Cerrar sesion</Link>) : null}
                         </div>
@@ -117,6 +119,8 @@ const Navbar = () => {
                         <NavbarItemsMobile path={"/noticias"} description={"Noticias"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/podcasts"} description={"Podcasts"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/recomendaciones"} description={"Recomendaciones"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/colaboradores"} description={"Colaboradores"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         {usuario !== undefined && usuario.loged == 1 ? (<NavbarItemsMobile path={"/adminPanel"} description={"AdminPanel"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />) : null}
                         <li>
                             {usuario !== undefined && usuario.loged == 1 ? (<Link className="block border-solid border-b-2 hover:font-bold !mt-4 pr-4 pb-2" href={"/"} onClick={cerrarSesionYMenu}>Cerrar sesion</Link>) : null}
@@ -136,6 +140,8 @@ const Navbar = () => {
                         <NavbarItemsMobile path={"/noticias"} description={"Noticias"} />
                         <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} />
                         <NavbarItemsMobile path={"/podcasts"} description={"Podcasts"} />
+                        <NavbarItemsMobile path={"/recomendaciones"} description={"Recomendaciones"} />
+                        <NavbarItemsMobile path={"/colaboradores"} description={"Colaboradores"} />
                         {usuario !== undefined && usuario.loged == 1 ? (<NavbarItemsMobile path={"/adminPanel"} description={"AdminPanel"} />) : null}
                         {usuario !== undefined && usuario.loged == 1 ? (<Link href={"/"} onClick={cerrarSesionYMenu}>Cerrar sesion</Link>) : null}
                     </ul>

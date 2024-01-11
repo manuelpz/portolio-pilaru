@@ -89,79 +89,81 @@ export default function Subida() {
         return <Loader />
     }
     return (
-        <AdminValidation component={<div className="flex justify-center">
-            <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
-                <div className="text-center">
-                    <h2 className="text-2xl font-semibold">Publicar nueva entrevista</h2>
-                </div>
-                <form encType="multipart/form-data" className="space-y-4">
-                    <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Titulo de la entrevista</label>
-                        <input
-                            type="text"
-                            id="titulo"
-                            className="mt-1 p-2 w-full border rounded-md"
-                            placeholder="Inserta un titulo"
-                            value={titulo}
-                            onChange={handleTituloChange}
-                            required
-                        />
+        <AdminValidation component={
+            <div className="flex justify-center">
+                <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
+                    <div className="text-center">
+                        <h2 className="text-2xl font-semibold">Publicar nueva entrevista</h2>
                     </div>
-                    <div>
+                    <form encType="multipart/form-data" className="space-y-4">
                         <div>
-                            <div className='flex space-x-24'>
-                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        className="hidden"
-                                        name="img"
-                                        onChange={handleImageChange}
-                                    />
-                                    {'Seleccionar imagen'}
-                                </label>
-                            </div>
+                            <label htmlFor="text" className="block text-gray-600 font-medium">Titulo de la entrevista</label>
+                            <input
+                                type="text"
+                                id="titulo"
+                                className="mt-1 p-2 w-full border rounded-md"
+                                placeholder="Inserta un titulo"
+                                value={titulo}
+                                onChange={handleTituloChange}
+                                required
+                            />
                         </div>
                         <div>
-                            <div className='flex space-x-24'>
-                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
-                                    <input
-                                        type="file"
-                                        accept="audio/*"
-                                        className="hidden"
-                                        name="video"
-                                        onChange={handleVideoChange} />
-                                    {`Seleccionar entrevista`}
-                                </label>
-                                <BotonVolver url={"/adminPanel"} />
-                            </div>
-                            {nombreEntrevista && (
-                                <div className='flex justify-center items-center mb-6'>
-                                    <p className='font-bold'>Estás subiendo la entrevista:</p>
-                                    <p className="block py-1 text-blue-500 ml-6 font-semibold w-1/2 text-sm"> {nombreEntrevista}</p>
+                            <div>
+                                <div className='flex space-x-24'>
+                                    <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
+                                        <input
+                                            type="file"
+                                            accept="image/*"
+                                            className="hidden"
+                                            name="img"
+                                            onChange={handleImageChange}
+                                        />
+                                        {'Seleccionar imagen'}
+                                    </label>
                                 </div>
-                            )}
-                            {imagePreview && (
-                                <Image
-                                    alt="Vista previa de la imagen a subir"
-                                    className="w-64 h-64 object-cover mx-auto m-4"
-                                    src={imagePreview}
-                                    width={200}
-                                    height={200}
-                                />
-                            )}
+                            </div>
+                            <div>
+                                <div className='flex space-x-24'>
+                                    <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
+                                        <input
+                                            type="file"
+                                            accept="audio/*"
+                                            className="hidden"
+                                            name="video"
+                                            onChange={handleVideoChange} />
+                                        {`Seleccionar entrevista`}
+                                    </label>
+                                    <BotonVolver url={"/adminPanel"} />
+                                </div>
+                                {nombreEntrevista && (
+                                    <div className='flex justify-center items-center mb-6'>
+                                        <p className='font-bold'>Estás subiendo la entrevista:</p>
+                                        <p className="block py-1 text-blue-500 ml-6 font-semibold w-1/2 text-sm"> {nombreEntrevista}</p>
+                                    </div>
+                                )}
+                                {imagePreview && (
+                                    <Image
+                                        alt="Vista previa de la imagen a subir"
+                                        className="w-64 h-64 object-cover mx-auto m-4"
+                                        src={imagePreview}
+                                        width={200}
+                                        height={200}
+                                    />
+                                )}
+                            </div>
+                            <button
+                                type='button'
+                                onClick={() => enviarDatos()}
+                                className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
+                            >
+                                Publicar entrevista
+                            </button>
                         </div>
-                        <button
-                            type='button'
-                            onClick={() => enviarDatos()}
-                            className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
-                        >
-                            Publicar entrevista
-                        </button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>} />
+        } />
 
     )
 }

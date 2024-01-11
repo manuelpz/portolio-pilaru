@@ -7,7 +7,7 @@ import ReactModal from "react-modal"
 export default function Eliminado() {
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(false)
-    const [isHovered, setIsHovered] = useState(false)
+    const [hoveredItemId, setHoveredItemId] = useState(null)
     const [modalIsOpen, setModalIsOpen] = useState(false)
     useEffect(() => {
         setIsLoading(true)
@@ -20,8 +20,8 @@ export default function Eliminado() {
         fetchData()
     }, [])
 
-    const handleHover = () => {
-        setIsHovered(!isHovered)
+    const handleHover = (id) => {
+        setHoveredItemId(id)
     }
 
     const eliminarElemento = async (id) => {
@@ -44,7 +44,7 @@ export default function Eliminado() {
         <div>
             {data.map((item, index) => {
                 return (
-                    <div key={index} className="grid grid-cols-3 justify-items-center items-center border-blue-200 border-b-4 pb-6">
+                    <div key={index} className="grid grid-cols-3 justify-items-center items-center border-blue-200 border-b-4 pb-6 mt-6">
                         <Image
                             src={item.img}
                             width={100}
@@ -52,11 +52,11 @@ export default function Eliminado() {
                             alt="Imagen del podcast a borrar" />
                         <p>{item.titulo}</p>
                         <Image
-                            onMouseEnter={handleHover}
-                            onMouseLeave={handleHover}
+                            onMouseEnter={() => handleHover(item.id)}
+                            onMouseLeave={() => handleHover(null)}
                             className="hover:cursor-pointer transform hover:scale-110 transition duration-500 ease-in-out"
                             onClick={() => { setModalIsOpen(true) }}
-                            src={isHovered ? '/iconos/basura-abierta.svg' : '/iconos/basura.svg'}
+                            src={hoveredItemId === item.id ? '/iconos/basura-abierta.svg' : '/iconos/basura.svg'}
                             width={40}
                             height={40}
                             alt="Icono de basura" />
