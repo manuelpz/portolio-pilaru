@@ -20,12 +20,12 @@ export default async function NoticiasList() {
         </div>
     )
     return (
-        <div className="grid  h-1/2 lg:grid-cols-2 lg:justify-items-center lg:ml-10">
+        <div className="grid  h-1/2 xl:grid-cols-2 lg:justify-items-center lg:ml-10">
             {videos.slice(-12).map((video) => (
                 <div key={video.id} className={`aparicion mt-12 scroll-animation w-full`}>
                     <h1 className="text-center font-bold uppercase text-xl">{video.titulo}</h1>
                     <br />
-                    {video.comentario && <p className="text-justify mx-6 lg:mx-12">{video.comentario}</p>}
+                    {video.comentario && <p className="text-justify mx-6 lg:mx-24 xl:mx-12">{video.comentario}</p>}
                     <br />
                     <div className="flex mt-4 justify-center lg:m-4">
                         <video width={640} height={480} controls poster={video.poster} className='lg:rounded'>
