@@ -11,7 +11,7 @@ export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [isLoading, setIsLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
-    const [poster, setPoster] = useState('')
+    const [poster, setPoster] = useState(null)
     const [selectedVideo, setSelectedVideo] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
     const [posterPreview, setPosterPreview] = useState(null)
