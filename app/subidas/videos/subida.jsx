@@ -87,7 +87,7 @@ export default function Subida() {
         catch (error) {
             setIsLoading(false)
             Swal.fire({
-                icon: "success",
+                icon: "error",
                 title: ERROR_INESPERADO,
             }).then(() => {
                 window.location.reload()

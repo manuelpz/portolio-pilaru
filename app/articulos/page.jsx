@@ -1,8 +1,8 @@
 import { metadata } from "../layout"
 import NoticiasList from "./NoticiasList"
 export default function Noticias() {
-    metadata.title = "Noticias | Pilar Ramos"
-    metadata.description = "Ultimas noticias"
+    metadata.title = "Articulos | Pilar Ramos"
+    metadata.description = "Ultimos artículos publicados por Pilar Ramos"
 
 
     return (

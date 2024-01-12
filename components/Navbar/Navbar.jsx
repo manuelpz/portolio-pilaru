@@ -72,7 +72,7 @@ const Navbar = () => {
                             <NavbarItemsNormal path={"/reconocimientos"} description={"Reconocimientos y premios"} />
                             <NavbarItemsNormal path={"/contacto"} description={"Contacto"} />
                             <NavbarItemsNormal path={"/videos"} description={"Videos"} />
-                            <NavbarItemsNormal path={"/noticias"} description={"Noticias"} />
+                            <NavbarItemsNormal path={"/articulos"} description={"Articulos"} />
                             <NavbarItemsNormal path={"/entrevistas"} description={"Entrevistas"} />
                             <NavbarItemsNormal path={"/podcasts"} description={"Podcasts"} />
                             <NavbarItemsNormal path={"/recomendaciones"} description={"Recomendaciones"} />
@@ -116,7 +116,7 @@ const Navbar = () => {
                         <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/contacto"} description={"Contacto"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/videos"} description={"Videos"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
-                        <NavbarItemsMobile path={"/noticias"} description={"Noticias"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/articulos"} description={"Articulos"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/podcasts"} description={"Podcasts"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/recomendaciones"} description={"Recomendaciones"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
@@ -137,7 +137,7 @@ const Navbar = () => {
                         <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} />
                         <NavbarItemsMobile path={"/contacto"} description={"Contacto"} />
                         <NavbarItemsMobile path={"/videos"} description={"Videos"} />
-                        <NavbarItemsMobile path={"/noticias"} description={"Noticias"} />
+                        <NavbarItemsMobile path={"/articulos"} description={"Articulos"} />
                         <NavbarItemsMobile path={"/entrevistas"} description={"Entrevistas"} />
                         <NavbarItemsMobile path={"/podcasts"} description={"Podcasts"} />
                         <NavbarItemsMobile path={"/recomendaciones"} description={"Recomendaciones"} />
