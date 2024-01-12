@@ -21,7 +21,7 @@ export default async function NoticiasList() {
     )
     return (
         <div className="grid  h-1/2 xl:grid-cols-2 lg:justify-items-center lg:ml-10">
-            {videos.slice(-12).map((video) => (
+            {videos.slice(12).map((video) => (
                 <div key={video.id} className={`aparicion mt-12 scroll-animation w-full`}>
                     <h1 className="text-center font-bold uppercase text-xl">{video.titulo}</h1>
                     <br />

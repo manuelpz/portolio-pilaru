@@ -21,7 +21,7 @@ export default async function NoticiasList() {
     )
     return (
         <div className="lg:grid lg:grid-cols-2 lg:gap-4">
-            {podcasts.slice(-10).map((podcast) => (
+            {podcasts.slice(12).map((podcast) => (
                 <div key={podcast.id}
                     className="grid grid-cols-1 justify-items-center aparicion scroll-animation mb-12
                                lg:mb-32

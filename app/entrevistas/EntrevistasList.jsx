@@ -22,7 +22,7 @@ export default async function EntrevistasList() {
     )
     return (
         <div className="lg:grid lg:grid-cols-2 lg:gap-4">
-            {entrevistas.slice(-10).map((entrevista) => (
+            {entrevistas.slice(10).map((entrevista) => (
                 <div key={entrevista.id}
                     className="grid grid-cols-1 justify-items-center aparicion scroll-animation mb-12
                                lg:mb-32

@@ -22,7 +22,7 @@ export default async function NoticiasList() {
     )
     return (
         <div className="lg:grid lg:grid-cols-3 lg:gap-4 lg:justify-items-center ">
-            {noticias.slice(-12).map((noticia) => (
+            {noticias.slice(12).map((noticia) => (
                 <Link
                     href='/noticias/[id]' as={`/noticias/${noticia.id}`}
                     key={noticia.id}
