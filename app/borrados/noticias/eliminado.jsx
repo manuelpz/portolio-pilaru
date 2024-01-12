@@ -35,6 +35,7 @@ export default function Eliminado() {
         catch (error) {
             console.log(error)
         }
+        setModalIsOpen(false)
         setIsLoading(false)
     }
 
