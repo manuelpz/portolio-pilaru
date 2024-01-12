@@ -23,7 +23,7 @@ export default async function ReconocimientosList() {
     return (
         <div className="grid grid cols-1 justify-items-center
                         lg:grid lg:grid-cols-1 lg:justify-items-center">
-            {reconocimientos.slice(12).map((reconocimiento) => (
+            {reconocimientos.slice(0,12).map((reconocimiento) => (
                 <div
                     key={reconocimiento.id}
                     className={`grid lg:grid-cols-2 justify-items-center w-9/12 h-9/12 rounded mb-8 relative m-4 aparicion scroll-animation
