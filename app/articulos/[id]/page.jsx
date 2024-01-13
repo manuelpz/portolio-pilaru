@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { metadata } from "@/app/layout"
-export default async function Noticia({ params }) {
+export default async function Articulo({ params }) {
     metadata.title = 'Noticias | Pilar Ramos'
     metadata.description = 'Descubre las últimas noticias del mundo de los cuerpos de seguridad'
     const URL_BASE_NOTICIAS = 'https://portfolio-pilaru-back.onrender.com/api/noticias'
