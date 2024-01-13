@@ -24,7 +24,7 @@ export default async function NoticiasList() {
         <div className="lg:grid lg:grid-cols-3 lg:gap-4 lg:justify-items-center ">
             {noticias.slice(0,12).map((noticia) => (
                 <Link
-                    href='/articulo/[id]' as={`/noticias/${noticia.id}`}
+                    href='/articulos/[id]' as={`/articulos/${noticia.id}`}
                     key={noticia.id}
                     className={`w-9/12 rounded overflow-hidden shadow-xl bg-[#F5F7FA]  mb-8 relative m-4 aparicion scroll-animation hover:cursor-pointer`}>
                     <div className="flex justify-center pt-6" >
