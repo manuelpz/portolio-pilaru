@@ -2,7 +2,7 @@ import '@/app/globals.css'
 import Image from 'next/image'
 import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
 
-const URL_BASE_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/entrevistas'
+const URL_BASE_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/entrevistas'
 
 const fetchEntrevistas = () => {
     return fetch(URL_BASE_ENTREVISTAS, {
@@ -22,7 +22,7 @@ export default async function EntrevistasList() {
     )
     return (
         <div className="lg:grid lg:grid-cols-2 lg:gap-4">
-            {entrevistas.slice(0,12).map((entrevista) => (
+            {entrevistas.slice(0, 12).map((entrevista) => (
                 <div key={entrevista.id}
                     className="grid grid-cols-1 justify-items-center aparicion scroll-animation mb-12
                                lg:mb-32

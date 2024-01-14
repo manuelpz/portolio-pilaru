@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
 import Image from 'next/image'
-const URL_BASE_VIDEOS = 'https://portfolio-pilaru-back.onrender.com/api/videos'
+const URL_BASE_VIDEOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos'
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
@@ -54,12 +54,14 @@ export default function Subida() {
         }
     }
     async function enviarDatos() {
+        console.log('Enviando datos x0')
         setIsLoading(true)
         const formData = new FormData
         formData.append("video", selectedVideo)
         formData.append("comentario", comentario)
         formData.append("titulo", titulo)
         formData.append("poster", poster)
+        console.log('Enviando datos x1')
         try {
             await fetch(URL_BASE_VIDEOS, {
                 method: "POST",
@@ -75,6 +77,7 @@ export default function Subida() {
                         })
                     }
                     else {
+                        console.log('Ha ido bien')
                         Swal.fire({
                             icon: "success",
                             title: data.message,

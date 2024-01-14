@@ -2,7 +2,7 @@ import '@/app/globals.css'
 import '@/app/videos/videos.css'
 import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
 
-const URL_BASE_VIDEOS = 'https://portfolio-pilaru-back.onrender.com/api/videos'
+const URL_BASE_VIDEOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos'
 
 const fetchVideos = () => {
     return fetch(URL_BASE_VIDEOS, {
@@ -21,7 +21,7 @@ export default async function NoticiasList() {
     )
     return (
         <div className="grid  h-1/2 xl:grid-cols-2 lg:justify-items-center lg:ml-10">
-            {videos.slice(0,12).map((video) => (
+            {videos.slice(0, 12).map((video) => (
                 <div key={video.id} className={`aparicion mt-12 scroll-animation w-full`}>
                     <h1 className="text-center font-bold uppercase text-xl">{video.titulo}</h1>
                     <br />

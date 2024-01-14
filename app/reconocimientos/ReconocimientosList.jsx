@@ -3,7 +3,7 @@ import '@/app/globals.css'
 import '@/app/reconocimientos/reconocimientos.css'
 import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
 
-const URL_BASE_RECONOCIMIENTOS = 'https://portfolio-pilaru-back.onrender.com/api/reconocimientos'
+const URL_BASE_RECONOCIMIENTOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/reconocimientos'
 
 const fetchReconocimientos = () => {
     return fetch(URL_BASE_RECONOCIMIENTOS, {
@@ -23,7 +23,7 @@ export default async function ReconocimientosList() {
     return (
         <div className="grid grid cols-1 justify-items-center
                         lg:grid lg:grid-cols-1 lg:justify-items-center">
-            {reconocimientos.slice(0,12).map((reconocimiento) => (
+            {reconocimientos.slice(0, 12).map((reconocimiento) => (
                 <div
                     key={reconocimiento.id}
                     className={`grid lg:grid-cols-2 justify-items-center w-9/12 h-9/12 rounded mb-8 relative m-4 aparicion scroll-animation

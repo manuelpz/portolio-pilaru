@@ -2,8 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import '@/app/globals.css'
 import CarpetaVacia
- from "@/components/CarpetaVacia/CarpetaVacia"
-const URL_BASE_NOTICIAS = 'https://portfolio-pilaru-back.onrender.com/api/noticias'
+    from "@/components/CarpetaVacia/CarpetaVacia"
+const URL_BASE_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
 
 const fecthNoticias = () => {
     return fetch(URL_BASE_NOTICIAS, {
@@ -22,7 +22,7 @@ export default async function NoticiasList() {
     )
     return (
         <div className="lg:grid lg:grid-cols-3 lg:gap-4 lg:justify-items-center ">
-            {noticias.slice(0,12).map((noticia) => (
+            {noticias.slice(0, 12).map((noticia) => (
                 <Link
                     href='/articulos/[id]' as={`/articulos/${noticia.id}`}
                     key={noticia.id}

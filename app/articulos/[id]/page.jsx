@@ -3,7 +3,7 @@ import { metadata } from "@/app/layout"
 export default async function Articulo({ params }) {
     metadata.title = 'Noticias | Pilar Ramos'
     metadata.description = 'Descubre las últimas noticias del mundo de los cuerpos de seguridad'
-    const URL_BASE_NOTICIAS = 'https://portfolio-pilaru-back.onrender.com/api/noticias'
+    const URL_BASE_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
     const { id } = params
     const fetchPost = () => {
         return fetch(`${URL_BASE_NOTICIAS}/${id}`).then(response => response.json())
@@ -28,9 +28,13 @@ export default async function Articulo({ params }) {
                     width={200}
                     height={200} />
             </div>
-            <p className="text-justify">{singlePost.descripcion}</p>
+            <div className="grid grid-cols-1">
+                <pre className="text-justify p-4 w-full max-w-screen whitespace-pre-line overflow-hidden">
+                    {singlePost.descripcion}
+                </pre>
+            </div>
             {singlePost.video != null &&
-                <div className="mt-10">
+                <div className="mt-10 grid grid-cols-1 justify-items-center">
                     <video width="640" height="480" controls>
                         <source src={singlePost.video} type="video/mp4" />
                     </video>
