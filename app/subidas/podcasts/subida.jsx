@@ -3,7 +3,6 @@ import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
-import Image from 'next/image'
 import Loader from '@/components/Loader/Loader'
 const URL_BASE_PODCASTS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts'
 
@@ -11,45 +10,18 @@ export default function Subida() {
 
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [isLoading, setIsLoading] = useState(false)
-    const [titulo, setTitulo] = useState('')
-    const [selectedVideo, setSelectedVideo] = useState('')
-    const [selectedImage, setSelectedImage] = useState(null)
-    const [imagePreview, setImagePreview] = useState(null)
-    const [nombrePodcast, setNombrePodcast] = useState(null)
+    const [url, setUrl] = useState('')
 
 
-    const handleTituloChange = (e) => {
-        setTitulo(e.target.value)
+    const handleUrlChange = (e) => {
+        setUrl(e.target.value)
     }
 
-    const handleVideoChange = (e) => {
-        const file = e.target.files[0]
-        if (file) {
-            setNombrePodcast(file.name)
-            setSelectedVideo(file)
-        }
-    }
-
-    const handleImageChange = (e) => {
-        const file = e.target.files[0]
-        if (file) {
-            setSelectedImage(file)
-
-            // Crear una vista previa de la imagen
-            const reader = new FileReader()
-            reader.onload = (e) => {
-                setImagePreview(e.target.result)
-            }
-            reader.readAsDataURL(file)
-        }
-    }
 
     async function enviarDatos() {
         setIsLoading(true)
         const formData = new FormData
-        formData.append("podcast", selectedVideo)
-        formData.append("img", selectedImage)
-        formData.append("titulo", titulo)
+        formData.append("url", url)
         try {
             await fetch(URL_BASE_PODCASTS, {
                 method: "POST",
@@ -96,61 +68,19 @@ export default function Subida() {
                 </div>
                 <form encType="multipart/form-data" className="space-y-4">
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Titulo del podcast</label>
+                        <label htmlFor="text" className="block text-gray-600 font-medium">URL del podcast</label>
                         <input
                             type="text"
-                            id="titulo"
+                            id="url"
                             className="mt-1 p-2 w-full border rounded-md"
-                            placeholder="Inserta un titulo"
-                            value={titulo}
-                            onChange={handleTituloChange}
+                            placeholder="Inserta la URL del podcast"
+                            value={url}
+                            onChange={handleUrlChange}
                             required
                         />
                     </div>
                     <div>
-                        <div>
-                            <div className='flex space-x-24'>
-                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        className="hidden"
-                                        name="img"
-                                        onChange={handleImageChange}
-                                    />
-                                    {'Seleccionar imagen'}
-                                </label>
-                            </div>
-                        </div>
-                        <div>
-                            <div className='flex space-x-24'>
-                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
-                                    <input
-                                        type="file"
-                                        accept="audio/*"
-                                        className="hidden"
-                                        name="video"
-                                        onChange={handleVideoChange} />
-                                    {`Seleccionar podcast`}
-                                </label>
-                                <BotonVolver url={"/adminPanel"} />
-                            </div>
-                            {nombrePodcast && (
-                                <div className='flex justify-center items-center mb-6'>
-                                    <p className='font-bold'>Estás subiendo el podcast:</p>
-                                    <p className="block py-1 text-blue-500 ml-6 font-semibold w-1/2 text-sm"> {nombrePodcast}</p>
-                                </div>
-                            )}
-                            {imagePreview && (
-                                <Image
-                                    alt="Vista previa de la imagen a subir"
-                                    className="w-64 h-64 object-cover mx-auto m-4"
-                                    src={imagePreview}
-                                    width={200}
-                                    height={200}
-                                />
-                            )}
-                        </div>
+                        <BotonVolver url={"/adminPanel"} />
                         <button
                             type='button'
                             onClick={() => enviarDatos()}

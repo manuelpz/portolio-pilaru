@@ -7,7 +7,7 @@ export default function Borrados() {
     return (
         <AdminValidation component={
             <div className="lg:grid lg:grid-cols-5 lg:justify-center">
-                <CardOption titulo='Eliminar una noticia' componente='/borrados/noticias' imagen={'/adminPanel/noticias_borrado.png'} hover="hover:bg-red-500" />
+                <CardOption titulo='Eliminar un articulo' componente='/borrados/articulos' imagen={'/adminPanel/noticias_borrado.png'} hover="hover:bg-red-500" />
                 <CardOption titulo='Eliminar un video' componente='/borrados/videos' imagen={'/adminPanel/videos_borrado.png'} hover="hover:bg-red-500" />
                 <CardOption titulo='Eliminar una entrevista' componente='/borrados/entrevistas' imagen={'/adminPanel/entrevistas_borrado.png'} hover="hover:bg-red-500" />
                 <CardOption titulo='Eliminar un podcast' componente='/borrados/podcasts' imagen={'/adminPanel/podcasts_borrado.png'} hover="hover:bg-red-500" />

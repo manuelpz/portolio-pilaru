@@ -9,6 +9,7 @@ export default function Eliminado() {
     const [isLoading, setIsLoading] = useState(false)
     const [hoveredItemId, setHoveredItemId] = useState(null)
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [selectedItemId, setSelectedItemId] = useState(null)
 
     useEffect(() => {
         setIsLoading(true)
@@ -24,6 +25,17 @@ export default function Eliminado() {
     const handleHover = (id) => {
         setHoveredItemId(id)
     }
+
+    const openModal = (id) => {
+        setSelectedItemId(id)
+        setModalIsOpen(true)
+    }
+
+    const closeModal = () => {
+        setSelectedItemId(null)
+        setModalIsOpen(false)
+    }
+
 
     const eliminarElemento = async (id) => {
         setIsLoading(true)
@@ -57,14 +69,15 @@ export default function Eliminado() {
                             onMouseEnter={() => handleHover(item.id)}
                             onMouseLeave={() => handleHover(null)}
                             className="hover:cursor-pointer transform hover:scale-110 transition duration-500 ease-in-out"
-                            onClick={() => { setModalIsOpen(true) }}
+                            onClick={() => openModal(item.id)}
                             src={hoveredItemId === item.id ? '/iconos/basura-abierta.svg' : '/iconos/basura.svg'}
                             width={40}
                             height={40}
                             alt="Icono de basura" />
                         <ReactModal
                             ariaHideApp={false}
-                            isOpen={modalIsOpen}
+                            isOpen={modalIsOpen && selectedItemId === item.id}
+                            onRequestClose={closeModal}
                             style={{
                                 overlay: {
                                     backgroundColor: "rgba(0, 0, 0, 0.5)",
