@@ -16,20 +16,21 @@ export default async function Articulo({ params }) {
                         lg:mr-36 lg:ml-36
                         xl:mr-36 xl:ml-36
                         2xl:mr-64 2xl:ml-64">
-            <h1 className="font-bold text-center text-2xl">{singlePost.titulo}</h1>
+            <h1 className="font-bold text-center text-2xl uppercase">{singlePost.titulo}</h1>
+            <br />
             <h2 className="text-center italic">{`${singlePost.subtitulo}`}</h2>
             <br />
             <div className="grid grid-cols-1">
                 <Image
                     className="w-40 mb-10 justify-self-center
-                                       lg:!w-48"
+                                       lg:!w-72"
                     alt='Imagen relacionada con la noticia'
                     src={singlePost.img != null ? singlePost.img : '/logo/icono-pilar-ramos.png'}
                     width={200}
                     height={200} />
             </div>
             <div className="grid grid-cols-1">
-                <pre className="text-justify p-4 w-full max-w-screen whitespace-pre-line overflow-hidden">
+                <pre className="text-justify p-4 w-full max-w-screen whitespace-pre-line overflow-hidden first-letter:text-blue-800 first-letter:font-bold first-letter:text-4xl first-letter:font-serif first-letter:capitalize">
                     {singlePost.descripcion}
                 </pre>
             </div>
