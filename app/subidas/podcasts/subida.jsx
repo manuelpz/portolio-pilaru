@@ -4,14 +4,18 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
-const URL_BASE_PODCASTS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts'
+const URL_BASE_PODCASTS = 'http://localhost:4000/api/podcasts'
 
 export default function Subida() {
 
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [isLoading, setIsLoading] = useState(false)
     const [url, setUrl] = useState('')
+    const [titulo, setTitulo] = useState('')
 
+    const handleTituloChange = (e) => {
+        setTitulo(e.target.value)
+    }
 
     const handleUrlChange = (e) => {
         setUrl(e.target.value)
@@ -22,6 +26,7 @@ export default function Subida() {
         setIsLoading(true)
         const formData = new FormData
         formData.append("url", url)
+        formData.append("titulo", titulo)
         try {
             await fetch(URL_BASE_PODCASTS, {
                 method: "POST",
@@ -67,6 +72,18 @@ export default function Subida() {
                     <h2 className="text-2xl font-semibold">Publicar nuevo podcast</h2>
                 </div>
                 <form encType="multipart/form-data" className="space-y-4">
+                    <div>
+                        <label htmlFor="text" className="block text-gray-600 font-medium">Titulo del podcast</label>
+                        <input
+                            type="text"
+                            id="titulo"
+                            className="mt-1 p-2 w-full border rounded-md"
+                            placeholder="Inserta el titulo del podcast"
+                            value={titulo}
+                            onChange={handleTituloChange}
+                            required
+                        />
+                    </div>
                     <div>
                         <label htmlFor="text" className="block text-gray-600 font-medium">URL del podcast</label>
                         <input

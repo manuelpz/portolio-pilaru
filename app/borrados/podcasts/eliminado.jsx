@@ -59,11 +59,11 @@ export default function Eliminado() {
                 return (
                     <div key={index} className="grid grid-cols-3 justify-items-center items-center border-blue-200 border-b-4 pb-6 mt-6">
                         <Image
-                            src={item.img}
-                            width={100}
-                            height={100}
+                            src={'/logo/icono-pilar-ramos.png'}
+                            width={30}
+                            height={30}
                             alt="Imagen del podcast a borrar" />
-                        <p>{item.titulo}</p>
+                        <p className="font-extrabold italic">{item.titulo}</p>
                         <Image
                             onMouseEnter={() => handleHover(item.id)}
                             onMouseLeave={() => handleHover(null)}
@@ -89,7 +89,7 @@ export default function Eliminado() {
                             }}
                         >
                             <div className="flex flex-col justify-center items-center">
-                                <p className="text-center">¿Estás seguro de que quieres eliminar este podcast?</p>
+                                <p className="text-center mb-4">¿Estás seguro de que quieres eliminar el podcast  <span className="font-bold italic">&quot;{item.titulo}&quot;</span> ?</p>
                                 <div className="flex justify-center items-center space-x-4">
                                     <button
                                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
