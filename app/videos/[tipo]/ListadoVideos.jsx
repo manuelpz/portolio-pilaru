@@ -4,6 +4,7 @@ export default function ListadoVideos({ videos }) {
     const [contador, setContador] = useState(0)
     const handleClick = () => {
         setContador(contador + 12)
+    }
         return (
             <div className="mb-8">
                 <div className="grid  h-1/2 xl:grid-cols-2 lg:justify-items-center lg:ml-10">
@@ -29,4 +30,3 @@ export default function ListadoVideos({ videos }) {
             </div>
         )
     }
-}
