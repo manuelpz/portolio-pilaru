@@ -6,9 +6,9 @@ export default async function TipoPodcast({ params }) {
     metadata.title = `Videos | Pilar Ramos`
     metadata.description = `No te pierdas los últimos videos de Pilar Ramos`
     const { tipo } = params
-    const URL_BASE_VIDEOS_TIPO = `https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos/${tipo}`
+    const URL_BASE_VIDEOS_TIPO = `https://portfolio-pilaru-back.onrender.com/api/videos/${tipo}`
     const fetchVideos = async () => {
-         return fetch(URL_BASE_VIDEOS_TIPO, {
+        return fetch(URL_BASE_VIDEOS_TIPO, {
             next: {
                 revalidate: 60 //se hace el fetch cada minuto
             }

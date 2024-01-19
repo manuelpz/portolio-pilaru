@@ -6,7 +6,7 @@ export default async function TipoPodcast({ params }) {
     metadata.title = `Podcast | Pilar Ramos`
     metadata.description = `Escucha los últimos podcasts de Pilar Ramos`
     const { tipo } = params
-    const URL_BASE_PODCASTS_TIPO = `https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts/${tipo}`
+    const URL_BASE_PODCASTS_TIPO = `https://portfolio-pilaru-back.onrender.com/api/podcasts/${tipo}`
     const fetchPodcasts = async () => {
         return fetch(URL_BASE_PODCASTS_TIPO, {
             next: {

@@ -2,7 +2,7 @@ import { metadata } from "../layout"
 import '@/app/globals.css'
 import CarpetaVacia from "@/components/CarpetaVacia/CarpetaVacia"
 import ListadoArticulos from './ListadoArticulos'
-const URL_BASE_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
+const URL_BASE_NOTICIAS = 'https://portfolio-pilaru-back.onrender.com/api/noticias'
 
 const fecthNoticias = () => {
     return fetch(URL_BASE_NOTICIAS, {
