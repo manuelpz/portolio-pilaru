@@ -7,14 +7,14 @@ export default async function TipoPodcast({ params }) {
     metadata.description = `No te pierdas los últimos videos de Pilar Ramos`
     const { tipo } = params
     const URL_BASE_VIDEOS_TIPO = `https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos/${tipo}`
-    const fetchPodcasts = () => {
-        return fetch(URL_BASE_VIDEOS_TIPO, {
+    const fetchPodcasts = async () => {
+         fetch(URL_BASE_VIDEOS_TIPO, {
             next: {
                 revalidate: 60 //se hace el fetch cada minuto
             }
         }).then(res => {
             if (res.status === 409) return []
-            res.json()
+            return res.json()
         })
     }
 
