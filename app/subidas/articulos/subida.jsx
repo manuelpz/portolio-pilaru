@@ -103,11 +103,11 @@ export default function Subida() {
         <AdminValidation component={<div className="flex justify-center">
             <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
                 <div className="text-center">
-                    <h2 className="text-2xl font-semibold">Publicar nueva noticia</h2>
+                    <h2 className="text-2xl font-semibold">Publicar nuevo artículo</h2>
                 </div>
                 <form encType="multipart/form-data" className="space-y-4">
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Titulo de la noticia</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">Titulo del artículo</label>
                         <input
                             type="text"
                             id="titulo"
@@ -119,7 +119,7 @@ export default function Subida() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Subtitulo de la noticia</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">Subtitulo del artículo</label>
                         <textarea
                             id="noticia"
                             className="mt-1 p-2 w-full border rounded-md"
@@ -130,7 +130,7 @@ export default function Subida() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Desarrollo de la noticia</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">Desarrollo del artículo</label>
                         <textarea
                             id="noticia"
                             className="mt-1 p-2 w-full border rounded-md"
@@ -153,7 +153,10 @@ export default function Subida() {
                                     />
                                     {'Seleccionar imagen'}
                                 </label>
-                                <BotonVolver url={"/adminPanel"} />
+                                <BotonVolver url={"/subidas"} />
+
+                                {/* FIN FORMULARIO */}
+
                             </div>
                             <div className='flex justify-between'>
                                 <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
@@ -188,7 +191,7 @@ export default function Subida() {
                             onClick={() => enviarDatos()}
                             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300 mt-6"
                         >
-                            Publicar noticia
+                            Publicar artículo
                         </button>
                     </div>
                 </form>

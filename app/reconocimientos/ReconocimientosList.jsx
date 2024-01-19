@@ -2,6 +2,7 @@ import Image from "next/image"
 import '@/app/globals.css'
 import '@/app/reconocimientos/reconocimientos.css'
 import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
+import Link from "next/link"
 
 const URL_BASE_RECONOCIMIENTOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/reconocimientos'
 
@@ -38,6 +39,9 @@ export default async function ReconocimientosList() {
                                         lg:justify-self-start">
                         {reconocimiento.titulo.toUpperCase()}
                         <p className="text-gray-700 text-base text-center mt-5">{reconocimiento.descripcion}</p>
+                        {reconocimiento.url &&
+                            <div className="mt-8 transition hover:scale-125 underline"><Link className="text-blue-700" target="_blank" href={reconocimiento.url}>Más información sobre este reconocimiento</Link></div>}
+                        
                     </div>
                 </div>
             ))

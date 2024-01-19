@@ -6,8 +6,20 @@ import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
 import Image from 'next/image'
 const URL_BASE_VIDEOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos'
+const URL_BASE_TIPOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/tipoVideo'
 
 export default function Subida() {
+    useEffect(() => {
+        setIsLoading(true)
+        const fetchData = async () => {
+            const res = await fetch(URL_BASE_TIPOS)
+            const data = await res.json()
+            setTipos(data)
+            setIsLoading(false)
+        }
+        fetchData()
+    }, [])
+
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [isLoading, setIsLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
@@ -16,7 +28,13 @@ export default function Subida() {
     const [imagePreview, setImagePreview] = useState(null)
     const [posterPreview, setPosterPreview] = useState(null)
     const [comentario, setComentario] = useState('')
+    const [tipo, setTipo] = useState('')
+    const [tipos, setTipos] = useState([])
 
+
+    const handleTipoChange = (e) => {
+        setTipo(e.target.value)
+    }
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value)
@@ -54,36 +72,40 @@ export default function Subida() {
         }
     }
     async function enviarDatos() {
-        console.log('Enviando datos x0')
         setIsLoading(true)
         const formData = new FormData
         formData.append("video", selectedVideo)
         formData.append("comentario", comentario)
         formData.append("titulo", titulo)
         formData.append("poster", poster)
-        console.log('Enviando datos x1')
+        formData.append("tipo", tipo)
         try {
             await fetch(URL_BASE_VIDEOS, {
                 method: "POST",
                 body: formData
             })
-                .then(res => res.json())
-                .then(data => {
-                    setIsLoading(false)
-                    if (data.code == 409) {
-                        Swal.fire({
-                            icon: "error",
-                            title: data.message,
-                        })
+                .then(res => {
+                    if (res.status === 409) {
+                        res.json()
+                            .then(data => {
+                                setIsLoading(false)
+                                Swal.fire({
+                                    icon: "error",
+                                    title: data.message,
+                                })
+                            })
                     }
                     else {
-                        console.log('Ha ido bien')
-                        Swal.fire({
-                            icon: "success",
-                            title: data.message,
-                        }).then(() => {
-                            window.location.reload()
-                        })
+                        res.json()
+                            .then(data => {
+                                setIsLoading(false)
+                                Swal.fire({
+                                    icon: "success",
+                                    title: data.message,
+                                }).then(() => {
+                                    window.location.reload()
+                                })
+                            })
                     }
                 })
         }
@@ -118,7 +140,7 @@ export default function Subida() {
                 </div>
                 <form encType="multipart/form-data" className="space-y-4">
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Titulo del video</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">Titulo del video</label>
                         <input
                             type="text"
                             id="titulo"
@@ -130,7 +152,7 @@ export default function Subida() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">¿Quieres añadir un comentario (descripción)?</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">¿Quieres añadir un comentario (descripción)?</label>
                         <input
                             type="text"
                             id="comentario"
@@ -141,6 +163,15 @@ export default function Subida() {
                             required
                         />
                     </div>
+                    <label className="block text-black font-bold font-bold">¿A qué sección lo añadimos?</label>
+                    <select onChange={handleTipoChange} className='border border-1 border-black rounded' name="videosSelect">
+                        <optgroup label="Selecciona una opción">
+                            {tipos.map((tipo) => (
+                                <option key={tipo.id} value={tipo.id}>{tipo.tipo.charAt(0).toUpperCase()}{tipo.tipo.slice(1)}</option>
+
+                            ))}
+                        </optgroup>
+                    </select>
                     <div>
                         <div>
                             <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
@@ -164,7 +195,7 @@ export default function Subida() {
                                     />
                                     {`Seleccionar miniatura (Vista previa)`}
                                 </label>
-                                <BotonVolver url={"/adminPanel"} />
+                                <BotonVolver url={"/subidas"} />
                             </div>
                         </div>
                         {imagePreview && (

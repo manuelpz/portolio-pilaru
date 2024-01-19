@@ -97,7 +97,7 @@ export default function Subida() {
                     </div>
                     <form encType="multipart/form-data" className="space-y-4">
                         <div>
-                            <label htmlFor="text" className="block text-gray-600 font-medium">Titulo de la entrevista</label>
+                            <label htmlFor="text" className="block text-gray-600 font-bold">Titulo de la entrevista</label>
                             <input
                                 type="text"
                                 id="titulo"
@@ -134,7 +134,7 @@ export default function Subida() {
                                             onChange={handleVideoChange} />
                                         {`Seleccionar entrevista`}
                                     </label>
-                                    <BotonVolver url={"/adminPanel"} />
+                                    <BotonVolver url={"/subidas"} />
                                 </div>
                                 {nombreEntrevista && (
                                     <div className='flex justify-center items-center mb-6'>

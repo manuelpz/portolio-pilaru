@@ -1,8 +1,15 @@
 import Link from "next/link"
 import { usePathname } from 'next/navigation'
 export default function NavbarItemsMobile({ path, description, setIsMenuOpen }) {
+    const regexArticulos = /^\/articulos\/(\d+)$/
+    const regexVideos = /^\/videos\/(\d+)$/
+    const regexPodcasts = /^\/podcasts\/(\d+)$/
+
     let pathname = usePathname()
     pathname = pathname == "/" ? "/about" : pathname
+    pathname = regexArticulos.test(pathname) ? "/articulos" : pathname
+    pathname = regexVideos.test(pathname) ? "/videos" : pathname
+    pathname = regexPodcasts.test(pathname) ? "/podcasts" : pathname
     return (
         <li>
             <Link

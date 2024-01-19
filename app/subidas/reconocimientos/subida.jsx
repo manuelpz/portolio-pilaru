@@ -15,6 +15,7 @@ export default function Subida() {
     const [descripcion, setDescripcion] = useState('')
     const [selectedImage, setSelectedImage] = useState(null)
     const [imagePreview, setImagePreview] = useState(null)
+    const [url, setUrl] = useState('')
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value)
@@ -22,6 +23,10 @@ export default function Subida() {
 
     const handleDescripcionChange = (e) => {
         setDescripcion(e.target.value)
+    }
+
+    const handleUrlChange = (e) => {
+        setUrl(e.target.value)
     }
 
     const handleImageChange = (e) => {
@@ -44,6 +49,7 @@ export default function Subida() {
         formData.append("img", selectedImage)
         formData.append("titulo", titulo)
         formData.append("descripcion", descripcion)
+        formData.append("url", url)
 
         try {
             await fetch(URL_BASE_RECONOCIMIENTOS, {
@@ -92,7 +98,7 @@ export default function Subida() {
                 </div>
                 <form encType="multipart/form-data" className="space-y-4">
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Nombre del reconociemto</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">Nombre del reconociemto</label>
                         <input
                             type="text"
                             id="titulo"
@@ -104,7 +110,19 @@ export default function Subida() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Presume tu reconocimiento</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">Link/URL del reconocimiento</label>
+                        <input
+                            type="text"
+                            id="url"
+                            className="mt-1 p-2 w-full border rounded-md"
+                            placeholder="Inserta una URL (OPCIONAL)"
+                            value={url}
+                            onChange={handleUrlChange}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="text" className="font-bold block text-gray-600 font-bold">Presume tu reconocimiento</label>
                         <textarea
                             id="noticia"
                             className="mt-1 p-2 w-full border rounded-md"
@@ -117,7 +135,7 @@ export default function Subida() {
                     <div>
                         <div>
                             <div className='flex space-x-24'>
-                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
+                                <label className="font-bold block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
                                     <input
                                         type="file"
                                         accept="image/*"
@@ -127,7 +145,7 @@ export default function Subida() {
                                     />
                                     {'Seleccionar imagen'}
                                 </label>
-                                <BotonVolver url={"/adminPanel"} />
+                                <BotonVolver url={"/subidas"} />
                             </div>
                             {imagePreview && (
                                 <Image

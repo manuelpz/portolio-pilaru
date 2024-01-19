@@ -1,17 +1,37 @@
 'use client'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
-const URL_BASE_PODCASTS = 'http://localhost:4000/api/podcasts'
+const URL_BASE_PODCASTS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts'
+const URL_BASE_TIPOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/tipoPodcast'
+
 
 export default function Subida() {
+    useEffect(() => {
+        setIsLoading(true)
+        const fetchData = async () => {
+            const res = await fetch(URL_BASE_TIPOS)
+            const data = await res.json()
+            setTipos(data)
+            setIsLoading(false)
+        }
+        fetchData()
+    }, [])
+
 
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [isLoading, setIsLoading] = useState(false)
     const [url, setUrl] = useState('')
     const [titulo, setTitulo] = useState('')
+    const [tipo, setTipo] = useState('')
+    const [tipos, setTipos] = useState([])
+
+
+    const handleTipoChange = (e) => {
+        setTipo(e.target.value)
+    }
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value)
@@ -27,27 +47,35 @@ export default function Subida() {
         const formData = new FormData
         formData.append("url", url)
         formData.append("titulo", titulo)
+        formData.append("tipo", tipo)
+
         try {
             await fetch(URL_BASE_PODCASTS, {
                 method: "POST",
                 body: formData
             })
-                .then(res => res.json())
-                .then(data => {
-                    setIsLoading(false)
-                    if (data.code == 409) {
-                        Swal.fire({
-                            icon: "error",
-                            title: data.message,
-                        })
+                .then(res => {
+                    if (res.status == 409) {
+                        res.json()
+                            .then(data => {
+                                setIsLoading(false)
+                                Swal.fire({
+                                    icon: "error",
+                                    title: data.message,
+                                })
+                            })
                     }
                     else {
-                        Swal.fire({
-                            icon: "success",
-                            title: data.message,
-                        }).then(() => {
-                            window.location.reload()
-                        })
+                        res.json()
+                            .then(data => {
+                                setIsLoading(false)
+                                Swal.fire({
+                                    icon: "success",
+                                    title: data.message,
+                                }).then(() => {
+                                    window.location.reload()
+                                })
+                            })
                     }
                 })
         }
@@ -73,7 +101,7 @@ export default function Subida() {
                 </div>
                 <form encType="multipart/form-data" className="space-y-4">
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">Titulo del podcast</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">Titulo del podcast</label>
                         <input
                             type="text"
                             id="titulo"
@@ -85,7 +113,7 @@ export default function Subida() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-medium">URL del podcast</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">URL del podcast</label>
                         <input
                             type="text"
                             id="url"
@@ -96,8 +124,17 @@ export default function Subida() {
                             required
                         />
                     </div>
+                    <label className="block text-black font-bold font-bold">¿A qué sección lo añadimos?</label>
+                    <select onChange={handleTipoChange} className='border border-1 border-black rounded' name="podcastsSelect">
+                        <optgroup label="Selecciona una opción">
+                            {tipos.map((tipo) => (
+                                <option key={tipo.id} value={tipo.id}>{tipo.tipo}</option>
+
+                            ))}
+                        </optgroup>
+                    </select>
                     <div>
-                        <BotonVolver url={"/adminPanel"} />
+                        <BotonVolver url={"/subidas"} />
                         <button
                             type='button'
                             onClick={() => enviarDatos()}
