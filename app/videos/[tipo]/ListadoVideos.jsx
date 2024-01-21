@@ -8,7 +8,7 @@ export default function ListadoVideos({ videos }) {
         return (
             <div className="mb-8">
                 <div className="grid  h-1/2 xl:grid-cols-2 lg:justify-items-center lg:ml-10">
-                    {videos.slice(0, 12).map((video) => (
+                    {videos.slice(0, 12 + contador).map((video) => (
                         <div key={video.id} className={`aparicion mt-12 scroll-animation w-full`}>
                             <h1 className="text-center font-bold uppercase text-xl">{video.titulo}</h1>
                             <br />

@@ -91,8 +91,8 @@ const Navbar = () => {
                                 <svg className="h-6 w-6 fill-current mr-4 mt-2">
                                     {isMobileMenuOpen ? (
                                         <svg>
-                                            <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-                                            <line x1="4" y1="20" x2="20" y2="4" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                                            <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" strokeWidth="3" stroke-linecap="round" />
+                                            <line x1="4" y1="20" x2="20" y2="4" stroke="currentColor" strokeWidth="3" stroke-linecap="round" />
                                         </svg>
                                     ) : (
                                         <svg>

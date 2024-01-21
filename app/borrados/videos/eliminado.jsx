@@ -59,7 +59,7 @@ export default function Eliminado() {
                 return (
                     <div key={index} className="grid grid-cols-3 justify-items-center items-center border-blue-200 border-b-4 pb-6 mt-6">
                         <Image
-                            src={item.poster}
+                            src={item.poster ?? '/logo/icono-pilar-ramos.png'}
                             width={100}
                             height={100}
                             alt="Imagen del video a borrar" />
