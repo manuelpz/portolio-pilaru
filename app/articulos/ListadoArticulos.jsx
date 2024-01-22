@@ -2,15 +2,30 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-export default function ListadoArticulos({ noticias }) {
+import CarpetaVacia from "@/components/CarpetaVacia/CarpetaVacia"
+import useFetchData from "@/functions/useFetchData"
+import BasicLoader from "@/components/BasicLoader/BasicLoader"
+export default function ListadoArticulos() {
     const [contador, setContador] = useState(0)
     const handleClick = () => {
         setContador(contador + 12)
     }
+    const URL_BASE_NOTICIAS = 'https://portfolio-pilaru-back.onrender.com/api/noticias'
+    const { data, loading } = useFetchData(URL_BASE_NOTICIAS)
+
+    if (loading) return (
+        <BasicLoader />
+    )
+
+    if (data.length === 0) return (
+        <div className="grid grid-cols-1 justify-items-center">
+            <CarpetaVacia />
+        </div>
+    )
     return (
         <div className="mb-8">
             <div className="lg:grid lg:grid-cols-3 lg:gap-4 lg:justify-items-center ">
-                {noticias.slice(0, 12 + contador).map((noticia) => (
+                {data.slice(0, 12 + contador).map((noticia) => (
                     <Link
                         href='/articulos/[id]' as={`/articulos/${noticia.id}`}
                         key={noticia.id}
@@ -34,7 +49,7 @@ export default function ListadoArticulos({ noticias }) {
                 }
 
             </div >
-            {noticias.length > 12 + contador && <div className="grid grid-cols-1 justify-items-center">
+            {data.length > 12 + contador && <div className="grid grid-cols-1 justify-items-center">
                 <button type="button" className="transition hover:scale-110 hover:bg-blue-300 hover:text-white border border-2 border-black p-1 rounded-3xl font-bold md:w-1/6 " onClick={handleClick}>
                     Mostrar más
                 </button>
