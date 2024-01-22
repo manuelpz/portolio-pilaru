@@ -3,6 +3,7 @@ import { useState } from "react"
 import BasicLoader from "@/components/BasicLoader/BasicLoader"
 import CarpetaVacia from "@/components/CarpetaVacia/CarpetaVacia"
 import useFetchData from "@/functions/useFetchData"
+import '../videos.css'
 export default function ListadoVideos({tipo}) {
     
     const URL_BASE_VIDEOS_TIPO = `https://portfolio-pilaru-back.onrender.com/api/videos/${tipo}`
@@ -32,7 +33,7 @@ export default function ListadoVideos({tipo}) {
                         {video.comentario && <p className="text-justify mx-6 lg:mx-24 xl:mx-12">{video.comentario}</p>}
                         <br />
                         <div className="flex mt-4 justify-center lg:m-4">
-                            <video width={640} height={480} controls poster={video.poster} className='lg:rounded'>
+                            <video width={500} height={480} controls poster={video.poster} className='lg:rounded'>
                                 <source src={video.video} type="video/mp4" />
                             </video>
                         </div>
