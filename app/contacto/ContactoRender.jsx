@@ -38,7 +38,7 @@ export default function ContactoRender() {
                         <h2 className="md:mb-6">
                             <b className="contactanos md:ml-32">Escríbeme</b>
                         </h2>
-                        <form onSubmit={handleOnSubmit}
+                        <form 
                             className="md:ml-32">
                             <label>Email <span className="font-bold text-red-500">*</span></label>
                             <input
@@ -68,7 +68,7 @@ export default function ContactoRender() {
                             />
 
                             <div className="grid justify-center">
-                                <button className="botonContacto" type="submit">
+                                <button onClick={handleOnSubmit} className="botonContacto" type="submit">
                                     <div className="svg-wrapper-1">
                                         <div className="svg-wrapper">
                                             <svg
