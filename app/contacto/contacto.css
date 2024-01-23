@@ -9,19 +9,14 @@ form {
   margin: 20px 15px;
 }
 
-
-
-textarea, input {
-    padding-left: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-}
-
-.content {
-  padding-bottom: 10%;
+textarea,
+input {
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
 }
 
 .contact {
@@ -32,19 +27,6 @@ textarea, input {
   align-items: stretch;
   justify-content: space-evenly;
   align-content: stretch;
-}
-
-.telefonoIcono {
-  width: 20px;
-}
-
-.textoInformativo {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.disponibilidad {
-  text-align: center;
 }
 
 .telefonoConjunto {
@@ -73,22 +55,7 @@ textarea, input {
   transition: 0.8s ease-in-out;
 }
 
-
 @media only screen and (max-width: 600px) {
-  h2 {
-    margin-top: 15px !important;
-  }
-
-  .telefono {
-    text-align: center;
-    float: left;
-    clear: right;
-  }
-
-  .telefonoIcono {
-    width: 5%;
-  }
-
   .contact {
     display: grid;
     grid-template-columns: 100%;
@@ -97,9 +64,5 @@ textarea, input {
     align-items: stretch;
     justify-content: space-evenly;
     align-content: stretch;
-  }
-
-  .disponibilidad {
-    text-align: center;
   }
 }
