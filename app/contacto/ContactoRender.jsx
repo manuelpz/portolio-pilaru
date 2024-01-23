@@ -4,10 +4,10 @@ import Swal from "sweetalert2"
 import RedesConjuntas from "@/components/RedesSociales/RedesConjuntas"
 import '@/app/contacto/contacto.css'
 
-const SERVICE_ID = "service_ljm539c"
-const TEMPLATE_ID = "template_kv5cii8"
-const USER_ID = "gC4tUjuxBRdy0YPjN"
 export default function ContactoRender() {
+    const SERVICE_ID = "service_ljm539c"
+    const TEMPLATE_ID = "template_kv5cii8"
+    const USER_ID = "gC4tUjuxBRdy0YPjN"
     const handleOnSubmit = (e) => {
         e.preventDefault()
         emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID).then(
@@ -28,7 +28,7 @@ export default function ContactoRender() {
         e.target.reset()
     }
     return (
-        <div className="content aparicion">
+        <div className=" aparicion">
             <h1 className="text-center">
                 <b>¡Ponte en contacto conmigo!</b>
             </h1>
@@ -38,7 +38,7 @@ export default function ContactoRender() {
                         <h2 className="md:mb-6">
                             <b className="contactanos md:ml-32">Escríbeme</b>
                         </h2>
-                        <form 
+                        <form
                             className="md:ml-32">
                             <label>Email <span className="font-bold text-red-500">*</span></label>
                             <input
