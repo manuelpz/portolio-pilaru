@@ -11,6 +11,7 @@ export default function VideosOptions() {
             <CardOption titulo={'Institucionales'} componente={'/videos/4'} hover={''} imagen={'/videos/institucionales.png'} />
             <CardOption titulo={'Opositores'} componente={'/videos/5'} hover={''} imagen={'/videos/opositores.png'} />
             <CardOption titulo={'Navidad'} componente={'/videos/6'} hover={''} imagen={'/videos/navidad.png'} />
+            <CardOption titulo={'K9 HEROES DE CUATRO PATAS'} componente={'/videos/7'} hover={''} imagen={'/videos/k9.png'} />
         </div>
     )
 }
