@@ -70,6 +70,7 @@ const Navbar = () => {
                         <div className="hidden lg:block space-x-20">
                             <NavbarItemsNormal path={"/about"} description={"Sobre mi"} />
                             <NavbarItemsNormal path={"/reconocimientos"} description={"Reconocimientos y premios"} />
+                            <NavbarItemsNormal path={"/historia"} description={"Historia"} />
                             <NavbarItemsNormal path={"/contacto"} description={"Contacto"} />
                             <NavbarItemsNormal path={"/videos"} description={"Videos"} />
                             <NavbarItemsNormal path={"/articulos"} description={"Articulos"} />
@@ -114,6 +115,7 @@ const Navbar = () => {
                     <ul className="deslizamientoDerecha pt-2 space-y-1 sm:pr-3 text-right ">
                         <NavbarItemsMobile path={"/about"} description={"Sobre mi"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <NavbarItemsMobile path={"/historia"} description={"Historia"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/contacto"} description={"Contacto"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/videos"} description={"Videos"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
                         <NavbarItemsMobile path={"/articulos"} description={"Articulos"} setIsMenuOpen={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
@@ -135,6 +137,7 @@ const Navbar = () => {
                     <ul className="pt-2 space-y-1 sm:pr-3 text-right ">
                         <NavbarItemsMobile path={"/about"} description={"Sobre mi"} />
                         <NavbarItemsMobile path={"/reconocimientos"} description={"Reconocimientos y premios"} />
+                        <NavbarItemsMobile path={"/historia"} description={"Historia"} />
                         <NavbarItemsMobile path={"/contacto"} description={"Contacto"} />
                         <NavbarItemsMobile path={"/videos"} description={"Videos"} />
                         <NavbarItemsMobile path={"/articulos"} description={"Articulos"} />
