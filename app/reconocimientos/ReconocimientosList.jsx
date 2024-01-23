@@ -1,6 +1,5 @@
 import Image from "next/image"
 import '@/app/globals.css'
-import '@/app/reconocimientos/reconocimientos.css'
 import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
 import Link from "next/link"
 
