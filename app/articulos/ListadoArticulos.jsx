@@ -10,7 +10,7 @@ export default function ListadoArticulos() {
     const handleClick = () => {
         setContador(contador + 12)
     }
-    const URL_BASE_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
+    const URL_BASE_NOTICIAS = 'https://portfolio-pilaru-back.onrender.com/api/noticias'
     const { data, loading } = useFetchData(URL_BASE_NOTICIAS)
 
     if (loading) return (

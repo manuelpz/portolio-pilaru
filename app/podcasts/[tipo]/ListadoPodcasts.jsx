@@ -10,7 +10,7 @@ export default function ListadoPodcasts({ tipo }) {
     const handleClick = () => {
         setContador(contador + 12);
     }
-    const URL_BASE_PODCASTS_TIPO = `https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts/${tipo}`
+    const URL_BASE_PODCASTS_TIPO = `https://portfolio-pilaru-back.onrender.com/api/podcasts/${tipo}`
     const { data, loading } = useFetchData(URL_BASE_PODCASTS_TIPO)
 
     if (loading) return (
