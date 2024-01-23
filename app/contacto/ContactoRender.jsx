@@ -1,6 +1,5 @@
 'use client'
 import emailjs from "emailjs-com"
-import { Form, Input, TextArea } from "semantic-ui-react"
 import Swal from "sweetalert2"
 import RedesConjuntas from "@/components/RedesSociales/RedesConjuntas"
 import '@/app/contacto/contacto.css'
@@ -39,30 +38,29 @@ export default function ContactoRender() {
                         <h2 className="md:mb-6">
                             <b className="contactanos md:ml-32">Escríbeme</b>
                         </h2>
-                        <Form onSubmit={handleOnSubmit}
+                        <form onSubmit={handleOnSubmit}
                             className="md:ml-32">
                             <label>Email <span className="font-bold text-red-500">*</span></label>
-                            <Form.Field
+                            <input
                                 id="form-input-control-email"
-                                control={Input}
+                                type="text"
                                 name="from_email"
                                 placeholder="Email…"
                                 required
                             />
                             <br />
                             <label>Nombre<span className="font-bold text-red-500">*</span></label>
-                            <Form.Field
+                            <input
                                 id="form-input-control-last-name"
-                                control={Input}
+                                type="text"
                                 name="from_name"
                                 placeholder="Nombre"
                                 required
                             />
                             <br />
                             <label>Mensaje<span className="font-bold text-red-500">*</span></label>
-                            <Form.Field
+                            <textarea
                                 id="form-textarea-control-opinion"
-                                control={TextArea}
                                 name="user_message"
                                 placeholder="Mensaje..."
                                 required
@@ -90,7 +88,7 @@ export default function ContactoRender() {
                                     <span> <b>Enviar</b></span>
                                 </button>
                             </div>
-                        </Form>
+                        </form>
                     </div>
                     <div className="grid grid-rows-3 justify-items-center">
                         <h2>
