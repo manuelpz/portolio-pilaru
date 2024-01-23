@@ -4,9 +4,9 @@ import BasicLoader from "@/components/BasicLoader/BasicLoader"
 import CarpetaVacia from "@/components/CarpetaVacia/CarpetaVacia"
 import useFetchData from "@/functions/useFetchData"
 import '../videos.css'
-export default function ListadoVideos({tipo}) {
-    
-    const URL_BASE_VIDEOS_TIPO = `https://portfolio-pilaru-back.onrender.com/api/videos/${tipo}`
+export default function ListadoVideos({ tipo }) {
+
+    const URL_BASE_VIDEOS_TIPO = `https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos/${tipo}`
     const { data, loading } = useFetchData(URL_BASE_VIDEOS_TIPO)
     const [contador, setContador] = useState(0)
     const handleClick = () => {

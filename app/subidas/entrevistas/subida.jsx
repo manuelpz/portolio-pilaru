@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Swal from "sweetalert2"
 import Image from 'next/image'
 import Loader from '@/components/Loader/Loader'
-const URL_BASE_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/entrevistas'
+const URL_BASE_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/entrevistas'
 
 export default function Subida() {
 

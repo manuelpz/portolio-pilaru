@@ -2,7 +2,7 @@ import '@/app/globals.css'
 import Image from 'next/image'
 import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
 
-const URL_BASE_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/entrevistas'
+const URL_BASE_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/entrevistas'
 
 const fetchEntrevistas = () => {
     return fetch(URL_BASE_ENTREVISTAS, {

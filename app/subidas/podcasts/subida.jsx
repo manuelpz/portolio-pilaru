@@ -4,8 +4,8 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
-const URL_BASE_PODCASTS = 'https://portfolio-pilaru-back.onrender.com/api/podcasts'
-const URL_BASE_TIPOS = 'https://portfolio-pilaru-back.onrender.com/api/tipoPodcast'
+const URL_BASE_PODCASTS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts'
+const URL_BASE_TIPOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/tipoPodcast'
 
 
 export default function Subida() {
