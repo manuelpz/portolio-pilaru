@@ -1,3 +1,4 @@
+'use client'
 import '@/app/globals.css'
 import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
 import useFetchData from '@/functions/useFetchData'
@@ -6,7 +7,7 @@ import BasicLoader from '@/components/BasicLoader/BasicLoader'
 const URL_BASE_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/entrevistas'
 
 
-export default async function EntrevistasList() {
+export default function EntrevistasList() {
     const { data, loading } = useFetchData(URL_BASE_ENTREVISTAS)
 
     if (data.length === 0) return (
