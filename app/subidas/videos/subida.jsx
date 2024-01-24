@@ -153,8 +153,7 @@ export default function Subida() {
                     </div>
                     <div>
                         <label htmlFor="text" className="block text-gray-600 font-bold">¿Quieres añadir un comentario (descripción)?</label>
-                        <input
-                            type="text"
+                        <textarea
                             id="comentario"
                             className="mt-1 p-2 w-full border rounded-md"
                             placeholder="Inserta un comentario al vídeo"

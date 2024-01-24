@@ -8,6 +8,13 @@ const URL_BASE_ENTREVISTAS = 'http://localhost:4000/api/entrevistas'
 
 export default function Subida() {
 
+
+    const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
+    const [isLoading, setIsLoading] = useState(false)
+    const [titulo, setTitulo] = useState('')
+    const [entrevista, setEntrevista] = useState('')
+    const [comentario, setComentario] = useState('')
+    
     useEffect(() => {
         if (comentario.length > 350) {
             Swal.fire({
@@ -19,11 +26,6 @@ export default function Subida() {
         }
     }, [comentario])
 
-    const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
-    const [isLoading, setIsLoading] = useState(false)
-    const [titulo, setTitulo] = useState('')
-    const [entrevista, setEntrevista] = useState('')
-    const [comentario, setComentario] = useState('')
 
     const handleComentarioChange = (e) => {
         setComentario(e.target.value)
@@ -113,8 +115,7 @@ export default function Subida() {
                         </div>
                         <div>
                             <label htmlFor="text" className="block text-gray-600 font-bold">¿Quieres añadir un comentario (descripción)?</label>
-                            <input
-                                type="text"
+                            <textarea
                                 id="comentario"
                                 className="mt-1 p-2 w-full border rounded-md"
                                 placeholder="Inserta un comentario al vídeo"
