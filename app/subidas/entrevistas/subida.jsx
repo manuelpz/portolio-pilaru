@@ -1,7 +1,7 @@
 'use client'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import BotonVolver from '@/components/BotonVolver/BotonVolver'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
 const URL_BASE_ENTREVISTAS = 'http://localhost:4000/api/entrevistas'
