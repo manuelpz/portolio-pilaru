@@ -46,6 +46,7 @@ export default function Subida() {
         const formData = new FormData
         formData.append("titulo", titulo)
         formData.append("entrevista", entrevista)
+        formData.append("comentario", comentario)
         console.log(formData)
 
         try {
