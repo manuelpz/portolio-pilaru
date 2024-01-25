@@ -4,7 +4,7 @@ import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
 import useFetchData from '@/functions/useFetchData'
 import BasicLoader from '@/components/BasicLoader/BasicLoader'
 
-const URL_BASE_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/entrevistas'
+const URL_BASE_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/entrevistas'
 
 
 export default function EntrevistasList() {

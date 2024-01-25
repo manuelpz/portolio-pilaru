@@ -13,7 +13,7 @@ export default function ListadoVideos({ tipo }) {
         setInputValue(value)
     }
 
-    const URL_BASE_VIDEOS_TIPO = `https://portfolio-pilaru-back.onrender.com/api/videos/${tipo}`
+    const URL_BASE_VIDEOS_TIPO = `https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos/${tipo}`
     const { data, loading } = useFetchData(URL_BASE_VIDEOS_TIPO)
 
 

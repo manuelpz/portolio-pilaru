@@ -14,7 +14,7 @@ export default function Eliminado() {
     useEffect(() => {
         setIsLoading(true)
         const fetchData = async () => {
-            const res = await fetch(`https://portfolio-pilaru-back.onrender.com/api/reconocimientos`)
+            const res = await fetch(`https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/reconocimientos`)
             const data = await res.json()
             setData(data)
             setIsLoading(false)
@@ -40,7 +40,7 @@ export default function Eliminado() {
     const eliminarElemento = async (id) => {
         setIsLoading(true)
         try {
-            await fetch(`https://portfolio-pilaru-back.onrender.com/api/reconocimientos/${id}`, {
+            await fetch(`https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/reconocimientos/${id}`, {
                 method: 'DELETE'
             })
             const newData = data.filter(item => item.id !== id)

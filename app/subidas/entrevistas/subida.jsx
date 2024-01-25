@@ -4,7 +4,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState, useEffect } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
-const URL_BASE_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/entrevistas'
+const URL_BASE_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/entrevistas'
 
 export default function Subida() {
 
@@ -14,7 +14,7 @@ export default function Subida() {
     const [titulo, setTitulo] = useState('')
     const [entrevista, setEntrevista] = useState('')
     const [comentario, setComentario] = useState('')
-    
+
     useEffect(() => {
         if (comentario.length > 350) {
             Swal.fire({
