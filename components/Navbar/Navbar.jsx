@@ -67,7 +67,7 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="flex justify-end">
-                        <div className="hidden lg:block space-x-20">
+                        <div className="hidden lg:flex space-x-20">
                             <NavbarItemsNormal path={"/about"} description={"Sobre mi"} />
                             <NavbarItemsNormal path={"/reconocimientos"} description={"Reconocimientos y premios"} />
                             <NavbarItemsNormal path={"/contacto"} description={"Contacto"} />
@@ -91,8 +91,8 @@ const Navbar = () => {
                                 <svg className="h-6 w-6 fill-current mr-4 mt-2">
                                     {isMobileMenuOpen ? (
                                         <svg>
-                                            <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" strokeWidth="3" stroke-linecap="round" />
-                                            <line x1="4" y1="20" x2="20" y2="4" stroke="currentColor" strokeWidth="3" stroke-linecap="round" />
+                                            <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                                            <line x1="4" y1="20" x2="20" y2="4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                                         </svg>
                                     ) : (
                                         <svg>
