@@ -38,9 +38,7 @@ export default function EntrevistasList() {
         })
         return (
             <div >
-                <div className="lg:grid lg:grid-cols-1 lg:justify-items-end lg:mr-20">
-                    <Buscador placeholder={'Buscar una entrevista...'} onInputChange={handleInputChange} />
-                </div>
+                <Buscador placeholder={'Buscar una entrevista...'} onInputChange={handleInputChange} />
                 <PlantillaEntrevistas data={filteredData} />
             </div>
         )
@@ -48,9 +46,7 @@ export default function EntrevistasList() {
 
     return (
         <div>
-            <div className="lg:grid lg:grid-cols-1 lg:justify-items-end lg:mr-20">
-                <Buscador placeholder={'Buscar una entrevista...'} onInputChange={handleInputChange} />
-            </div>
+            <Buscador placeholder={'Buscar una entrevista...'} onInputChange={handleInputChange} />
             <PlantillaEntrevistas data={data} />
         </div>
     )

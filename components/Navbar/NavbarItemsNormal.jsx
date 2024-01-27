@@ -16,7 +16,7 @@ export default function NavbarItemsNormal({ path, description }) {
 
         <p className="grid">
             <Link
-                className={`transition hover:-translate-y-1 hover:scale-150 ${pathname == path ? "font-bold text-sky-600 " : "nonActive"}`}
+                className={`transition hover:scale-125 ${pathname == path ? "font-bold text-sky-600 " : "nonActive"}`}
                 href={path}
             >
                 {description}

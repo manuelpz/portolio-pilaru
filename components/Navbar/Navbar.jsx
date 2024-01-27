@@ -67,7 +67,7 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="flex justify-end">
-                        <div className="hidden lg:flex space-x-20">
+                        <div className="hidden lg:flex lg:items-center space-x-20">
                             <NavbarItemsNormal path={"/about"} description={"Sobre mi"} />
                             <NavbarItemsNormal path={"/reconocimientos"} description={"Reconocimientos y premios"} />
                             <NavbarItemsNormal path={"/contacto"} description={"Contacto"} />

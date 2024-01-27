@@ -1,0 +1,15 @@
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  /* Ajusta el padding-bottom según la relación de aspecto deseada (altura / ancho) */
+  padding-bottom: 56.25%; /* Ejemplo para una relación de aspecto de 16:9 */
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+

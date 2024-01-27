@@ -34,9 +34,7 @@ export default function ListadoVideos({ tipo }) {
         })
         return (
             <div >
-                <div className="lg:grid lg:grid-cols-1 lg:justify-items-end lg:mr-20">
-                    <Buscador placeholder={'Buscar un video...'} onInputChange={handleInputChange} />
-                </div>
+                <Buscador placeholder={'Buscar un video...'} onInputChange={handleInputChange} />
                 <PlantillaVideos data={filteredData} />
             </div>
         )
@@ -45,9 +43,7 @@ export default function ListadoVideos({ tipo }) {
     // TODOS LOS VIDEOS
     return (
         <div>
-            <div className="lg:grid lg:grid-cols-1 lg:justify-items-end lg:mr-20">
-                <Buscador placeholder={'Buscar un video...'} onInputChange={handleInputChange} />
-            </div>
+            <Buscador placeholder={'Buscar un video...'} onInputChange={handleInputChange} />
             <PlantillaVideos data={data} />
         </div>
     )
