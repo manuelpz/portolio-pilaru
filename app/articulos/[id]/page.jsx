@@ -34,6 +34,13 @@ export default async function Articulo({ params }) {
                     {singlePost.descripcion}
                 </pre>
             </div>
+            {singlePost.url != null &&
+                <div className="mt-10 grid grid-cols-1 justify-items-center">
+                    <a href={singlePost.url} target="_blank" rel="noreferrer" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Más información aquí
+                    </a>
+                </div>
+            }
             {singlePost.video != null &&
                 <div className="mt-10 grid grid-cols-1 justify-items-center">
                     <video width="640" height="480" controls>

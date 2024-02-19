@@ -18,6 +18,7 @@ export default function Subida() {
     const [selectedVideo, setSelectedVideo] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
     const [nombreVideo, setNombreVideo] = useState(null)
+    const [url, setUrl] = useState('')
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value)
@@ -53,6 +54,11 @@ export default function Subida() {
         }
     }
 
+    const handleUrlChange = (e) => {
+        setUrl(e.target.value)
+    }
+
+
     async function enviarDatos() {
         setIsLoading(true)
         const formData = new FormData()
@@ -61,6 +67,7 @@ export default function Subida() {
         formData.append("subtitulo", subtitulo)
         formData.append("descripcion", noticia)
         formData.append("video", selectedVideo)
+        formData.append("url", url)
 
 
         try {
@@ -140,6 +147,19 @@ export default function Subida() {
                             required
                         />
                     </div>
+                    <div>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">¿Neceistas insertar una URL?</label>
+                        <input type="text"
+                            id="url"
+                            className="mt-1 p-2 w-full border rounded-md"
+                            placeholder="Inserta la URL (Opcional)"
+                            value={url}
+                            onChange={handleUrlChange}
+                        />
+                    </div>
+
+                    {/* FIN CAMPOS INPUT */}
+
                     <div>
                         <div>
                             <div className='flex space-x-24'>
