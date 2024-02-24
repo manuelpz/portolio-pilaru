@@ -3,13 +3,13 @@ import Loader from "@/components/Loader/Loader"
 import { useEffect, useState } from "react"
 import ErrorLogin from "@/app/adminPanel/ErrorLogin"
 export default function AdminValidation({ component }) {
-    const URL_BASE_USUARIOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/usuarios'
+    const URL_USUARIOS = process.env.URL_USUARIOS
     const [usuario, setUsuario] = useState()
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchData = async (user) => {
-            const data = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
+            const data = await fetch(`${URL_USUARIOS}/${user}`).then(res => res.json())
             setUsuario(data.loged)
             setLoading(false)
         }

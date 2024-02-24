@@ -10,8 +10,8 @@ export default function ListadoArticulos() {
     const handleClick = () => {
         setContador(contador + 12)
     }
-    const URL_BASE_ARTICULOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
-    const { data, loading } = useFetchData(URL_BASE_ARTICULOS)
+    const URL_ARTICULOS = process.env.URL_NOTICIAS
+    const { data, loading } = useFetchData(URL_ARTICULOS)
 
     if (loading) return (
         <BasicLoader />

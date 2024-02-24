@@ -7,11 +7,11 @@ import BasicLoader from '@/components/BasicLoader/BasicLoader'
 import PlantillaEntrevistas from './PlantillaEntrevistas'
 import Buscador from '@/components/Buscador/Buscador'
 
-const URL_BASE_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/entrevistas'
+const URL_ENTREVISTAS = process.env.URL_ENTREVISTAS
 
 
 export default function EntrevistasList() {
-    const { data, loading } = useFetchData(URL_BASE_ENTREVISTAS)
+    const { data, loading } = useFetchData(URL_ENTREVISTAS)
 
     const [inputValue, setInputValue] = useState('')
     const handleInputChange = (value) => {

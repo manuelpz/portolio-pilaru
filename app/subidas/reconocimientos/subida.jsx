@@ -6,7 +6,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import Loader from '@/components/Loader/Loader'
 
-const URL_BASE_RECONOCIMIENTOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/reconocimientos'
+const URL_RECONOCIMIENTOS = process.env.URL_RECONOCIMIENTOS
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
@@ -52,7 +52,7 @@ export default function Subida() {
         formData.append("url", url)
 
         try {
-            await fetch(URL_BASE_RECONOCIMIENTOS, {
+            await fetch(URL_RECONOCIMIENTOS, {
                 method: "POST",
                 body: formData,
             })

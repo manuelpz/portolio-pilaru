@@ -6,7 +6,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import Loader from '@/components/Loader/Loader'
 
-const URL_BASE_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
+const URL_NOTICIAS = process.env.URL_NOTICIAS
 
 export default function Subida() {
     const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
@@ -71,7 +71,7 @@ export default function Subida() {
 
 
         try {
-            await fetch(URL_BASE_NOTICIAS, {
+            await fetch(URL_NOTICIAS, {
                 method: "POST",
                 body: formData,
             })

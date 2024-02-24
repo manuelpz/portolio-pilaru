@@ -4,15 +4,15 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
-const URL_BASE_PODCASTS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts'
-const URL_BASE_TIPOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/tipoPodcast'
+const URL_PODCASTS = process.env.URL_PODCASTS
+const URL_TIPOPODCAST = process.env.URL_TIPOPODCAST
 
 
 export default function Subida() {
     useEffect(() => {
         setIsLoading(true)
         const fetchData = async () => {
-            const res = await fetch(URL_BASE_TIPOS)
+            const res = await fetch(URL_TIPOPODCAST)
             const data = await res.json()
             setTipos(data)
             setIsLoading(false)
@@ -50,7 +50,7 @@ export default function Subida() {
         formData.append("tipo", tipo)
 
         try {
-            await fetch(URL_BASE_PODCASTS, {
+            await fetch(URL_PODCASTS, {
                 method: "POST",
                 body: formData
             })

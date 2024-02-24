@@ -3,10 +3,10 @@ import { metadata } from "@/app/layout"
 export default async function Articulo({ params }) {
     metadata.title = 'Noticias | Pilar Ramos'
     metadata.description = 'Descubre las últimas noticias del mundo de los cuerpos de seguridad'
-    const URL_BASE_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
+    const URL_NOTICIAS = process.env.URL_NOTICIAS
     const { id } = params
     const fetchPost = () => {
-        return fetch(`${URL_BASE_NOTICIAS}/${id}`).then(response => response.json())
+        return fetch(`${URL_NOTICIAS}/${id}`).then(response => response.json())
     }
     const post = await fetchPost()
     const singlePost = post

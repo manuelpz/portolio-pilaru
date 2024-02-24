@@ -10,11 +10,12 @@ export default function Eliminado() {
     const [hoveredItemId, setHoveredItemId] = useState(null)
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [selectedItemId, setSelectedItemId] = useState(null)
+    const URL_ENTREVISTAS = process.env.URL_ENTREVISTAS
 
     useEffect(() => {
         setIsLoading(true)
         const fetchData = async () => {
-            const res = await fetch(`https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/entrevistas`)
+            const res = await fetch(URL_ENTREVISTAS)
             const data = await res.json()
             setData(data)
             setIsLoading(false)
@@ -39,7 +40,7 @@ export default function Eliminado() {
     const eliminarElemento = async (id) => {
         setIsLoading(true)
         try {
-            await fetch(`https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/entrevistas/${id}`, {
+            await fetch(URL_ENTREVISTAS +`/${id}`, {
                 method: 'DELETE'
             })
             const newData = data.filter(item => item.id !== id)

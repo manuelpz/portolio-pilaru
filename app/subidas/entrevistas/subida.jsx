@@ -4,7 +4,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState, useEffect } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
-const URL_BASE_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/entrevistas'
+const URL_ENTREVISTAS = process.env.URL_ENTREVISTAS
 
 export default function Subida() {
 
@@ -50,7 +50,7 @@ export default function Subida() {
         console.log(formData)
 
         try {
-            await fetch(URL_BASE_ENTREVISTAS, {
+            await fetch(URL_ENTREVISTAS, {
                 method: "POST",
                 body: formData
             })

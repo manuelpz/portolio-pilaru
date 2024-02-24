@@ -7,7 +7,7 @@ import NavbarItemsMobile from "./NavbarItemsMobile"
 import '@/components/Navbar/navbar.css'
 
 const Navbar = () => {
-    const URL_BASE_USUARIOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/usuarios'
+    const URL_USUARIOS = process.env.URL_USUARIOS
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [menuWasOpen, setMenuWasOpen] = useState(undefined) // controla que no se vea la animacion a la izquierda nada mas cargar la pagina
     const [usuario, setUsuario] = useState([])
@@ -19,7 +19,7 @@ const Navbar = () => {
     const cerrarSesion = async () => {
         usuario.loged = 0
         try {
-            await fetch(`${URL_BASE_USUARIOS}/${usuario.usuarioId}`, {
+            await fetch(`${URL_USUARIOS}/${usuario.usuarioId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -41,13 +41,13 @@ const Navbar = () => {
 
     useEffect(() => {
         const fetchData = async (user) => {
-            const data = await fetch(`${URL_BASE_USUARIOS}/${user}`).then(res => res.json())
+            const data = await fetch(`${URL_USUARIOS}/${user}`).then(res => res.json())
             setUsuario(data)
         }
         if (window.sessionStorage.getItem("usuario") !== undefined && window.sessionStorage.getItem("usuario") !== null) {
             fetchData(window.sessionStorage.getItem("usuario"))
         }
-    }, [])
+    }, [URL_USUARIOS])
 
     //RENDERIZADO NORMAL ---->
     return (
