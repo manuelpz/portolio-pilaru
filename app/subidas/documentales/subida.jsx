@@ -6,7 +6,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import Loader from '@/components/Loader/Loader'
 
-const URL_RECONOCIMIENTOS = process.env.URL_RECONOCIMIENTOS
+const URL_DOCUMENTALES = process.env.URL_DOCUMENTALES
 
 export default function Subida() {
     const [isLoading, setIsLoading] = useState(false)
@@ -24,10 +24,6 @@ export default function Subida() {
         setDescripcion(e.target.value)
     }
 
-    const handleUrlChange = (e) => {
-        setUrl(e.target.value)
-    }
-
     const handleImageChange = (e) => {
         const file = e.target.files[0]
         if (file) {
@@ -42,6 +38,11 @@ export default function Subida() {
         }
     }
 
+    const handleUrlChange = (e) => {
+        setUrl(e.target.value)
+    }
+
+
     async function enviarDatos() {
         setIsLoading(true)
         const formData = new FormData()
@@ -50,8 +51,9 @@ export default function Subida() {
         formData.append("descripcion", descripcion)
         formData.append("url", url)
 
+
         try {
-            await fetch(URL_RECONOCIMIENTOS, {
+            await fetch(URL_DOCUMENTALES, {
                 method: "POST",
                 body: formData,
             })
@@ -75,29 +77,26 @@ export default function Subida() {
                 })
         }
         catch (e) {
-            setIsLoading(false)
             Swal.fire({
                 icon: "error",
                 title: process.env.ERROR_INESPERADO,
             }).then(() => {
+                setIsLoading(false)
                 window.location.reload()
             })
         }
     }
-
-    if (isLoading) {
-        return <Loader />
-    }
+    if (isLoading) return (<Loader />)
 
     return (
         <AdminValidation component={<div className="flex justify-center">
             <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
                 <div className="text-center">
-                    <h2 className="text-2xl font-semibold">Publicar nuevo reconocimiento</h2>
+                    <h2 className="text-2xl font-semibold">Recomendar nuevo DOCUMENTAL</h2>
                 </div>
                 <form encType="multipart/form-data" className="space-y-4">
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-bold">Nombre del reconociemto</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">Titulo del documental</label>
                         <input
                             type="text"
                             id="titulo"
@@ -109,32 +108,33 @@ export default function Subida() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-bold">Link/URL del reconocimiento</label>
-                        <input
-                            type="text"
-                            id="url"
-                            className="mt-1 p-2 w-full border rounded-md"
-                            placeholder="Inserta una URL (OPCIONAL)"
-                            value={url}
-                            onChange={handleUrlChange}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="text" className="font-bold block text-gray-600 font-bold">Presume tu reconocimiento</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">Desarrollo del documental</label>
                         <textarea
-                            id="noticia"
+                            id="descripcion"
                             className="mt-1 p-2 w-full border rounded-md"
-                            placeholder="Comenta algo sobre este reconocimiento"
+                            placeholder="¿De qué trata este documental?"
                             value={descripcion}
                             onChange={handleDescripcionChange}
                             required
                         />
                     </div>
                     <div>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">¿Hay URL al documental?</label>
+                        <input type="text"
+                            id="url"
+                            className="mt-1 p-2 w-full border rounded-md"
+                            placeholder="Inserta la URL (Opcional)"
+                            value={url}
+                            onChange={handleUrlChange}
+                        />
+                    </div>
+
+                    {/* FIN CAMPOS INPUT */}
+
+                    <div>
                         <div>
                             <div className='flex space-x-24'>
-                                <label className="font-bold block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
+                                <label className="block py-1 cursor-pointer text-blue-500 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 mb-8 text-sm">
                                     <input
                                         type="file"
                                         accept="image/*"
@@ -145,6 +145,9 @@ export default function Subida() {
                                     {'Seleccionar imagen'}
                                 </label>
                                 <BotonVolver url={"/subidas"} />
+
+                                {/* FIN FORMULARIO */}
+
                             </div>
                             {imagePreview && (
                                 <Image
@@ -159,9 +162,9 @@ export default function Subida() {
                         <button
                             type='button'
                             onClick={() => enviarDatos()}
-                            className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300"
+                            className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300 mt-6"
                         >
-                            Publicar reconocimiento
+                            ¡Recomendar!
                         </button>
                     </div>
                 </form>

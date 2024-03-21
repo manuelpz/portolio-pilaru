@@ -9,7 +9,6 @@ import Loader from '@/components/Loader/Loader'
 const URL_NOTICIAS = process.env.URL_NOTICIAS
 
 export default function Subida() {
-    const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [isLoading, setIsLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
     const [subtitulo, setSubtitulo] = useState('')
@@ -97,7 +96,7 @@ export default function Subida() {
         catch (e) {
             Swal.fire({
                 icon: "error",
-                title: ERROR_INESPERADO,
+                title: process.env.ERROR_INESPERADO,
             }).then(() => {
                 setIsLoading(false)
                 window.location.reload()

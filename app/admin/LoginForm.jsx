@@ -14,6 +14,7 @@ export default function LoginForm() {
         setIsLoading(true)
         if (user && user.trim().toLowerCase().length > 0 && password.trim().length > 0) {
             try {
+                console.log(URL_USUARIOS)
                 const userBBDD = await fetch(`${URL_USUARIOS}/${user}`).then(res => res.json())
                 if (password.trim().toLocaleLowerCase() === userBBDD.password.trim().toLocaleLowerCase()) {
                     sessionStorage.setItem("usuario", user) // Guardo el usuario en una sesion

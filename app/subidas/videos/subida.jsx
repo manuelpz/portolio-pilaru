@@ -20,7 +20,6 @@ export default function Subida() {
         fetchData()
     }, [])
 
-    const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
     const [isLoading, setIsLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
     const [poster, setPoster] = useState(null)
@@ -31,6 +30,10 @@ export default function Subida() {
     const [tipo, setTipo] = useState('')
     const [tipos, setTipos] = useState([])
 
+
+    const handleReload = () => {
+        window.location.reload()
+    }
 
     const handleTipoChange = (e) => {
         setTipo(e.target.value)
@@ -97,15 +100,15 @@ export default function Subida() {
                     }
                     else {
                         res.json()
-                            .then(data => {
-                                setIsLoading(false)
-                                Swal.fire({
-                                    icon: "success",
-                                    title: data.message,
-                                }).then(() => {
-                                    window.location.reload()
-                                })
-                            })
+                            .then(handleSuccess)
+                    }
+
+                    function handleSuccess(data) {
+                        setIsLoading(false)
+                        Swal.fire({
+                            icon: "success",
+                            title: data.message,
+                        }).then(handleReload)
                     }
                 })
         }
@@ -113,7 +116,7 @@ export default function Subida() {
             setIsLoading(false)
             Swal.fire({
                 icon: "error",
-                title: ERROR_INESPERADO,
+                title: process.env.ERROR_INESPERADO,
             }).then(() => {
                 window.location.reload()
             })

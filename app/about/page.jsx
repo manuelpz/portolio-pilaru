@@ -11,11 +11,11 @@ export default function About() {
             <main className="lg:flex mb-4 aparicion">
                 <div className="lg:w-1/2 lg:pr-4">
                     <Image
-                        className="perfil rounded-full w-52 lg:w-7/12 lg:rounded mx-auto my-auto mb-4 shadow-2xl"
+                        className="perfil w-52 lg:w-7/12 lg:rounded mx-auto my-auto mb-4"
                         width={500}
                         height={100}
                         alt="Imagen de perfil de Pilar Ramos"
-                        src="/about/pilar-ramos.jpeg"
+                        src="/about/pilar-ramos-sin-fondo.png"
                     />
                     <br />
                     <div className="lg:flex lg:justify-center hidden">

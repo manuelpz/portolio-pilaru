@@ -7,9 +7,7 @@ import Loader from '@/components/Loader/Loader'
 const URL_ENTREVISTAS = process.env.URL_ENTREVISTAS
 
 export default function Subida() {
-
-
-    const ERROR_INESPERADO = 'Error inesperado, contacte con el administrador de la web'
+    
     const [isLoading, setIsLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
     const [entrevista, setEntrevista] = useState('')
@@ -72,9 +70,10 @@ export default function Subida() {
                                 Swal.fire({
                                     icon: "success",
                                     title: data.message,
-                                }).then(() => {
-                                    window.location.reload()
                                 })
+                            })
+                            .then(() => {
+                                window.location.reload()
                             })
                     }
                 })
@@ -83,7 +82,7 @@ export default function Subida() {
             setIsLoading(false)
             Swal.fire({
                 icon: "error",
-                title: ERROR_INESPERADO,
+                title: process.env.ERROR_INESPERADO,
             }).then(() => {
                 window.location.reload()
             })
