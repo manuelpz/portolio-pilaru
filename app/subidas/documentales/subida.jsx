@@ -79,7 +79,7 @@ export default function Subida() {
         catch (e) {
             Swal.fire({
                 icon: "error",
-                title: process.env.ERROR_INESPERADO,
+                title: 'Error inesperado, contacte con el administrador de la web',
             }).then(() => {
                 setIsLoading(false)
                 window.location.reload()

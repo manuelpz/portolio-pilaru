@@ -4,8 +4,7 @@ import '@/app/reconocimientos/reconocimientos.css'
 import CarpetaVacia from '@/components/CarpetaVacia/CarpetaVacia'
 import Link from "next/link"
 
-const URL_RECONOCIMIENTOS = process.env.URL_RECONOCIMIENTOS
-
+const URL_RECONOCIMIENTOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/reconocimientos'
 const fetchReconocimientos = () => {
     return fetch(URL_RECONOCIMIENTOS, {
         next: {

@@ -3,7 +3,7 @@ import Loader from "@/components/Loader/Loader"
 import { useEffect, useState } from "react"
 import ErrorLogin from "@/app/adminPanel/ErrorLogin"
 export default function AdminValidation({ component }) {
-    const URL_USUARIOS = process.env.URL_USUARIOS
+    const URL_USUARIOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/usuarios'
     const [usuario, setUsuario] = useState()
     const [loading, setLoading] = useState(true)
 

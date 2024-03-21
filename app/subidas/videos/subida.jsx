@@ -5,9 +5,8 @@ import { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
 import Image from 'next/image'
-const URL_VIDEOS = process.env.URL_VIDEOS
-const URL_TIPOVIDEO = process.env.URL_TIPOVIDEO
-
+const URL_VIDEOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos'
+const URL_TIPOVIDEO = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/tipoVideo'
 export default function Subida() {
     useEffect(() => {
         setIsLoading(true)
@@ -116,7 +115,7 @@ export default function Subida() {
             setIsLoading(false)
             Swal.fire({
                 icon: "error",
-                title: process.env.ERROR_INESPERADO,
+                title: 'Error inesperado, contacte con el administrador de la web',
             }).then(() => {
                 window.location.reload()
             })

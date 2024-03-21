@@ -4,7 +4,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState, useEffect } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
-const URL_ENTREVISTAS = process.env.URL_ENTREVISTAS
+const URL_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos'
 
 export default function Subida() {
     
@@ -82,7 +82,7 @@ export default function Subida() {
             setIsLoading(false)
             Swal.fire({
                 icon: "error",
-                title: process.env.ERROR_INESPERADO,
+                title: 'Error inesperado, contacte con el administrador de la web',
             }).then(() => {
                 window.location.reload()
             })

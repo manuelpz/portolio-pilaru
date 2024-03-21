@@ -6,7 +6,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import Loader from '@/components/Loader/Loader'
 
-const URL_RECONOCIMIENTOS = process.env.URL_RECONOCIMIENTOS
+const URL_RECONOCIMIENTOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/reconocimientos'
 
 export default function Subida() {
     const [isLoading, setIsLoading] = useState(false)
@@ -78,7 +78,7 @@ export default function Subida() {
             setIsLoading(false)
             Swal.fire({
                 icon: "error",
-                title: process.env.ERROR_INESPERADO,
+                title: 'Error inesperado, contacte con el administrador de la web',
             }).then(() => {
                 window.location.reload()
             })

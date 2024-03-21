@@ -4,8 +4,9 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
-const URL_PODCASTS = process.env.URL_PODCASTS
-const URL_TIPOPODCAST = process.env.URL_TIPOPODCAST
+const URL_PODCASTS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts'
+const URL_TIPOPODCAST = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/tipoPodcast'
+
 
 
 export default function Subida() {
@@ -82,7 +83,7 @@ export default function Subida() {
             setIsLoading(false)
             Swal.fire({
                 icon: "error",
-                title: process.env.ERROR_INESPERADO,
+                title: 'Error inesperado, contacte con el administrador de la web',
             }).then(() => {
                 window.location.reload()
             })

@@ -6,7 +6,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import Loader from '@/components/Loader/Loader'
 
-const URL_NOTICIAS = process.env.URL_NOTICIAS
+const URL_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
 
 export default function Subida() {
     const [isLoading, setIsLoading] = useState(false)
@@ -96,7 +96,7 @@ export default function Subida() {
         catch (e) {
             Swal.fire({
                 icon: "error",
-                title: process.env.ERROR_INESPERADO,
+                title: 'Error inesperado, contacte con el administrador de la web',
             }).then(() => {
                 setIsLoading(false)
                 window.location.reload()

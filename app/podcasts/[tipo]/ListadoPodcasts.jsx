@@ -10,7 +10,7 @@ export default function ListadoPodcasts({ tipo }) {
     const handleClick = () => {
         setContador(contador + 12);
     }
-    const URL_PODCASTS = process.env.URL_PODCASTS
+    const URL_PODCASTS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts'
     const URL_PODCASTS_TIPO = URL_PODCASTS+`/${tipo}`
     const { data, loading } = useFetchData(URL_PODCASTS_TIPO)
 

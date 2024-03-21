@@ -9,7 +9,7 @@ export default function Eliminado() {
     const [hoveredItemId, setHoveredItemId] = useState(null)
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [selectedItemId, setSelectedItemId] = useState(null)
-    const URL_NOTICIAS = process.env.URL_NOTICIAS
+    const URL_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
 
     useEffect(() => {
         setIsLoading(true)

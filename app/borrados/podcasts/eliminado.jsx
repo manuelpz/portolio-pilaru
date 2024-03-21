@@ -10,8 +10,8 @@ export default function Eliminado() {
     const [hoveredItemId, setHoveredItemId] = useState(null)
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [selectedItemId, setSelectedItemId] = useState(null)
-    const URL_PODCASTS = process.env.URL_PODCASTS
-
+    const URL_PODCASTS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts'
+    
     useEffect(() => {
         setIsLoading(true)
         const fetchData = async () => {
