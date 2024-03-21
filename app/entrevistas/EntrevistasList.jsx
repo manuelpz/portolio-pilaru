@@ -44,7 +44,6 @@ export default function EntrevistasList() {
     }
 
     return (
-        console.log(data),
         <div>
             <Buscador placeholder={'Buscar una entrevista...'} onInputChange={handleInputChange} />
             <PlantillaEntrevistas data={data} />
