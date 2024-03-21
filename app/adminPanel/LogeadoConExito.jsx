@@ -10,6 +10,8 @@ export default function LogeadoConExito() {
             <div className="lg:grid lg:grid-cols-2 lg:justify-center">
                 <CardOption titulo='Subir un archivo' componente='/subidas' imagen={'/adminPanel/subidas.png'} hover={''} />
                 <CardOption titulo='Borrar un archivo' componente='/borrados' imagen={'/adminPanel/borrados.png'} hover={''} />
+                <CardOption titulo='Recomendaciones' componente='/subidas/recomendaciones' imagen={'/adminPanel/recomendaciones.png'} hover={''} disabled={true} />
+                <CardOption titulo='Eliminar una recomendación' componente='/borrados/recomendaciones' imagen={'/adminPanel/borradosRecomendaciones.png'} hover={''} disabled={true} />
             </div>
         </>
     )

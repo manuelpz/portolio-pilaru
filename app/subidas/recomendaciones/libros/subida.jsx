@@ -6,7 +6,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import Loader from '@/components/Loader/Loader'
 
-const URL_DOCUMENTALES = process.env.URL_DOCUMENTALES
+const URL_LIBROS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/libros'
 
 export default function Subida() {
     const [isLoading, setIsLoading] = useState(false)
@@ -53,7 +53,7 @@ export default function Subida() {
 
 
         try {
-            await fetch(URL_DOCUMENTALES, {
+            await fetch(URL_LIBROS, {
                 method: "POST",
                 body: formData,
             })
@@ -92,11 +92,11 @@ export default function Subida() {
         <AdminValidation component={<div className="flex justify-center">
             <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
                 <div className="text-center">
-                    <h2 className="text-2xl font-semibold">Recomendar nuevo DOCUMENTAL</h2>
+                    <h2 className="text-2xl font-semibold">Recomendar un nuevo LIBRO</h2>
                 </div>
                 <form encType="multipart/form-data" className="space-y-4">
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-bold">Titulo del documental</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">Titulo del libro</label>
                         <input
                             type="text"
                             id="titulo"
@@ -108,18 +108,18 @@ export default function Subida() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-bold">Desarrollo del documental</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">¿De qué trata este libro?</label>
                         <textarea
                             id="descripcion"
                             className="mt-1 p-2 w-full border rounded-md"
-                            placeholder="¿De qué trata este documental?"
+                            placeholder="Escribe una pequeña sinopsis"
                             value={descripcion}
                             onChange={handleDescripcionChange}
                             required
                         />
                     </div>
                     <div>
-                        <label htmlFor="text" className="block text-gray-600 font-bold">¿Hay URL al documental?</label>
+                        <label htmlFor="text" className="block text-gray-600 font-bold">¿Hay URL de compra o enlace directo?</label>
                         <input type="text"
                             id="url"
                             className="mt-1 p-2 w-full border rounded-md"
@@ -144,7 +144,7 @@ export default function Subida() {
                                     />
                                     {'Seleccionar imagen'}
                                 </label>
-                                <BotonVolver url={"/subidas"} />
+                                <BotonVolver url={"/subidas/recomendaciones"} />
 
                                 {/* FIN FORMULARIO */}
 
