@@ -7,7 +7,7 @@ import BasicLoader from '@/components/BasicLoader/BasicLoader'
 import PlantillaEntrevistas from './PlantillaEntrevistas'
 import Buscador from '@/components/Buscador/Buscador'
 
-const URL_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos'
+const URL_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/entrevistas'
 
 export default function EntrevistasList() {
     const { data, loading } = useFetchData(URL_ENTREVISTAS)
@@ -44,6 +44,7 @@ export default function EntrevistasList() {
     }
 
     return (
+        console.log(data),
         <div>
             <Buscador placeholder={'Buscar una entrevista...'} onInputChange={handleInputChange} />
             <PlantillaEntrevistas data={data} />
