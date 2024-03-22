@@ -123,7 +123,7 @@ export default function Subida() {
                     <div>
                         <label htmlFor="text" className="font-bold block text-gray-600 font-bold">Presume tu reconocimiento</label>
                         <textarea
-                            id="noticia"
+                            id="reconocimiento"
                             className="mt-1 p-2 w-full border rounded-md"
                             placeholder="Comenta algo sobre este reconocimiento"
                             value={descripcion}

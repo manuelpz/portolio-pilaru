@@ -1,11 +1,11 @@
 import Image from "next/image"
 import { metadata } from "@/app/layout"
 export default async function Articulo({ params }) {
-    metadata.title = 'Noticias | Pilar Ramos'
-    metadata.description = 'Descubre las últimas noticias del mundo de los cuerpos de seguridad'
-    const URL_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
+    metadata.title = 'Articulos | Pilar Ramos'
+    metadata.description = 'Descubre los últimos artículos del mundo de los cuerpos de seguridad'
+    const URL_ARTICULOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/articulos'
     const fetchPost = () => {
-        return fetch(`${URL_NOTICIAS}/${id}`).then(response => response.json())
+        return fetch(`${URL_ARTICULOS}/${id}`).then(response => response.json())
     }
     const post = await fetchPost()
     const singlePost = post
@@ -23,7 +23,7 @@ export default async function Articulo({ params }) {
                 <Image
                     className="w-40 mb-10 justify-self-center
                                        lg:!w-72"
-                    alt='Imagen relacionada con la noticia'
+                    alt='Imagen relacionada con el artículo'
                     src={singlePost.img != null ? singlePost.img : '/logo/icono-pilar-ramos.png'}
                     width={200}
                     height={200} />

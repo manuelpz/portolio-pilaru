@@ -39,10 +39,10 @@ main {
 }
 
 .scroll-animation{
-    view-timeline-name: --noticia;
+    view-timeline-name: --articulo;
     view-timeline-axis: block;
 
-    animation-timeline: --noticia;
+    animation-timeline: --articulo;
     animation-name: show;
 
     animation-range: entry 25% cover 30%;

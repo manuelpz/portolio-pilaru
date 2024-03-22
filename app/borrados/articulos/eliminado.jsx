@@ -9,18 +9,18 @@ export default function Eliminado() {
     const [hoveredItemId, setHoveredItemId] = useState(null)
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [selectedItemId, setSelectedItemId] = useState(null)
-    const URL_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
+    const URL_ARTICULOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/articulos'
 
     useEffect(() => {
         setIsLoading(true)
         const fetchData = async () => {
-            const res = await fetch(URL_NOTICIAS)
+            const res = await fetch(URL_ARTICULOS)
             const data = await res.json()
             setData(data)
             setIsLoading(false)
         }
         fetchData()
-    }, [URL_NOTICIAS])
+    }, [URL_ARTICULOS])
 
     const handleHover = (id) => {
         setHoveredItemId(id)
@@ -39,7 +39,7 @@ export default function Eliminado() {
     const eliminarElemento = async (id) => {
         setIsLoading(true)
         try {
-            await fetch(URL_NOTICIAS+ `/${id}`, {
+            await fetch(URL_ARTICULOS+ `/${id}`, {
                 method: 'DELETE'
             })
             const newData = data.filter(item => item.id !== id)
@@ -62,7 +62,7 @@ export default function Eliminado() {
                             src={item.img}
                             width={100}
                             height={100}
-                            alt="Imagen de la noticia a borrar" />
+                            alt="Imagen del artículo a borrar" />
                         <p>{item.titulo}</p>
                         <Image
                             onMouseEnter={() => handleHover(item.id)}
@@ -89,7 +89,7 @@ export default function Eliminado() {
                             }}
                         >
                             <div className="flex flex-col justify-center items-center">
-                                <p className="text-center">¿Estás seguro de que quieres eliminar esta noticia?</p>
+                                <p className="text-center">¿Estás seguro de que quieres eliminar este artículo?</p>
                                 <div className="flex justify-center items-center space-x-4">
                                     <button
                                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

@@ -10,7 +10,7 @@ export default function ListadoArticulos() {
     const handleClick = () => {
         setContador(contador + 12)
     }
-    const URL_ARTICULOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
+    const URL_ARTICULOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/articulos'
     const { data, loading } = useFetchData(URL_ARTICULOS)
 
     if (loading) return (
@@ -25,22 +25,22 @@ export default function ListadoArticulos() {
     return (
         <div className="mb-8">
             <div className="lg:grid lg:grid-cols-3 lg:gap-4 lg:justify-items-center ">
-                {data.slice(0, 12 + contador).map((noticia) => (
+                {data.slice(0, 12 + contador).map((articulo) => (
                     <Link
-                        href='/articulos/[id]' as={`/articulos/${noticia.id}`}
-                        key={noticia.id}
+                        href='/articulos/[id]' as={`/articulos/${articulo.id}`}
+                        key={articulo.id}
                         className={`w-9/12 rounded overflow-hidden shadow-xl bg-[#F5F7FA]  mb-8 relative m-4 aparicion scroll-animation hover:cursor-pointer`}>
                         <div className="flex justify-center pt-6" >
                             <Image
                                 className="flex items-center rounded"
-                                src={noticia.img ?? '/logo/icono-pilar-ramos.png'}
-                                alt="Imagen relacionada con la noticia"
+                                src={articulo.img ?? '/logo/icono-pilar-ramos.png'}
+                                alt="Imagen relacionada con la articulo"
                                 width={100}
                                 height={10} />
                         </div>
                         <div className="px-6 py-4">
-                            <div className="transition hover:-translate-y-1 hover:scale-110 font-bold text-xl mb-2 text-center">{noticia.titulo}</div>
-                            <p className="text-gray-700 text-base text-center">{noticia.subtitulo}</p>
+                            <div className="transition hover:-translate-y-1 hover:scale-110 font-bold text-xl mb-2 text-center">{articulo.titulo}</div>
+                            <p className="text-gray-700 text-base text-center">{articulo.subtitulo}</p>
                         </div>
                         <br />
                         <br />

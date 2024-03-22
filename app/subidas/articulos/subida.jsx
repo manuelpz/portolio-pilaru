@@ -6,13 +6,13 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import Loader from '@/components/Loader/Loader'
 
-const URL_NOTICIAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/noticias'
+const URL_ARTICULOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/articulos'
 
 export default function Subida() {
     const [isLoading, setIsLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
     const [subtitulo, setSubtitulo] = useState('')
-    const [noticia, setNoticia] = useState('')
+    const [articulo, setArticulo] = useState('')
     const [selectedImage, setSelectedImage] = useState(null)
     const [selectedVideo, setSelectedVideo] = useState('')
     const [imagePreview, setImagePreview] = useState(null)
@@ -27,8 +27,8 @@ export default function Subida() {
         setSubtitulo(e.target.value)
     }
 
-    const handleNoticiaChange = (e) => {
-        setNoticia(e.target.value)
+    const handleArticuloChange = (e) => {
+        setArticulo(e.target.value)
     }
 
     const handleImageChange = (e) => {
@@ -64,13 +64,13 @@ export default function Subida() {
         formData.append("img", selectedImage)
         formData.append("titulo", titulo)
         formData.append("subtitulo", subtitulo)
-        formData.append("descripcion", noticia)
+        formData.append("descripcion", articulo)
         formData.append("video", selectedVideo)
         formData.append("url", url)
 
 
         try {
-            await fetch(URL_NOTICIAS, {
+            await fetch(URL_ARTICULOS, {
                 method: "POST",
                 body: formData,
             })
@@ -127,7 +127,7 @@ export default function Subida() {
                     <div>
                         <label htmlFor="text" className="block text-gray-600 font-bold">Subtitulo del artículo</label>
                         <textarea
-                            id="noticia"
+                            id="articulo"
                             className="mt-1 p-2 w-full border rounded-md"
                             placeholder="¡Escribe algo con gancho!"
                             value={subtitulo}
@@ -138,11 +138,11 @@ export default function Subida() {
                     <div>
                         <label htmlFor="text" className="block text-gray-600 font-bold">Desarrollo del artículo</label>
                         <textarea
-                            id="noticia"
+                            id="articulo"
                             className="mt-1 p-2 w-full border rounded-md"
-                            placeholder="Desarrolla la noticia"
-                            value={noticia}
-                            onChange={handleNoticiaChange}
+                            placeholder="Desarrolla la articulo"
+                            value={articulo}
+                            onChange={handleArticuloChange}
                             required
                         />
                     </div>
