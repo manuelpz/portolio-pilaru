@@ -7,7 +7,7 @@ import NavbarItemsMobile from "./NavbarItemsMobile"
 import '@/components/Navbar/navbar.css'
 
 const Navbar = () => {
-    const URL_USUARIOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/usuarios'
+    const URL_USUARIOS = 'https://portfolio-pilaru-back.onrender.com/api/usuarios'
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [menuWasOpen, setMenuWasOpen] = useState(undefined) // controla que no se vea la animacion a la izquierda nada mas cargar la pagina
     const [usuario, setUsuario] = useState([])

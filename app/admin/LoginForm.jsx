@@ -3,7 +3,7 @@ import Image from "next/image"
 import { useState } from "react"
 import Loader from "@/components/Loader/Loader"
 
-const URL_USUARIOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/usuarios'
+const URL_USUARIOS = 'https://portfolio-pilaru-back.onrender.com/api/usuarios'
 export default function LoginForm() {
     const [user, setUser] = useState()
     const [password, setPassword] = useState('')

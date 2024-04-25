@@ -10,7 +10,7 @@ export default function Eliminado() {
     const [hoveredItemId, setHoveredItemId] = useState(null)
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [selectedItemId, setSelectedItemId] = useState(null)
-    const URL_VIDEOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos'
+    const URL_VIDEOS = 'https://portfolio-pilaru-back.onrender.com/api/videos'
     useEffect(() => {
         setIsLoading(true)
         const fetchData = async () => {
@@ -39,7 +39,7 @@ export default function Eliminado() {
     const eliminarElemento = async (id) => {
         setIsLoading(true)
         try {
-            await fetch(URL_VIDEOS +`/${id}`, {
+            await fetch(URL_VIDEOS + `/${id}`, {
                 method: 'DELETE'
             })
             const newData = data.filter(item => item.id !== id)

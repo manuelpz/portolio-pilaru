@@ -4,10 +4,10 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useState, useEffect } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
-const URL_ENTREVISTAS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos'
+const URL_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/videos'
 
 export default function Subida() {
-    
+
     const [isLoading, setIsLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
     const [entrevista, setEntrevista] = useState('')

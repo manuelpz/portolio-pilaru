@@ -4,8 +4,8 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
-const URL_PODCASTS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/podcasts'
-const URL_TIPOPODCAST = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/tipoPodcast'
+const URL_PODCASTS = 'https://portfolio-pilaru-back.onrender.com/api/podcasts'
+const URL_TIPOPODCAST = 'https://portfolio-pilaru-back.onrender.com/api/tipoPodcast'
 
 
 

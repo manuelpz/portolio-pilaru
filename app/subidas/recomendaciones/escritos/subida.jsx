@@ -6,7 +6,7 @@ import BotonVolver from '@/components/BotonVolver/BotonVolver'
 import AdminValidation from '@/components/AdminValidation/AdminValidation'
 import Loader from '@/components/Loader/Loader'
 
-const URL_ESCRITOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/escritos'
+const URL_ESCRITOS = 'https://portfolio-pilaru-back.onrender.com/api/escritos'
 
 export default function Subida() {
     const [isLoading, setIsLoading] = useState(false)

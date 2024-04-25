@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
 import Loader from '@/components/Loader/Loader'
 import Image from 'next/image'
-const URL_VIDEOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/videos'
-const URL_TIPOVIDEO = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/tipoVideo'
+const URL_VIDEOS = 'https://portfolio-pilaru-back.onrender.com/api/videos'
+const URL_TIPOVIDEO = 'https://portfolio-pilaru-back.onrender.com/api/tipoVideo'
 export default function Subida() {
     useEffect(() => {
         setIsLoading(true)

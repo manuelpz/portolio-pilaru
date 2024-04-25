@@ -3,7 +3,7 @@ import { metadata } from "@/app/layout"
 export default async function Articulo({ params }) {
     metadata.title = 'Articulos | Pilar Ramos'
     metadata.description = 'Descubre los últimos artículos del mundo de los cuerpos de seguridad'
-    const URL_ARTICULOS = 'https://portfolio-back-dev-pkbc.1.us-1.fl0.io/api/articulos'
+    const URL_ARTICULOS = 'https://portfolio-pilaru-back.onrender.com/api/articulos'
     const fetchPost = () => {
         return fetch(`${URL_ARTICULOS}/${id}`).then(response => response.json())
     }
