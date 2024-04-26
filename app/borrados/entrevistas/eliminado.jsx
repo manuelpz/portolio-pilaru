@@ -10,7 +10,7 @@ export default function Eliminado() {
     const [hoveredItemId, setHoveredItemId] = useState(null)
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [selectedItemId, setSelectedItemId] = useState(null)
-    const URL_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/videos'
+    const URL_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/entrevistas'
 
     useEffect(() => {
         setIsLoading(true)
