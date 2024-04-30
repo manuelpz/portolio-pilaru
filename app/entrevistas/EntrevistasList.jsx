@@ -8,7 +8,7 @@ import PlantillaEntrevistas from './PlantillaEntrevistas'
 import Buscador from '@/components/Buscador/Buscador'
 
 const URL_ENTREVISTAS = 'https://portfolio-pilaru-back.onrender.com/api/entrevistas'
-
+ 
 export default function EntrevistasList() {
     const { data, loading } = useFetchData(URL_ENTREVISTAS)
 

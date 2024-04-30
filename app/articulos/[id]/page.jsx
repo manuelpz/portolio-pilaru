@@ -4,6 +4,7 @@ export default async function Articulo({ params }) {
     metadata.title = 'Articulos | Pilar Ramos'
     metadata.description = 'Descubre los últimos artículos del mundo de los cuerpos de seguridad'
     const URL_ARTICULOS = 'https://portfolio-pilaru-back.onrender.com/api/articulos'
+    const { id } = params
     const fetchPost = () => {
         return fetch(`${URL_ARTICULOS}/${id}`).then(response => response.json())
     }
